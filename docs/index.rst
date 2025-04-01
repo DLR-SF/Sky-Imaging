@@ -11,11 +11,3 @@ Welcome to the asi_core documentation!
    :caption: Contents:
 
    manual/index
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
