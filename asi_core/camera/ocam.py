@@ -269,9 +269,9 @@ class OcamModel:
         :param object_coo: 3D object coordinates with or without point numbers. Either shape (N,3) with (Y, X, Z) in
                            each row or shape (N,4) with (Point_Id, Y, X, Z) in each row.
                            If cam_pos is zero, the origin is in the camera and the following applies:
-                                North (1, 0, 0)
-                                East (0, 1, 0)
-                                Zenith (0, 0, 1)
+                           - North (1, 0, 0)
+                           - East (0, 1, 0)
+                           - Zenith (0, 0, 1)
         :param cam_pos: Offset in world coordinates between camera and origin
         :param use_ss: If True, the slower method using the "forward" polynomial ss is used.
         :return: 2D image coordinates in pixels with or without point numbers depending on input. Origin is located in
