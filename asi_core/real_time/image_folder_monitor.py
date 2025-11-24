@@ -85,6 +85,7 @@ class ImageWatchdog(FileSystemEventHandler):
 def start_image_watchdog(on_event_do_function, path_to_watch_structure, camera_name, exposure_time, timezone):
     """
     React to image file ("jpg", "jpeg", "png") creation events running the given function.
+
     :param on_event_do_function: (function) function to run when a new image is created. This function shall get a path
         to the created image file as the only input argument.
     :param path_to_watch_structure: (string) path to watch folder, containing {camera_name} where the camera name should
@@ -129,6 +130,7 @@ def get_file_list(path):
 def start_image_polling(on_event_do_function, path_to_watch_structure, camera_name, exposure_time, timezone, polling_interval=2):
     """
     React to image file ("jpg", "jpeg", "png") creation running the given function.
+
     :param on_event_do_function: (function) function to run when a new image is created. This function shall get a path
         to the created image file as the only input argument.
     :param path_to_watch_structure: (string) path to watch folder, containing {camera_name} where the camera name should
@@ -168,15 +170,16 @@ def start_image_polling(on_event_do_function, path_to_watch_structure, camera_na
 def run_image_folder_monitor(on_event_do_function, path_to_watch_structure, camera_name, exposure_time, timezone='UTC', use_watchdog=True, polling_interval=2):
     """
     React to image file ("jpg", "jpeg", "png") creation events running the given function.
+
     :param on_event_do_function: (function) function to run when a new image is created. This function shall get a path
         to the created image file as the only input argument.
     :param path_to_watch_structure: (string) path to watch folder, containing {camera_name} where the camera name should
         be inserted and {timestamp:...} (e.g. {timestamp:%Y%m%d%H%M%S%f}) where the evaluated timestamp should be inserted
     :camera_name: (string) name of the camera.
     :param exposure_time: (int) list of exposure time of the image in milliseconds.
-    :param timezone: (timezone) time zone of the datimes in the file. Default is UTC. 
-    :param use_watchdog: (boolean) True for using watchdog, False for using polling. Defauls is True.
-    :polling_interval: (int) time to wait between polling checks in seconds. Default is 2.
+    :param timezone: (timezone) time zone of the datetimes in the file. Default is UTC.
+    :param use_watchdog: (boolean) True for using watchdog, False for using polling. Defaults is True.
+    :param polling_interval: (int) time to wait between polling checks in seconds. Default is 2.
     """
 
     if use_watchdog:

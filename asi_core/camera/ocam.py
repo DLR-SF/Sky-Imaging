@@ -389,11 +389,10 @@ class OcamModel:
             Higher values result in finer grids, improving the precision of the undistortion process.
         :return: dict, look-up table from georeferenced map, centered around camera, to image pixels, with keys:
 
-                - **mapx**: ndarray, shape(H,W), ascending south-north (1st dim) and west-east
-                (2nd dim), each element contains the x-coord (2nd dim) of the image pixel monitoring the grid cell's
-                location
-                - **mapy**: ndarray, shape(H,W), ascending south-north (1st dim) and west-east (2nd dim),
-                each element contains the y-coord (1st dim) of the image pixel monitoring the grid cell's location
+                - **mapx**: ndarray, shape(H,W), ascending south-north (1st dim) and west-east (2nd dim), each element
+                  contains the x-coord (2nd dim) of the image pixel monitoring the grid cell's location
+                - **mapy**: ndarray, shape(H,W), ascending south-north (1st dim) and west-east (2nd dim), each element
+                  contains the y-coord (1st dim) of the image pixel monitoring the grid cell's location
                 - **is_inside_mask**: ndarray, shape(H,W),
         """
 

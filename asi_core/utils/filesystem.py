@@ -83,7 +83,7 @@ def get_files(path, extensions=[], substring=None, recursive=True, folders=[], f
     :param recursive: (bool) If True, visit files in subfolders. Default is True.
     :param folders: (list str) Subfolders to visit. Default is [].
     :param followlinks: (bool) If True, visit directories pointed to by symlinks, on systems that support them.
-                               Default is True.
+        Default is True.
     :return: (list Path) File paths.
     """
 
@@ -122,8 +122,14 @@ def get_image_files(path, recursive=True, folders=[], extensions=IMAGE_EXTENSION
     :param substring: (str) Substring in filename to filter file list. Default is None.
     :param as_series: (bool) if True, return a pandas series. Default is False.
     :param dt_format: (str) Datetime format template with the following placeholders:
-                            %Y year, %m month, %d day, %H hour, %M minute, %S second.
-                            Default is "%Y%m%d%H%M%S".
+
+        - %Y year,
+        - %m month,
+        - %d day,
+        - %H hour,
+        - %M minute,
+        - %S second.
+    Default is "%Y%m%d%H%M%S".
     :param round_to: (str) Value to round to, i.e. '1D', '2H', '30s'. When None no rounding is done. Default is None.
     :return: (list Path or Pandas series) Image file paths.
     """
