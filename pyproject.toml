@@ -2,12 +2,12 @@
 # For details: https://github.com/DLR-SF/sky_imaging/blob/main/NOTICE.txt
 
 [build-system]
-requires = ["setuptools"]
-bulid-backend = "setuptools.build_meta"
+requires = ["setuptools>=61.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "asi_core"
-version = "0.1.0"
+version = "0.2.0"
 description = "Python software for common ASI processing"
 requires-python = ">=3.8"
 
@@ -18,7 +18,6 @@ dependencies = [
     "pandas",
     "scipy",
     "pathlib",
-    "notebook",
     "pvlib",
     "matplotlib",
     "seaborn",
@@ -31,11 +30,21 @@ dependencies = [
     "python-dotenv",
     "requests",
     "ephem",
+    "watchdog",
+    "flask",
+    "tqdm",
+    "pytest",
+    "parameterized",
+    "beautifulsoup4",
+    "pyyaml"
 ]
 
-[[project.authors]]
-name = "Yann Fabel"
-email = "yann.fabel@dlr.de"
+authors = [
+    {name = "Yann Fabel", email = "yann.fabel@dlr.de"},
+    {name = "Niklas Blum", email = "niklas.blum@dlr.de"},
+    {name = "Bijan Nouri", email = "bijan.nouri@dlr.de"},
+    {name = "Eduardo Saez Martinez", email = "eduardo.saezmartinez@dlr.de"},
+]
 
 [project.optional-dependencies]
 test = [
@@ -47,21 +56,85 @@ docs = [
     "sphinx-autoapi"
 ]
 progress_bar = [
-    "tqdm"
+    "tqdm",
+    "fastprogress"
 ]
 read_excel = [
     "openpyxl"
 ]
 
-anomaly_detection = [
-    "ultralytics",
-    "pytorch",
-    "lightning"
+notebooks = [
+    "notebook"
 ]
 
-[tool.setuptools.packages]
-find = {}
+[tool.setuptools]
+include-package-data = true
+packages = ["asi_core", "asi_tools"]
+
+[tool.setuptools.package-data]
+asi_core = ["*.yaml"]
 
 [tool.flake8]
 max-line-length = 120
 max-complexity = 10
+
+[tool.liccheck]
+authorized_licenses = [
+    "bsd",
+    "new bsd",
+    "bsd license",
+	"BSD 3-Clause",
+    "new bsd license",
+    "simplified bsd",
+    "apache",
+    "apache 2.0",
+	"Apache License, Version 2.0",
+    "Apache-2.0",
+    "apache software",
+    "apache software license",
+    "mit",
+    "mit license",
+    "python software foundation",
+    "python software foundation license",
+    "mozilla public license 2.0 (mpl 2.0)",
+    "the unlicense (unlicense)",
+	"isc license",
+    "isc license (iscl)",
+    "PSF-2.0",
+]
+unauthorized_licenses = [
+    "gpl v3",
+]
+
+optional_dependencies = ["test"] # to load extras from [project.optional-dependencies]
+
+[tool.liccheck.authorized_packages]
+# CUDA EULA, see https://docs.nvidia.com/cuda/eula/index.html
+nvidia-cublas-cu11 = ">=11.10"
+nvidia-cuda-cupti-cu11 = ">=11.7"
+nvidia-cuda-nvrtc-cu11 = ">=11.7"
+nvidia-cuda-runtime-cu11 = ">=11.7"
+nvidia-cudnn-cu11 = ">=8.5"
+nvidia-cufft-cu11 = ">=10.9"
+nvidia-curand-cu11 = ">=10.2"
+nvidia-cusolver-cu11 = ">=11.4"
+nvidia-cusparse-cu11 = ">=11.7"
+nvidia-nccl-cu11 = ">=2.14"
+nvidia-nvtx-cu11 = ">=11.7"
+
+nvidia-cublas-cu12 = ">=12.1"
+nvidia-cuda-cupti-cu12 = ">=12.1"
+nvidia-cuda-nvrtc-cu12 = ">=12.1"
+nvidia-cuda-runtime-cu12 = ">=12.1"
+nvidia-cudnn-cu12 = ">=8.9"
+nvidia-cufft-cu12 = ">=11.0"
+nvidia-curand-cu12 = ">=10.3"
+nvidia-cusolver-cu12 = ">=11.4"
+nvidia-cusparse-cu12 = ">=12.1"
+nvidia-nccl-cu12 = ">=2.18"
+nvidia-nvjitlink-cu12 = ">=12.3"
+nvidia-nvtx-cu12 = ">=12.1"
+
+# Pillow comes with "Historical Permission Notice and Disclaimer (HPND)" which we don't want to whitelist
+Pillow = ">=9.5"
+pillow = ">=10.3"

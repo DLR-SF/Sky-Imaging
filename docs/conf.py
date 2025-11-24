@@ -16,6 +16,8 @@
 
 # import os
 # import sys
+from sphinx_pyproject import SphinxConfig
+from datetime import datetime
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -23,6 +25,7 @@
 # sys.path.insert(0, os.path.abspath('.'))
 
 # -- General configuration -----------------------------------------------------
+config = SphinxConfig("../pyproject.toml", globalns=globals())
 
 # If your documentation needs a minimal Sphinx version, state it here.
 # needs_sphinx = '1.0'
@@ -38,10 +41,11 @@ extensions = [
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
-# General information about the project.
-project = 'asi_core'
-release = '0.1'
-author = 'Yann Fabel <yann.fabel@dlr.de>'
+# General information about the project. Should be read from pyproject.toml
+project = name
+release = version
+author = 'DLR'
+copyright = f'{datetime.now().year}, {author}'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -52,7 +56,7 @@ exclude_patterns = ['_build']
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
+html_theme = 'press'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

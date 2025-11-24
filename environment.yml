@@ -1,0 +1,10 @@
+# Licensed under the Apache License: http://www.apache.org/licenses/LICENSE-2.0
+# For details: https://github.com/DLR-SF/sky_imaging/blob/main/NOTICE.txt
+
+name: asi_core
+channels:
+  - pvlib
+  - fastai
+  - conda-forge
+dependencies:
+  - python=3.10

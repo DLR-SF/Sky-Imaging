@@ -7,10 +7,41 @@ This module provides functions to visualize masks in all-sky imagers, like detec
 
 import numpy as np
 from PIL import Image, ImageDraw
+import cv2
+import matplotlib.pyplot as plt
+from asi_core.image import circumsolar
 
-from asi_core.asi_analysis import get_saturated_mask
 
+def visualize_mask(image, mask, output_file=None, mask_color=(255, 0, 0), alpha=0.4):
+    """
+    Visualize a binary mask overlaid on an image and optionally save the result.
 
+    The mask is applied by coloring masked regions (`mask == 0`) with a specified color
+    and blending it with the original image using alpha transparency.
+
+    :param image: The input image on which to overlay the mask.
+    :type image: numpy.ndarray
+    :param mask: Binary mask array of the same height and width as the image.
+                 Masked regions should have value 0; others are considered visible.
+    :type mask: numpy.ndarray
+    :param output_file: Optional path to save the resulting overlay image. If None, the image is not saved.
+    :type output_file: str or pathlib.Path, optional
+    :param mask_color: RGB color tuple used to color the masked regions. Default is red (255, 0, 0).
+    :type mask_color: tuple of int
+    :param alpha: Transparency level of the overlay. 0 is fully transparent, 1 is fully opaque.
+    :type alpha: float
+
+    :returns: None
+    """
+    overlay = image.copy()
+    overlay[mask == 0] = mask_color
+    overlay = cv2.addWeighted(overlay, alpha, image, 1 - alpha, 0)
+    fig, ax = plt.subplots(1, 1, figsize=(10, 10))
+    ax.imshow(overlay)
+    if output_file:
+        fig.savefig(output_file)
+
+        
 def overlay_mask(img, mask, mask_color=(255, 0, 0), alpha=0.5, asarray=True):
     """
     Overlays a binary mask onto an image with a specified color and transparency.
@@ -52,7 +83,7 @@ def create_saturation_mask_image(img, camera_mask=None, text_position=(10, 10), 
     if camera_mask is None:
         camera_mask = np.ones(img.shape[:2])
     img[camera_mask == 0] = 0
-    sat_mask = get_saturated_mask(img)
+    sat_mask = circumsolar.get_saturated_mask(img)
     pct_sat = sat_mask.sum() / camera_mask.sum()
     blended_img = overlay_mask(img, sat_mask, asarray=False)
     draw = ImageDraw.Draw(blended_img)

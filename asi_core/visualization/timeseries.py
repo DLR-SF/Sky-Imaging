@@ -84,14 +84,15 @@ def heatmap_missing_data(missing_timestamps, start_date=None, end_date=None, hou
         heatmap_fig, ax = plt.subplots(1, figsize=(15, 8))
         sns.heatmap(heatmap_data, cmap='YlOrRd', cbar_kws={'label': 'Missing Entries'}, ax=ax)
         ax.set_title(title)
-        ax.set_xlabel('Hour of Day')
-        ax.set_ylabel('Date')
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Hour of Day')
+        ax.set_yticklabels(labels=ax.get_yticklabels(), rotation=0)
         ax.invert_yaxis()
         heatmap_fig.tight_layout()
     return heatmap_fig
 
 
-def plot_data_distributions(df, columns, n_rows, df_ref=None, figsize=(20, 12), title=None):
+def plot_data_distributions(df, columns, n_rows, df_ref=None, figsize=(20, 12), title=None, label_dict=None):
     """
     Plot histogram of data in subplots.
 
@@ -101,6 +102,7 @@ def plot_data_distributions(df, columns, n_rows, df_ref=None, figsize=(20, 12), 
     :param df_ref: reference dataframe (requires the same columns).
     :param figsize: figure size.
     :param title: title of figure.
+    :param label_dict: dictionary with (a subset of) column names as keys and labels to used in plot as values.
     :return: figure object.
     """
     if type(columns) is str:
@@ -108,7 +110,10 @@ def plot_data_distributions(df, columns, n_rows, df_ref=None, figsize=(20, 12), 
     n_plots = len(columns)
     n_cols = int(np.ceil(n_plots / n_rows))
     fig, ax = plt.subplots(n_rows, n_cols, figsize=figsize)
+    if label_dict is not None:
+        df = df.rename(columns=label_dict)
     for i, col in enumerate(columns):
+        col = label_dict[col] if label_dict is not None else col
         df_plot = df[[col]].copy()
         if n_rows == 1 and n_cols == 1:
             ax_i = ax

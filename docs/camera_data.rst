@@ -6,7 +6,7 @@ cameras in use.
 
 The following schema is used to define the settings:
 
-.. jsonschema:: ../asi_core/camera_data.schema.json
+.. jsonschema:: ../asi_core/camera/camera_data.schema.json
     :lift_title: True
     :lift_description: True
     :lift_definitions: True

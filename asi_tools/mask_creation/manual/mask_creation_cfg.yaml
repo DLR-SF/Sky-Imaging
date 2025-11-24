@@ -1,0 +1,17 @@
+# Licensed under the Apache License: http://www.apache.org/licenses/LICENSE-2.0
+# For details: https://github.com/DLR-SF/sky_imaging/blob/main/NOTICE.txt
+
+ObstacleMaskDetection:
+  max_intensity: 255
+  image_pxl_size: 900  # size of visualized images
+  img_path: '//129.247.24.131/Meteo/MeteoCamera/2025/kj-cam-05_norway/06/12/13/20250612130500_163.jpg'
+
+  do_load_existing_mask: True  # (True or False)
+  existing_mask_path: 'C:\git\asi-core\asi_core\calibration\mask_20250612130500_163.mat'  # path to existing mask
+
+  cv_detection:
+    gaussian_kernel: [11, 11]  # size of kernel applied before mask creation to smoothen image noise
+    adaptive_thres_block_size: 29  # block size applied in adaptiveThreshold to detect bright sky area
+    adaptive_thres_mean_offset: 0.1  # offset/ constant applied in adaptiveThreshold to detect bright sky area
+    erode_dilate_kernel: [9, 9]  # kernel size for the erode-dilate which removes small objects etc.
+    margin_horizon: 500  # this margin is cut off inside the detected circular horizon shape

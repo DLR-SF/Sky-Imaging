@@ -1,0 +1,67 @@
+# Licensed under the Apache License: http://www.apache.org/licenses/LICENSE-2.0
+# For details: https://github.com/DLR-SF/sky_imaging/blob/main/NOTICE.txt
+
+camera_name: 'ASI Template'
+camera_model: ''  # e.g. Q25
+mounted: !!timestamp '2002-02-02T00:00:00+01:00'
+demounted: !!timestamp '2003-03-03T00:00:00+01:00'
+latitude: 37.091573
+longitude: -2.363595
+altitude: 500.
+timezone: 'GMT+1' # timezone of the images (daylight saving not expected), in the regular ISO 8601 convention
+# -- Positive east of Greenwich
+min_ele_evaluated: 0.0  # specify angle in degrees below which image information should be ignored
+internal_calibration:
+  # Polynomial coefficients F(p)=ss[0]*p^0+...+ss[3]*p^3, that are needed to map a pixel point from the image
+  # coordinate system (2D) onto a point in the camera coordinate system (3D).
+  ss: [-654.145988014425, 0.00000000e+00, 0.000265315915271894, 4.52819009422508e-07]
+  # center point of camera in pixels, starting at 0 (C convention)
+  xc: 1008
+  yc: 1007
+  # The affine transformation parameters c, d, e form the matrix A = [c, d; e, 1] used by Scaramuzza, D., et al. (2006).
+  # A Toolbox for Easily Calibrating Omnidirectional Cameras. RSJ International Conference on Intelligent Robots and
+  # Systems  Beijing, China.
+  # leave default values when using the calibration from Sun/ Mooon.
+  c: 1.0
+  d: 0.0
+  e: 0.0
+  width: 2016
+  height: 2016
+# Intrinsic euler angles [alpha, beta, gamma]
+external_orientation: [0.0, 3.14, 1.58]
+camera_mask_file: 'camera_masks/mask_template.mat'
+celestial_coordinate_masks: "generate"
+exposure_settings:
+  tolerance_timestamp: [-2, 12]  # tolerated deviation in seconds between requested timestamp and actual image timestamp
+  color_temperature: 10000.0  # [Kelvin]
+  rel_exp_tol: 0.1 # [-] relative deviation of exposure time tolerated
+  exposure_times:
+    day: [160]  # in microseconds, in our convention stated in image name and in image header/ meta information
+    night: [80000]  # in microseconds, in our convention stated in image name and in image header/ meta information
+
+radiometric_model:
+  beta_planck: [0.21622656, 0.31344352, 0.47032992]  # [-]
+  weighting_luminosity: [0.85749303,  2.26932285,  0.21959625]  # [-]
+  saturation_val: 240.0  # [-]
+  base_sensitivty: 0.003584795321637
+  rel_overest_with_DNI: 0.028  # [-]
+  saturation_corr: -4.63e-4  # [W/m^2/pixel]
+
+daq:
+  url_cam: 'http://xx.xx.xx.xx'
+  daq_working_dir: 'C:/Meteo/Mobotix/recorder_ASI_Template'
+  storage_path: '//yy.yy.yy.yy/Meteo/MeteoCamera'
+  process:  # uncomment and modify this section if needed, the values below are used as defaults.
+    # nighttime_mode: 'cloud_monitoring' uncomment this if you want to detect clouds at night
+    exposure_times: [160]  # microseconds, exposure times. One snapshot per exp. time will be stored
+    # night_exposure_times: [80000]  # microseconds, exposure times. One snapshot per exp. time will be stored during full
+      # moon nights
+    # sampling_time: 15  # seconds, sampling time between image series
+    # night_sampling_time: 60  # seconds, sampling time between image series during night time
+    # settling_time: 0.25  # seconds, Time in seconds to wait until requesting an image from camera after setting new
+      # exposure time or after previous request
+    # timezone_images:  # timezone string, recognized by pytz.timezone; by default operating system's timezone is used
+    # rel_threshold_exposure: 0.1  # Relative deviation of exp. time. Image will be rejected if real exp. time deviates
+      # stronger from expected value
+    # safety_deadtime_between_exposure_series: 3  # seconds, Cancel acquisition of exposure series if less than this time
+      # remains until end of sampling period

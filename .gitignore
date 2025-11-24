@@ -1,21 +1,8 @@
-# Ignore files for release
-notebooks/
-tools/
-tests/
-references/
-environment.yml
-asi_core/camera_data
-!asi_core/camera_data/ASI_Template.yaml
-asi_core/camera_data/camera_masks
-!asi_core/camera_data/camera_masks/mask_template.mat
-asi_core/daq/asi_daq_cfgs
-asi_core/daq/main_scripts
-asi_core/scripts
-
 # Custom ignore files
 tests/debugging.py
 drafts/
 tests/**/test_results/
+tests/asi_core/meteo/test_data/SolarVision_meteo.tab
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -94,9 +81,6 @@ target/
 
 # Jupyter NB Checkpoints
 .ipynb_checkpoints/
-
-# exclude data from source control by default
-/data/
 
 # Mac OS-specific storage files
 .DS_Store

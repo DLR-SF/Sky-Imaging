@@ -1,0 +1,9 @@
+Undistortion:
+  image_dir: ./raw
+  output_dir: ./undistorted
+  camera_data_file: ../camera_data/Cloud_Cam_Metas_20190711.yaml
+  start_time:
+  end_time:
+  resize: 512
+  apply_camera_mask: True
+  num_workers: 0
