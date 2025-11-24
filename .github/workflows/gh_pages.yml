@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
       - name: Install dependencies
-        run: pip install sphinx myst-parser sphinx-autoapi sphinx-jsonschema
+        run: pip install sphinx myst-parser sphinx-autoapi sphinx-jsonschema sphinx-pyproject sphinx-press-theme
       - name: Sphinx build
         run: sphinx-build --keep-going docs _build
       - name: Deploy to GitHub Pages
