@@ -327,9 +327,10 @@ class OcamModel:
        :return: 3D object coordinates with or without point numbers depending on input data. Either shape (N,3) with
             (Y, X, Z) in each row or shape (N,4) with (Point_Id, Y, X, Z) in each row. If cam_pos is zero, the origin is
             in the camera and the following applies:
-                North (1, 0, 0)
-                East (0, 1, 0)
-                Zenith (0, 0, 1)
+
+                - North (1, 0, 0)
+                - East (0, 1, 0)
+                - Zenith (0, 0, 1)
         """
         # check format of object_coo
         n_coo = np.shape(image_coo)[1]
