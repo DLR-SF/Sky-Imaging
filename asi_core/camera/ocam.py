@@ -269,9 +269,10 @@ class OcamModel:
         :param object_coo: 3D object coordinates with or without point numbers. Either shape (N,3) with (Y, X, Z) in
                            each row or shape (N,4) with (Point_Id, Y, X, Z) in each row.
                            If cam_pos is zero, the origin is in the camera and the following applies:
-                           - North (1, 0, 0)
-                           - East (0, 1, 0)
-                           - Zenith (0, 0, 1)
+
+                               - North (1, 0, 0)
+                               - East (0, 1, 0)
+                               - Zenith (0, 0, 1)
         :param cam_pos: Offset in world coordinates between camera and origin
         :param use_ss: If True, the slower method using the "forward" polynomial ss is used.
         :return: 2D image coordinates in pixels with or without point numbers depending on input. Origin is located in
@@ -386,12 +387,14 @@ class OcamModel:
         :param limit_angle: Angle in degrees from zenith that shall be visible in the undistorted image.
         :param subgrid_factor: Factor by which to increase the resolution of the grid used for undistortion.
             Higher values result in finer grids, improving the precision of the undistortion process.
-        :return: lookup_table: dict, look-up table from georeferenced map, centered around camera, to image pixels
-                 lookup_table['mapx']: ndarray, shape(H,W), ascending south-north (1st dim) and west-east (2nd dim),
-                     each element contains the x-coord (2nd dim) of the image pixel monitoring the grid cell's location
-                 lookup_table['mapy']: ndarray, shape(H,W), ascending south-north (1st dim) and west-east (2nd dim),
-                     each element contains the y-coord (1st dim) of the image pixel monitoring the grid cell's location
-                 lookup_table['is_inside_mask']: ndarray, shape(H,W),
+        :return: dict, look-up table from georeferenced map, centered around camera, to image pixels, with keys:
+
+                - **mapx**: ndarray, shape(H,W), ascending south-north (1st dim) and west-east
+                (2nd dim), each element contains the x-coord (2nd dim) of the image pixel monitoring the grid cell's
+                location
+                - **mapy**: ndarray, shape(H,W), ascending south-north (1st dim) and west-east (2nd dim),
+                each element contains the y-coord (1st dim) of the image pixel monitoring the grid cell's location
+                - **is_inside_mask**: ndarray, shape(H,W),
         """
 
         # Check if undistortion lookup table already has been calculated with given undistortion parameters.
