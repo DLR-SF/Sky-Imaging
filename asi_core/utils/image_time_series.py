@@ -5,7 +5,9 @@ import os
 
 
 def generate_image_series_paths(init_time, path_structure, camera_name, img_exposure_time, time_gap):
-    """Create a list of image file paths for the given timestamp, camera, exposure time and time gaps
+    """
+    Create a list of image file paths for the given timestamp, camera, exposure time and time gaps
+
     :param init_time: (datetime) Initial timestamp for the creation of the image series.
     :param path_structure: (string) formated string to build up the path to each camera image folder. It shall contain
         {camera_name}, {exposure_time} and {timestamp:...} where the camera name, exposure_time and evaluated date is
@@ -29,6 +31,7 @@ def generate_image_series_paths(init_time, path_structure, camera_name, img_expo
 def find_closest_image(missing_time, existing_paths):
     """
     Find the image file with the closest time to the missing one from the given paths list
+
     :param missing_time: (datetime) timestamp of the missing image file.
     :param existing_paths: (string list) list of paths to look for.
     :return: (string) path to the image file closest in time.
@@ -44,6 +47,7 @@ def find_closest_image(missing_time, existing_paths):
 def get_image_path(expected_path, time_tolerance):
     """
     Get the image file path with the closest time to the expected one with certain time tolerance
+
     :param expected_path: (string) expected path to the image file.
     :param time_tolerance: (float)  time tolerance in seconds for searching a file path.
     :return: (string) path to the image file closest in time. If nothing found return [].
@@ -88,6 +92,7 @@ def get_image_path(expected_path, time_tolerance):
 def get_image_series_path(init_time, path_structure, camera_name, exposure_time, time_gap=[0], time_tolerance=0):
     """
     Get a list of paths of a series of images given a list of seconds between each image.
+    
     :param init_time: (datetime) initial timestamp for the creation of the image series.
     :param path_structure: (string) formated string to build up the path to each camera image folder. It shall contain
         {camera_name}, {exposure_time} and {timestamp:...} where the camera name, expos is inserted, evaluated date is

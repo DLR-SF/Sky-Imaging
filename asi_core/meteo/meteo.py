@@ -776,7 +776,8 @@ def compute_earth_sun_distance_correction_factor(day_of_year):
     """ Calculate distance between sun and earth acoording to Liou, An Introduction to Atmospheric Radiation,
     2002, p.49
     :param day_of_year: (int, np.ndarray) (vector of) day(s) of year as Integer [1,366]
-    :return:
+    :return: List with the following entries
+
         - earth_sun_distance: Earth to Sun distance in meters
         - earth_sun_corr_factor: Correction factor for Earth to Sun distance depending on the day of the year.
         - solar_disk_radius: Angular radius of solar disk
@@ -959,8 +960,8 @@ def variability_index_indicator(dni_diff, clear_sky_dni_diff, time_period):
 
 def plot_series(series):
     """
-    Function to plot a time series with a datetime index. It generates a simple line plot of the series
-     (helpful for debugging).
+    Plot a timeseries with a datetime index. It generates a simple line plot of the series (helpful for debugging).
+
     :param series: (pd.Series) A time series with a datetime index.
     """
     series.plot()

@@ -9,7 +9,7 @@ import asi_core.utils.datetime_handling
 class MeteoDataLog():
     """
     Abstract class of meteo data logger.
-    Method get_new_data shall be implement for each type of logger
+    Method get_new_data shall be implemented for each type of logger
     :param log_filepath: (str) file path of the meteo data log
     :param timezone: (str) desired time zone (e.g. "GMT+1" = UTC+1)
     :param log_size: (Timedelta) size of the log express as Timedelta, default is 3 days 
@@ -27,7 +27,8 @@ class MeteoDataLog():
                   when_to_resize_log=datetime.strptime("00:00:00", "%H:%M:%S").time(),
                   write_mode = 'w'):
         """
-        Contructor
+        Constructor
+
         :param log_filepath: (str) file path of the meteo data log
         :param timezone: (str) desired time zone (e.g. "GMT+1" = UTC+1)
         :param log_size: (Timedelta) size of the log express as Timedelta, default is 3 days 
@@ -54,6 +55,7 @@ class MeteoDataLog():
     def add_new_data(self, new_meteodata_df):
         """
         Process new data from a campbell scientific logger
+
         :param new_meteodata_df: (DataFrame) New meteo data to add to the log
         """
 

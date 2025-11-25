@@ -349,8 +349,8 @@ def check_Q25_asi_image_cropping(rel_path_to_image, asi_root):
 
     :param rel_path_to_image: path to asi image, relative to asi root directory
     :param asi_root: absolute path to asi root directory
-    :return string specifying how image has been cropped (left, center, right). If the image can't be opened the
-    function returns nan.
+    :return: string specifying how image has been cropped (left, center, right). If the image can't be opened the
+        function returns nan.
     """
     filename = Path(asi_root, rel_path_to_image)
     try:

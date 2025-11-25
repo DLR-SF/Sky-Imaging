@@ -17,12 +17,15 @@ import asi_core.utils.datetime_handling
 
 def parse_logger_data(url_cs_logger_table, timezone, name_desired_columns_cs_table=None):
     """
-    This function access the table of a campbell scientific logger via its URL. All channels and the time stamp are
-    retrieved from the HTML string and placed in a data frame. If desired some channels can be renamed.
+    Access the measurements table of a campbell scientific logger via HTTP
+
+    All channels and the time stamp are retrieved from the HTML string and placed in a data frame. If desired some
+    channels can be renamed.
+
     :param url_cs_logger_table: (str) url of table as string
     :param timezone: (str) desired time zone (e.g. "GMT+1" = UTC+1)
-    :param name_desired_columns_cs_table: (dict) List with 2 columns and n rows. First column holds the original names of channels
-                                         which shall be renamed. The second column holds the new names for the channels.
+    :param name_desired_columns_cs_table: (dict) List with 2 columns and n rows. First column holds the original names
+        of channels which shall be renamed. The second column holds the new names for the channels.
     :return df: data frame single row with n columns for each channel + timestamp index as datetime
     """
     response = requests.get(url_cs_logger_table)
@@ -77,8 +80,9 @@ def parse_logger_data(url_cs_logger_table, timezone, name_desired_columns_cs_tab
 def parse_latest_image_ssh(asi_img_fmt, host, interval=30, verbose=False):
     """
        Function to load latest images from remote server
-       :param asi_img_fmt: (str) filename format of image to load from server (absolute path).
-                                Requires identifier for timestamp (dt, e.g. {dt:%Y%m%d%H%M%S})
+
+       :param asi_img_fmt: (str) filename format of image to load from server (absolute path). Requires identifier for
+           timestamp (dt, e.g. {dt:%Y%m%d%H%M%S})
        :param host: (str) host name to be accessed via ssh
        :param interval: (int, optional, default=30) Interval for image acquisition
        :return img, dt: image + timestamp (datetime64)

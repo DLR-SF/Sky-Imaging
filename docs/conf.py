@@ -70,6 +70,7 @@ html_static_path = ['_static']
 # documentation root directory).
 autoapi_dirs = [
     '../asi_core',
+    '../asi_tools',
 ]
 
 # Keep generated documentation files for debugging purpose.

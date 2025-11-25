@@ -30,9 +30,10 @@ from asi_core.image.hdr.utils import compute_lne_bounds, remap_intensity_range
 
 _EXPO_RE = re.compile(r"_([0-9]+)\.(jpg|jpeg|png|jp2)$", re.IGNORECASE)
 
+
 def _parse_exposure_from_name(name: str) -> Optional[int]:
     """
-    Parse exposure time (integer) from filename tail: *_<EXPO>.<ext>
+    Parse exposure time (integer) from filename tail: \*_<EXPO>.<ext>
     """
     m = _EXPO_RE.search(name)
     return int(m.group(1)) if m else None

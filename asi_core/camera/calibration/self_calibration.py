@@ -373,8 +373,8 @@ class Calibration:
         """
         Calculates deviation metric between found and astronomically expected orb positions.
 
-        :param orb_observations: Dataframe with expected 'expected_x, *_y' and found orb positions 'found_x, *_y' as
-            columns
+        :param orb_observations: Dataframe with expected *expected_x*, *expected_y* and found orb positions *found_x*,
+            *found_y* as columns
         :param ignore_outliers_above_percentile: (in percent) If not None and between 0 and 100, datapoints with a
             deviation above this percentile (e.g. above 99%) are ignored.
         :return: Deviation metric
@@ -399,7 +399,7 @@ class Calibration:
 
         :param detector: CelestialBodyDetector instance
         :return: dataframe of orb observations with columns timestamp, found pixel position of the orb and expected
-        elevation and azimuth angle of the orb in degree.
+            elevation and azimuth angle of the orb in degree.
         """
         processed_count = 0
         detected_count = 0
@@ -477,7 +477,7 @@ class Calibration:
         logging.info(f'Total celestial bodies detected: {detected_count}')
         return celestial_data
 
-    def get_all_orb_positions(self, orb_detectors, output_file=f'orb_observations.csv', reset_temp=True):
+    def get_all_orb_positions(self, orb_detectors, output_file='orb_observations.csv', reset_temp=True):
         """
         Loads or detects orb positions of multiple types, especially sun and moon.
 
@@ -485,7 +485,7 @@ class Calibration:
         :param output_file: path to save dataframe of orb observations to
         :param reset_temp: reprocess orb positions and do not load previously saved dataframes
         :return: dataframe of orb observations with columns timestamp, found pixel position of the orb and expected
-        elevation and azimuth angle of the orb in degree.
+            elevation and azimuth angle of the orb in degree.
         """
         processed_count = 0
         celestial_data = None
