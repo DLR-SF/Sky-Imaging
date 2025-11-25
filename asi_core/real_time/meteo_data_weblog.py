@@ -8,7 +8,8 @@ from asi_core.real_time.meteo_data_log import MeteoDataLog
 
 class MeteoDataWebLog(MeteoDataLog):
     """
-    Meteo Data Logger of html string of a campbell scientific logger 
+    Meteo Data Logger of html string of a campbell scientific logger
+
     :param url_cs_logger_table: (str) url of table as string
     :param log_filepath: (str) file path of the meteo data log
     :param timezone: (str) desired time zone (e.g. "GMT+1" = UTC+1)
