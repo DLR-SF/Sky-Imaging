@@ -30,7 +30,7 @@ class InteractiveTimeSeriesPlot:
 
     Parameters:
         df (pd.DataFrame): A time series DataFrame with a DatetimeIndex.
-        **plot_kwargs: Additional keyword arguments for `hvplot.line()` used for plotting customization.
+        \*\*plot_kwargs: Additional keyword arguments for `hvplot.line()` used for plotting customization.
 
     Raises:
         ValueError: If `df` is not a non-empty DataFrame with a DatetimeIndex.

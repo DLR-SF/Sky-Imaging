@@ -8,5 +8,6 @@ asi_physical_setup
 asi_setup
 ftps_upload
 docs_daq
+mask_creation
 geom_self_calibration
 ```

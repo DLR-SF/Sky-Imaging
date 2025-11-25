@@ -129,6 +129,7 @@ def get_image_files(path, recursive=True, folders=[], extensions=IMAGE_EXTENSION
         - %H hour,
         - %M minute,
         - %S second.
+
     Default is "%Y%m%d%H%M%S".
     :param round_to: (str) Value to round to, i.e. '1D', '2H', '30s'. When None no rounding is done. Default is None.
     :return: (list Path or Pandas series) Image file paths.
@@ -249,8 +250,16 @@ def assemble_path(path_structure, camera_name, timestamp, set_subday_to_wildcard
         {camera_name} for the camera name,
         {exposure_time} for the exposure time.
         {timestamp:dt_format} for the image timestamp. dt_format is a combination of the following placeholders:
-                            %Y year, %m month, %d day, %H hour, %M minute, %S second (e.g. {timestamp:%Y%m%d%H%M%S})
-        i.e. /a/path/to/image/{timestamp:%Y}/{camera_name}/{timestamp:%Y%m%d%H%M%S}_00{exposure_time}.jpg
+
+            - %Y year,
+            - %m month,
+            - %d day,
+            - %H hour,
+            - %M minute,
+            - %S second
+
+        e.g. {timestamp:%Y%m%d%H%M%S}
+        and full path e.g. /a/path/to/image/{timestamp:%Y}/{camera_name}/{timestamp:%Y%m%d%H%M%S}_00{exposure_time}.jpg
     :param camera_name: (str) Name of the camera as used in image folder structure.
     :param timestamp: (datetime, tz-aware) Timestamp for which an image file is requested.
     :param set_subday_to_wildcard: (bool) If True, replace time placeholders hours, minutes and seconds with wildcards.
