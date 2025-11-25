@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.meteo</title>
+    
+          <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../search.html" />
+  <link rel="next" title="asi_core.meteo.downloading_datasets" href="downloading_datasets/index.html" />
+  <link rel="prev" title="asi_core.image.transform" href="../image/transform/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core</a> &raquo;</li>
+    
+    <li>asi_core.meteo</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../image/transform/index.html"
+       title="previous chapter">← asi_core.image.transform</a>
+  </li>
+  <li class="next">
+    <a href="downloading_datasets/index.html"
+       title="next chapter">asi_core.meteo.downloading_datasets →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.meteo">
+<span id="asi-core-meteo"></span><h1>asi_core.meteo<a class="headerlink" href="#module-asi_core.meteo" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="downloading_datasets/index.html">asi_core.meteo.downloading_datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meteo/index.html">asi_core.meteo.meteo</a></li>
+</ul>
+</div>
+</section>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.PYTHON_LAT" title="asi_core.meteo.PYTHON_LAT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_LAT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.PYTHON_LON" title="asi_core.meteo.PYTHON_LON"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_LON</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.PYTHON_ALT" title="asi_core.meteo.PYTHON_ALT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_ALT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.PYTHON_TZ" title="asi_core.meteo.PYTHON_TZ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_TZ</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.PYTHON_DT" title="asi_core.meteo.PYTHON_DT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_DT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.PYTHON_PAMB" title="asi_core.meteo.PYTHON_PAMB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_PAMB</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.MeteoData" title="asi_core.meteo.MeteoData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeteoData</span></code></a></p></td>
+<td><p>Class for meteo time series data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.MesorMat" title="asi_core.meteo.MesorMat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MesorMat</span></code></a></p></td>
+<td><p>Class for creating MeteoData objects from Mesor files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.CSOnline" title="asi_core.meteo.CSOnline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CSOnline</span></code></a></p></td>
+<td><p>Class for retrieving real time meteo data from CS logger</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.plot_data_distributions" title="asi_core.meteo.plot_data_distributions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_data_distributions</span></code></a>(df, columns, n_rows[, df_ref, ...])</p></td>
+<td><p>Plot histogram of data in subplots.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.get_temporal_resolution_from_timeseries" title="asi_core.meteo.get_temporal_resolution_from_timeseries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_temporal_resolution_from_timeseries</span></code></a>(data)</p></td>
+<td><p>Get temporal resolution from a pandas DataFrame with a DatetimeIndex.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.map_data_columns" title="asi_core.meteo.map_data_columns"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_data_columns</span></code></a>(matlab_column_names)</p></td>
+<td><p>Maps MATLAB-style column names to their corresponding Python-style names using a predefined renaming dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.load_matlab_mesor_file" title="asi_core.meteo.load_matlab_mesor_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_matlab_mesor_file</span></code></a>(mat_file[, struct_name, ...])</p></td>
+<td><p>Loads matlab mesor file. Function for loading irradiance measurements and other meteorological measurements from</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.load_matlab_dni_classes" title="asi_core.meteo.load_matlab_dni_classes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_matlab_dni_classes</span></code></a>(mat_files[, struct_name, ...])</p></td>
+<td><p>Loads dni variability classes from mat-files. Precomupted DNI variability classes for each measurement timestamo</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.load_matlab_linke_turbidity_per_day" title="asi_core.meteo.load_matlab_linke_turbidity_per_day"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_matlab_linke_turbidity_per_day</span></code></a>(tl_files[, ...])</p></td>
+<td><p>Loads daily linke turbidity values from mat-files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo._ineichen_linke_turbidity_from_dni" title="asi_core.meteo._ineichen_linke_turbidity_from_dni"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_ineichen_linke_turbidity_from_dni</span></code></a>(dni, altitude, ...)</p></td>
+<td><p>Computes the Linke turbidity factor using the Ineichen equation for clear-sky DNI and DNI measurements.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.linke_turbidity_ineichen_dlr" title="asi_core.meteo.linke_turbidity_ineichen_dlr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linke_turbidity_ineichen_dlr</span></code></a>(dni, altitude, sun_el, ...)</p></td>
+<td><p>Computes the Linke turbidity factor using the Ineichen DLR method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.compute_dni_variability_classes" title="asi_core.meteo.compute_dni_variability_classes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_dni_variability_classes</span></code></a>(dni, clear_sky_dni[, ...])</p></td>
+<td><p>DNI variability procedure for time series in 1 min resolution  according to: Schroedter-Homscheidt et al.,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.aggregate_temporal_resolution" title="asi_core.meteo.aggregate_temporal_resolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregate_temporal_resolution</span></code></a>(meteo_data, new_freq, ...)</p></td>
+<td><p>Averages meteo data to lower time resolution rejecting all low-resolution periods with incomplete data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.compute_earth_sun_distance_correction_factor" title="asi_core.meteo.compute_earth_sun_distance_correction_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_earth_sun_distance_correction_factor</span></code></a>(day_of_year)</p></td>
+<td><p>Calculate distance between sun and earth acoording to Liou, An Introduction to Atmospheric Radiation,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.time_dependent_envelope_curve" title="asi_core.meteo.time_dependent_envelope_curve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_dependent_envelope_curve</span></code></a>(dni_series)</p></td>
+<td><p>Get upper and lower DNI envelope curves according toSchroedter-Homscheidt et al. 2018</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.find_valid_extrema" title="asi_core.meteo.find_valid_extrema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_valid_extrema</span></code></a>(dni_series, local_extrema_series[, ...])</p></td>
+<td><p>Function to detect valid maxima or minima within a lower and upper time limit for a time window. This is according</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.trapezoidal_integral_over_time_window" title="asi_core.meteo.trapezoidal_integral_over_time_window"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trapezoidal_integral_over_time_window</span></code></a>(window)</p></td>
+<td><p>Function to compute the trapezoidal integral over a given time window. The time window must have</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.variability_index" title="asi_core.meteo.variability_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variability_index</span></code></a>(k_dni_diff, time_period)</p></td>
+<td><p>Calculates the Variability Index (V) over a specified time period, according to Coimbra et al. (2013)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.variability_index_indicator" title="asi_core.meteo.variability_index_indicator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variability_index_indicator</span></code></a>(dni_diff, ...)</p></td>
+<td><p>Calculates the Variability Index Indicator (VI) over a specified time period, according to Stein et al. (2012)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.plot_series" title="asi_core.meteo.plot_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_series</span></code></a>(series)</p></td>
+<td><p>Plot a timeseries with a datetime index. It generates a simple line plot of the series (helpful for debugging).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.check_daily_index_continuity" title="asi_core.meteo.check_daily_index_continuity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_daily_index_continuity</span></code></a>(ts[, temporal_res])</p></td>
+<td><p>Check if index (pd.DatetimeIndex) has gaps.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.read_mesor_txt_file" title="asi_core.meteo.read_mesor_txt_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_mesor_txt_file</span></code></a>(file_path)</p></td>
+<td><p>Read meteo data from mesor txt file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.convert_invalid_values_to_nan" title="asi_core.meteo.convert_invalid_values_to_nan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_invalid_values_to_nan</span></code></a>(data, invalid_value[, ...])</p></td>
+<td><p>Converts invalid values in dataframe to nans.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.get_missing_timestamps" title="asi_core.meteo.get_missing_timestamps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_missing_timestamps</span></code></a>(dt, temporal_resolution, tz[, ...])</p></td>
+<td><p>Identifies missing timestamps within a given datetime range based on a specified temporal resolution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.meteo.get_data_availability_stats" title="asi_core.meteo.get_data_availability_stats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data_availability_stats</span></code></a>(ts_missing, ts_available)</p></td>
+<td><p>Returns a DataFrame containing statistics about data availability, comparing missing and available timestamps.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.meteo.get_number_of_nans" title="asi_core.meteo.get_number_of_nans"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_number_of_nans</span></code></a>(df)</p></td>
+<td><p>Count number of nans in a dataframe columns-wise and total number of rows with a NaN value in at least one column.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.plot_data_distributions">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">plot_data_distributions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_rows</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(20,</span> <span class="pre">12)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.plot_data_distributions" title="Link to this definition">¶</a></dt>
+<dd><p>Plot histogram of data in subplots.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> – dataframe containing timeseries data.</p></li>
+<li><p><strong>columns</strong> – list of column names.</p></li>
+<li><p><strong>n_rows</strong> – number of rows in figure.</p></li>
+<li><p><strong>df_ref</strong> – reference dataframe (requires the same columns).</p></li>
+<li><p><strong>figsize</strong> – figure size.</p></li>
+<li><p><strong>title</strong> – title of figure.</p></li>
+<li><p><strong>label_dict</strong> – dictionary with (a subset of) column names as keys and labels to used in plot as values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>figure object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.get_temporal_resolution_from_timeseries">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">get_temporal_resolution_from_timeseries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.get_temporal_resolution_from_timeseries" title="Link to this definition">¶</a></dt>
+<dd><p>Get temporal resolution from a pandas DataFrame with a DatetimeIndex.
+Resolution is rounded to seconds</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – (DataFrame) DataFrame with datetime index</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(Timedelta) DataFrame time resolution</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.map_data_columns">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">map_data_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matlab_column_names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.map_data_columns" title="Link to this definition">¶</a></dt>
+<dd><p>Maps MATLAB-style column names to their corresponding Python-style names using a predefined renaming dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>matlab_column_names</strong> – List of column names from MATLAB data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary mapping MATLAB column names to their Python-equivalent names.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.load_matlab_mesor_file">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">load_matlab_mesor_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">struct_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MesorDat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_tz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">MATLAB_TZ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_datenum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">MATLAB_DATENUM</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_timezone</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rename_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_datenum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.load_matlab_mesor_file" title="Link to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Loads matlab mesor file. Function for loading irradiance measurements and other meteorological measurements from</dt><dd><p>a mat-file containing single struct (‘MesorDat’) to python dict or pandas dataframe.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mat_file</strong> – full path of mat-file.</p></li>
+<li><p><strong>struct_name</strong> – name of struct variable in mat-file.</p></li>
+<li><p><strong>param_tz</strong> – name of timezone parameter.</p></li>
+<li><p><strong>param_datenum</strong> – name of matlab datenum parameter.</p></li>
+<li><p><strong>convert_timezone</strong> – timezone value (+/- UTC) to convert date times.</p></li>
+<li><p><strong>rename_params</strong> – if true, parameters are renamed to new format.</p></li>
+<li><p><strong>drop_datenum</strong> – drop matlab datenum data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>python dict  of mesor data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.load_matlab_dni_classes">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">load_matlab_dni_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">struct_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DNIClass'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_dni_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">MATLAB_DNIVARCLASS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">MATLAB_SDN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_tz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">MATLAB_TZ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_timezone</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rename_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.load_matlab_dni_classes" title="Link to this definition">¶</a></dt>
+<dd><p>Loads dni variability classes from mat-files. Precomupted DNI variability classes for each measurement timestamo
+(<a class="reference external" href="https://doi.org/10.1127/metz/2018/0875">https://doi.org/10.1127/metz/2018/0875</a>) are loaded from mat-files and concatenated into single pandas dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mat_files</strong> – list of full paths of mat-files.</p></li>
+<li><p><strong>struct_name</strong> – name of struct variable in mat-files.</p></li>
+<li><p><strong>param_dni_class</strong> – name of dni variability class parameter.</p></li>
+<li><p><strong>param_dt</strong> – name of datetime (datenum) parameter.</p></li>
+<li><p><strong>param_tz</strong> – name of timezone parameter.</p></li>
+<li><p><strong>convert_timezone</strong> – timezone value (+/- UTC) to convert date times.</p></li>
+<li><p><strong>rename_params</strong> – if true, parameters are renamed to new format.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame of DNI variabilty classes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.load_matlab_linke_turbidity_per_day">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">load_matlab_linke_turbidity_per_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tl_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">struct_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tl_data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_name_tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tl_per_day'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_name_dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SDN_per_day'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.load_matlab_linke_turbidity_per_day" title="Link to this definition">¶</a></dt>
+<dd><p>Loads daily linke turbidity values from mat-files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tl_files</strong> – list of full paths of mat-files containing turbidity data.</p></li>
+<li><p><strong>struct_name</strong> – name of struct variable in mat-files.</p></li>
+<li><p><strong>param_name_tl</strong> – name of daily turbididty parameter.</p></li>
+<li><p><strong>param_name_dt</strong> – name of datetime (datenum) parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.Series of daily Linke turbidity values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.meteo.PYTHON_LAT">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">PYTHON_LAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'latitude'</span></em><a class="headerlink" href="#asi_core.meteo.PYTHON_LAT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.meteo.PYTHON_LON">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">PYTHON_LON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'longitude'</span></em><a class="headerlink" href="#asi_core.meteo.PYTHON_LON" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.meteo.PYTHON_ALT">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">PYTHON_ALT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'altitude'</span></em><a class="headerlink" href="#asi_core.meteo.PYTHON_ALT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.meteo.PYTHON_TZ">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">PYTHON_TZ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'timezone'</span></em><a class="headerlink" href="#asi_core.meteo.PYTHON_TZ" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.meteo.PYTHON_DT">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">PYTHON_DT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'timestamp'</span></em><a class="headerlink" href="#asi_core.meteo.PYTHON_DT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.meteo.PYTHON_PAMB">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">PYTHON_PAMB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'p_amb'</span></em><a class="headerlink" href="#asi_core.meteo.PYTHON_PAMB" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">MeteoData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temporal_resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for meteo time series data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.columns">
+<span class="sig-name descname"><span class="pre">columns</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['ghi',</span> <span class="pre">'dni',</span> <span class="pre">'dhi',</span> <span class="pre">'t_amb',</span> <span class="pre">'p_amb',</span> <span class="pre">'rel_humid',</span> <span class="pre">'wind_dir',</span> <span class="pre">'wind_speed',</span> <span class="pre">'sun_el',...</span></em><a class="headerlink" href="#asi_core.meteo.MeteoData.columns" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.units">
+<span class="sig-name descname"><span class="pre">units</span></span><a class="headerlink" href="#asi_core.meteo.MeteoData.units" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#asi_core.meteo.MeteoData.data" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#asi_core.meteo.MeteoData.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.latitude">
+<span class="sig-name descname"><span class="pre">latitude</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#asi_core.meteo.MeteoData.latitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.longitude">
+<span class="sig-name descname"><span class="pre">longitude</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#asi_core.meteo.MeteoData.longitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.altitude">
+<span class="sig-name descname"><span class="pre">altitude</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#asi_core.meteo.MeteoData.altitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.tz">
+<span class="sig-name descname"><span class="pre">tz</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#asi_core.meteo.MeteoData.tz" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.temporal_resolution">
+<span class="sig-name descname"><span class="pre">temporal_resolution</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#asi_core.meteo.MeteoData.temporal_resolution" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.get_p_amb">
+<span class="sig-name descname"><span class="pre">get_p_amb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_default_for_nans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.get_p_amb" title="Link to this definition">¶</a></dt>
+<dd><p>Gets ambient pressure from self.data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.get_solar_pos">
+<span class="sig-name descname"><span class="pre">get_solar_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recompute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.get_solar_pos" title="Link to this definition">¶</a></dt>
+<dd><p>Gets solar position from self.data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.get_airmass">
+<span class="sig-name descname"><span class="pre">get_airmass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">absolute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recompute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.get_airmass" title="Link to this definition">¶</a></dt>
+<dd><p>Gets airmass from self.data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.get_linke_turbidity">
+<span class="sig-name descname"><span class="pre">get_linke_turbidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recompute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_linke_turbidity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mcclear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.get_linke_turbidity" title="Link to this definition">¶</a></dt>
+<dd><p>Gets linke turbidity from self.data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.get_clear_sky_irradiance">
+<span class="sig-name descname"><span class="pre">get_clear_sky_irradiance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recompute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_clear_sky_irradiance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ineichen'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_linke_turbidity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mcclear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.get_clear_sky_irradiance" title="Link to this definition">¶</a></dt>
+<dd><p>Gets clear sky irradiance from self.data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.get_dni_variability_classes">
+<span class="sig-name descname"><span class="pre">get_dni_variability_classes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.get_dni_variability_classes" title="Link to this definition">¶</a></dt>
+<dd><p>Gets dni variability classes from self.data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.remove_duplicates">
+<span class="sig-name descname"><span class="pre">remove_duplicates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'first'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.remove_duplicates" title="Link to this definition">¶</a></dt>
+<dd><p>Removes rows in dataframes with duplicated indexes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.insert_missing_timestamps">
+<span class="sig-name descname"><span class="pre">insert_missing_timestamps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_ele</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_solar_pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nrel_numpy'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.insert_missing_timestamps" title="Link to this definition">¶</a></dt>
+<dd><p>Inserts missing timestamps</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.compute">
+<span class="sig-name descname"><span class="pre">compute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.compute" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.compute_solar_position">
+<span class="sig-name descname"><span class="pre">compute_solar_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nrel_numpy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apparent_elevation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.compute_solar_position" title="Link to this definition">¶</a></dt>
+<dd><p>Computes solar position using pvlib.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.compute_airmass">
+<span class="sig-name descname"><span class="pre">compute_airmass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method_airmass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kastenyoung1989'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_default_pressure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.compute_airmass" title="Link to this definition">¶</a></dt>
+<dd><p>Computes airmass using pvlib.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.compute_linke_turbidity">
+<span class="sig-name descname"><span class="pre">compute_linke_turbidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method_linke_turbidity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ineichen_dlr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solar_constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1361.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_sun_elevation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_dni</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variability_tl_lim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl_cloud_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.compute_linke_turbidity" title="Link to this definition">¶</a></dt>
+<dd><p>Computes linke turbidity using pvlib.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.compute_clear_sky_irradiance">
+<span class="sig-name descname"><span class="pre">compute_clear_sky_irradiance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method_clear_sky_irradiance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ineichen'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_linke_turbidity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ineichen_dlr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solar_constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1364</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.compute_clear_sky_irradiance" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the clear sky irradiance using <cite>pvlib</cite>.</p>
+<p>This method calculates the clear sky Global Horizontal Irradiance (GHI), Direct Normal Irradiance (DNI),
+and Diffuse Horizontal Irradiance (DHI) based on solar position, airmass, and Linke turbidity factors.
+It uses the specified clear sky irradiance model (currently supports the ‘ineichen’ model) and Linke
+turbidity method.</p>
+<p>The computed values are stored in the <cite>self.data</cite> DataFrame under the columns:
+- <cite>‘clear_sky_ghi’</cite>: Clear sky GHI (W/m²)
+- <cite>‘clear_sky_dni’</cite>: Clear sky DNI (W/m²)
+- <cite>‘clear_sky_dhi’</cite>: Clear sky DHI (W/m²)</p>
+<p>Additionally, the method applies masking rules to adjust clear sky estimates:
+- If measured GHI exceeds 1.4 times the computed clear sky GHI, it replaces the clear sky GHI with measured GHI.
+- If measured DNI exceeds the computed clear sky DNI, it replaces the clear sky DNI with measured DNI.
+- Clear sky DHI is recomputed as the difference between GHI and DNI, adjusted by the solar elevation angle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method_clear_sky_irradiance</strong> (<em>str</em>) – Clear sky model to use (currently only ‘ineichen’ is supported).</p></li>
+<li><p><strong>method_linke_turbidity</strong> (<em>str</em>) – Method for calculating Linke turbidity (‘ineichen_dlr’ is recommended).</p></li>
+<li><p><strong>solar_constant</strong> (<em>float</em>) – Value of the solar constant (W/m²), default is 1364 W/m².</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame with columns <cite>‘clear_sky_ghi’</cite>, <cite>‘clear_sky_dni’</cite>, <cite>‘clear_sky_dhi’</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – If an unsupported clear sky model is requested.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.compute_dni_var_class">
+<span class="sig-name descname"><span class="pre">compute_dni_var_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'15T'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.compute_dni_var_class" title="Link to this definition">¶</a></dt>
+<dd><p>DNI variability procedure for time series in 1 min resolution  according to: Schroedter-Homscheidt et al.,
+Classifying ground-measured 1 minute temporal variability within hourly intervals for direct normal irradiances,
+Meteorologische Zeitschrift, (2018)
+:param time_period: used for classification
+:return: self.data[‘dni_var_class’]: (pd series)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.interpolate">
+<span class="sig-name descname"><span class="pre">interpolate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'index'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_area</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'inside'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'both'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.interpolate" title="Link to this definition">¶</a></dt>
+<dd><p>Interpolates missing data in dataframe.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.filter_by_sun_el">
+<span class="sig-name descname"><span class="pre">filter_by_sun_el</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_sun_el</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.filter_by_sun_el" title="Link to this definition">¶</a></dt>
+<dd><p>Filters data by sun elevation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.get_temporal_resolution">
+<span class="sig-name descname"><span class="pre">get_temporal_resolution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.get_temporal_resolution" title="Link to this definition">¶</a></dt>
+<dd><p>Gets temporal resolution of dataframe</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.get_number_of_nans">
+<span class="sig-name descname"><span class="pre">get_number_of_nans</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.get_number_of_nans" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.plot_distributions">
+<span class="sig-name descname"><span class="pre">plot_distributions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_rows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(20,</span> <span class="pre">12)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.plot_distributions" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.reduce_temporal_resolution">
+<span class="sig-name descname"><span class="pre">reduce_temporal_resolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span> <span class="pre">/</span> <span class="pre">60</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.reduce_temporal_resolution" title="Link to this definition">¶</a></dt>
+<dd><p>Averages meteo data to lower time resolution rejecting all low-resolution periods with incomplete data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>new_freq</strong> – (str, datetime.timedelta, or DateOffset), new temporal resolution, to be understood as
+“freq” by pandas</p></li>
+<li><p><strong>min_fraction</strong> – (float) Minimum fraction of valid readings required to retain average of a period.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.check_daily_index_continuity">
+<span class="sig-name descname"><span class="pre">check_daily_index_continuity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.check_daily_index_continuity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.from_csv">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">','</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'infer'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rename_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.from_csv" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize MeteoData object from csv file with measurements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>csv_file</strong> (<em>str</em>) – csv file from which csv should be initialized</p></li>
+<li><p><strong>delimiter</strong> (<em>str</em>) – argument as used by pd.read_csv</p></li>
+<li><p><strong>header</strong> (<em>int</em><em> or </em><em>str</em><em> or </em><em>None</em>) – argument as used by pd.read_csv</p></li>
+<li><p><strong>rename_columns</strong> (<em>dict</em>) – falsy or mapping from column names in csv file to column names expected by cls</p></li>
+</ul>
+</dd>
+<dt class="field-even">Params kwargs<span class="colon">:</span></dt>
+<dd class="field-even"><p>keyword arguments accepted by the cls init method</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>cls instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.from_pangaea_tab">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_pangaea_tab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tab_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">','</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'infer'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rename_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.from_pangaea_tab" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize MeteoData object from csv file with measurements downloaded from Pangea.</p>
+<p>Tested so far with this dataset:
+Fabel, Yann; Blum, Niklas; Nouri, Bijan; Wilbert, Stefan; Gonzalez Rodriguez, Sergio; Zarzalejo, Luis (2025):
+SolarVision Almería: Meteorological measurements [dataset]. PANGAEA, <a class="reference external" href="https://doi.org/10.1594/PANGAEA.980085">https://doi.org/10.1594/PANGAEA.980085</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tab_file</strong> (<em>str</em>) – tab-separated table file from which csv should be initialized</p></li>
+<li><p><strong>delimiter</strong> (<em>str</em>) – argument as used by pd.read_csv</p></li>
+<li><p><strong>header</strong> (<em>int</em><em> or </em><em>str</em><em> or </em><em>None</em>) – argument as used by pd.read_csv</p></li>
+<li><p><strong>rename_columns</strong> (<em>dict</em>) – falsy or mapping from column names in csv file to column names expected by cls</p></li>
+</ul>
+</dd>
+<dt class="field-even">Params kwargs<span class="colon">:</span></dt>
+<dd class="field-even"><p>keyword arguments accepted by the cls init method</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>cls instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MeteoData.from_mesor_txt">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_mesor_txt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MeteoData.from_mesor_txt" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize MeteoData object from mesor txt file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.meteo.MesorMat">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">MesorMat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesor_files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_duplicates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insert_missing_timestamps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_sun_el</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolate_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temporal_resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesor_nan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-9999</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_solar_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_clear_sky_irradiance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_dni_var_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_period_dni_var_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'15T'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dni_var_class_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_clear_sky_irradiance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ineichen'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_linke_turbidity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mcclear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_type_dni_var_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.mat'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MesorMat" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#asi_core.meteo.MeteoData" title="asi_core.meteo.MeteoData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeteoData</span></code></a></p>
+<p>Class for creating MeteoData objects from Mesor files.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.MesorMat.mesor_files">
+<span class="sig-name descname"><span class="pre">mesor_files</span></span><a class="headerlink" href="#asi_core.meteo.MesorMat.mesor_files" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MesorMat.add_linke_turbidity">
+<span class="sig-name descname"><span class="pre">add_linke_turbidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tl_files</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MesorMat.add_linke_turbidity" title="Link to this definition">¶</a></dt>
+<dd><p>Adds linke turbidity from mat files to data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.MesorMat.add_dni_variability_classes">
+<span class="sig-name descname"><span class="pre">add_dni_variability_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dnivc_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_type_dni_var_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.mat'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.MesorMat.add_dni_variability_classes" title="Link to this definition">¶</a></dt>
+<dd><p>Adds dni variability classes from mat files to data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.meteo.CSOnline">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">CSOnline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_cs_logger_table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_desired_columns_cs_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.CSOnline" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#asi_core.meteo.MeteoData" title="asi_core.meteo.MeteoData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeteoData</span></code></a></p>
+<p>Class for retrieving real time meteo data from CS logger</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.CSOnline.url_cs_logger_table">
+<span class="sig-name descname"><span class="pre">url_cs_logger_table</span></span><a class="headerlink" href="#asi_core.meteo.CSOnline.url_cs_logger_table" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.CSOnline.latitude">
+<span class="sig-name descname"><span class="pre">latitude</span></span><a class="headerlink" href="#asi_core.meteo.CSOnline.latitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.CSOnline.longitude">
+<span class="sig-name descname"><span class="pre">longitude</span></span><a class="headerlink" href="#asi_core.meteo.CSOnline.longitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.CSOnline.altitude">
+<span class="sig-name descname"><span class="pre">altitude</span></span><a class="headerlink" href="#asi_core.meteo.CSOnline.altitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.CSOnline.tz">
+<span class="sig-name descname"><span class="pre">tz</span></span><a class="headerlink" href="#asi_core.meteo.CSOnline.tz" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.meteo.CSOnline.name_desired_columns_cs_table">
+<span class="sig-name descname"><span class="pre">name_desired_columns_cs_table</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#asi_core.meteo.CSOnline.name_desired_columns_cs_table" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.meteo.CSOnline.update_meteo_data_real_time">
+<span class="sig-name descname"><span class="pre">update_meteo_data_real_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compute_solar_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_clear_sky_irradiance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_clear_sky_irradiance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ineichen'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_linke_turbidity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ineichen_dlr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solar_constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1364</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.CSOnline.update_meteo_data_real_time" title="Link to this definition">¶</a></dt>
+<dd><p>This method updates the meteorological data stored in the object in real-time by fetching
+data from a CS logger table and optionally computing solar position and clear sky irradiance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>compute_solar_position</strong> – (bool, optional) Whether to compute solar position data (default is True)</p></li>
+<li><p><strong>compute_clear_sky_irradiance</strong> – (bool, optional) Whether to compute clear sky irradiance (default is True)</p></li>
+<li><p><strong>method_clear_sky_irradiance</strong> (<em>str</em>) – Clear sky model to use (currently only ‘ineichen’ is supported).</p></li>
+<li><p><strong>method_linke_turbidity</strong> (<em>str</em>) – Method for calculating Linke turbidity (‘ineichen_dlr’ is recommended).</p></li>
+<li><p><strong>solar_constant</strong> (<em>float</em>) – Value of the solar constant (W/m²), default is 1364 W/m².</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo._ineichen_linke_turbidity_from_dni">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">_ineichen_linke_turbidity_from_dni</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dni</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">airmass_abs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solar_constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1361.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo._ineichen_linke_turbidity_from_dni" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the Linke turbidity factor using the Ineichen equation for clear-sky DNI and DNI measurements.
+Refer to <a class="reference external" href="https://doi.org/10.1016/S0038-092x(02)00045-2">https://doi.org/10.1016/S0038-092x(02)00045-2</a> for details on the equations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dni</strong> – (pd.Series) Measured DNI in W/m²</p></li>
+<li><p><strong>altitude</strong> – (float) Altitude of the location in meters above sea level.</p></li>
+<li><p><strong>airmass_abs</strong> – (pd.Series) Absolute airmass values, indexed by datetime.</p></li>
+<li><p><strong>solar_constant</strong> – (float) Solar constant in W/m^2</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>linke_turbidity: (pd.Series) Linke turbidity factors soley based on DNI measurements.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.linke_turbidity_ineichen_dlr">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">linke_turbidity_ineichen_dlr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dni</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sun_el</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">airmass_abs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solar_constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1361.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_sun_elevation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_dni</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variability_tl_lim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl_cloud_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.linke_turbidity_ineichen_dlr" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the Linke turbidity factor using the Ineichen DLR method.
+This method estimates the Linke turbidity, which describes atmospheric turbidity based on DNI
+and atmospheric conditions, and applies various filters and adjustments to derive a daily mean turbidity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dni</strong> – (pd.Series) Direct normal irradiance (DNI) values, indexed by datetime.</p></li>
+<li><p><strong>altitude</strong> – (float) Altitude of the location in meters above sea level.</p></li>
+<li><p><strong>sun_el</strong> – (pd.Series) Solar elevation angle in degrees, indexed by datetime.</p></li>
+<li><p><strong>airmass_abs</strong> – (pd.Series) Absolute airmass values, indexed by datetime.</p></li>
+<li><p><strong>solar_constant</strong> – (float) Solar constant in W/m^2</p></li>
+<li><p><strong>limit_sun_elevation</strong> – (float) Minimum sun elevation angle in degrees for filtering</p></li>
+<li><p><strong>limit_dni</strong> – (float) Minimum DNI threshold for filtering</p></li>
+<li><p><strong>variability_tl_lim</strong> – (float) Maximum allowed variability in turbidity factor</p></li>
+<li><p><strong>tl_cloud_limit</strong> – (float) Maximum Linke turbidity threshold for clear-sky filtering</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>linke_turbidity: (pd.Series) Processed and filtered Linke turbidity, indexed by datetime.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.compute_dni_variability_classes">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">compute_dni_variability_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dni</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear_sky_dni</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'15T'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.compute_dni_variability_classes" title="Link to this definition">¶</a></dt>
+<dd><p>DNI variability procedure for time series in 1 min resolution  according to: Schroedter-Homscheidt et al.,
+Classifying ground-measured 1 minute temporal variability within hourly intervals for direct normal irradiances,
+Meteorologische Zeitschrift, (2018)
+:param dni: (pd.Series) Series of dni values with pd.DatetimeIndex.
+:param clear_sky_dni: (pd.Series) Series of clear-sky dni values with pd.DatetimeIndex.
+:param time_period: (str) Time period used for classification.
+:return: dni_var_class: (pd series) Series of dni variability classes with pd.DatetimeIndex</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.aggregate_temporal_resolution">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">aggregate_temporal_resolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meteo_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span> <span class="pre">/</span> <span class="pre">60</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.aggregate_temporal_resolution" title="Link to this definition">¶</a></dt>
+<dd><p>Averages meteo data to lower time resolution rejecting all low-resolution periods with incomplete data.</p>
+<p>Based on pyranocam/validation_thesis – data_post_preprocessing.generate_dif_time_res</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>meteo_data</strong> – (pd DataFrame) define the dataframe, which contains the data in a specific time frequency
+(defined by ‘new_freq’-argument).</p></li>
+<li><p><strong>new_freq</strong> – (str, datetime.timedelta, or DateOffset), new temporal resolution, to be understood as “freq” by
+pandas</p></li>
+<li><p><strong>old_freq</strong> – (str, datetime.timedelta, or DateOffset), old temporal resolution, to be understood as “freq” by
+pandas</p></li>
+<li><p><strong>min_fraction</strong> – (float) Minimum fraction of valid readings required to retain average of a period.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.compute_earth_sun_distance_correction_factor">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">compute_earth_sun_distance_correction_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">day_of_year</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.compute_earth_sun_distance_correction_factor" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate distance between sun and earth acoording to Liou, An Introduction to Atmospheric Radiation,
+2002, p.49
+:param day_of_year: (int, np.ndarray) (vector of) day(s) of year as Integer [1,366]
+:return: List with the following entries</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>earth_sun_distance: Earth to Sun distance in meters</p></li>
+<li><p>earth_sun_corr_factor: Correction factor for Earth to Sun distance depending on the day of the year.</p></li>
+<li><p>solar_disk_radius: Angular radius of solar disk</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.time_dependent_envelope_curve">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">time_dependent_envelope_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dni_series</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.time_dependent_envelope_curve" title="Link to this definition">¶</a></dt>
+<dd><p>Get upper and lower DNI envelope curves according toSchroedter-Homscheidt et al. 2018
+:param dni_series: (pd series) dni with datetimeindex in 1 min resolution
+:return: upper_envelope: (pd series) upper envelope curve fitting to dni_series
+:return: upper_envelope: (pd series) lower envelope curve fitting to dni_series</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.find_valid_extrema">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">find_valid_extrema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dni_series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_extrema_series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extrema_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'maxima'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_time_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_time_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.find_valid_extrema" title="Link to this definition">¶</a></dt>
+<dd><p>Function to detect valid maxima or minima within a lower and upper time limit for a time window. This is according
+to the procedure described in Schroedter-Homscheidt et al. 2018
+:param dni_series: (pd series) dni with datetimeindex in 1 min resolution
+:param local_extrema_series: (pd series) The series with local extrema (maxima or minima) filled.
+:param extrema_type: (string) either ‘maxima’ or ‘minima’ to specify the type of extrema to detect.
+:return: extrema_series (pd series) valid extrema</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.trapezoidal_integral_over_time_window">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">trapezoidal_integral_over_time_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.trapezoidal_integral_over_time_window" title="Link to this definition">¶</a></dt>
+<dd><p>Function to compute the trapezoidal integral over a given time window. The time window must have
+a datetime index with 1-minute resolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>window</strong> – (pd.Series) A time series with a datetime index and corresponding values for integration.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(float) The computed integral value over the time window in hours, or NaN .</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.variability_index">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">variability_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k_dni_diff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_period</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.variability_index" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the Variability Index (V) over a specified time period, according to Coimbra et al. (2013)
+This index provides insights on the variability of direct normal irradiance (DNI) compared to clear sky conditions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k_dni_diff</strong> – (pd.Series) The difference in clearness index (K) values over time.</p></li>
+<li><p><strong>time_period</strong> – (str) A time-based window string (e.g., ‘15T’) used for rolling window calculations.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>v (pd.Series) variability index V: according to Coimbra et al. (2013)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.variability_index_indicator">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">variability_index_indicator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dni_diff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear_sky_dni_diff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_period</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.variability_index_indicator" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the Variability Index Indicator (VI) over a specified time period, according to Stein et al. (2012)
+This index provides insights on the variability of direct normal irradiance (DNI) compared to clear sky conditions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dni_diff</strong> – (pd.Series) The difference in DNI values over time.</p></li>
+<li><p><strong>clear_sky_dni_diff</strong> – (pd.Series) The difference in clear-sky DNI values over time.</p></li>
+<li><p><strong>time_period</strong> – (str) A time-based window string (e.g., ‘15T’) used for rolling window calculations.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>vi (pd.Series) variability index indicator VI: according to Stein et al. (2012)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.plot_series">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">plot_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">series</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.plot_series" title="Link to this definition">¶</a></dt>
+<dd><p>Plot a timeseries with a datetime index. It generates a simple line plot of the series (helpful for debugging).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>series</strong> – (pd.Series) A time series with a datetime index.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.check_daily_index_continuity">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">check_daily_index_continuity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temporal_res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.check_daily_index_continuity" title="Link to this definition">¶</a></dt>
+<dd><p>Check if index (pd.DatetimeIndex) has gaps.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.read_mesor_txt_file">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">read_mesor_txt_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.read_mesor_txt_file" title="Link to this definition">¶</a></dt>
+<dd><p>Read meteo data from mesor txt file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.convert_invalid_values_to_nan">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">convert_invalid_values_to_nan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invalid_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'equals'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.convert_invalid_values_to_nan" title="Link to this definition">¶</a></dt>
+<dd><p>Converts invalid values in dataframe to nans.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.get_missing_timestamps">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">get_missing_timestamps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temporal_resolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_ele</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_solar_pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nrel_numpy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds_from_dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.get_missing_timestamps" title="Link to this definition">¶</a></dt>
+<dd><p>Identifies missing timestamps within a given datetime range based on a specified temporal resolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dt</strong> – Array-like of existing timestamps (pandas DatetimeIndex or list of timestamps).</p></li>
+<li><p><strong>temporal_resolution</strong> – String representing the desired time frequency (e.g., ‘30S’ for 30 seconds).</p></li>
+<li><p><strong>tz</strong> – Time zone information for the generated timestamps.</p></li>
+<li><p><strong>min_ele</strong> – (Optional) Minimum solar elevation angle to filter timestamps. Default is None.</p></li>
+<li><p><strong>latitude</strong> – (Optional) Latitude of the location for solar position calculations. Required if <cite>min_ele</cite> is set.</p></li>
+<li><p><strong>longitude</strong> – (Optional) Longitude of the location for solar position calculations. Required if <cite>min_ele</cite> is set.</p></li>
+<li><p><strong>altitude</strong> – (Optional) Altitude of the location for solar position calculations. Default is None.</p></li>
+<li><p><strong>method_solar_pos</strong> – (Optional) Method used for solar position calculations (default: ‘nrel_numpy’).</p></li>
+<li><p><strong>bounds_from_dt</strong> – (Optional) If True, uses the first and last timestamps from <cite>dt</cite> as the range bounds.
+If False, expands the range to include the entire day (00:00:00 to 23:59:59).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>dt_missing (pandas DatetimeIndex): Timestamps that are missing from <cite>dt</cite> within the expected range.</p></li>
+<li><p>dr (pandas DatetimeIndex): The full expected timestamp range.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.get_data_availability_stats">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">get_data_availability_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts_missing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_available</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.get_data_availability_stats" title="Link to this definition">¶</a></dt>
+<dd><p>Returns a DataFrame containing statistics about data availability, comparing missing and available timestamps.</p>
+<p>This function computes various metrics, including the total and fraction of missing data, number of days with
+complete or incomplete data, and daily missing data statistics (median, mean, and standard deviation).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts_missing</strong> (<em>pandas.DatetimeIndex</em>) – Timestamps corresponding to missing data points.</p></li>
+<li><p><strong>ts_available</strong> (<em>pandas.DatetimeIndex</em>) – Timestamps corresponding to available data points.</p></li>
+<li><p><strong>idx_name</strong> (<em>str</em>) – Name for the index of the output DataFrame (default is ‘Data’).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A pandas DataFrame with the following columns:
+- ‘Total data’: Number of available data points.
+- ‘Total missing’: Number of missing data points.
+- ‘Fraction missing’: Fraction of missing data points relative to total.
+- ‘Total days’: Total number of unique days in the data.
+- ‘Num available days’: Number of days with at least one available data point.
+- ‘Num incomplete days’: Number of days with at least one missing data point.
+- ‘Fraction incomplete days’: Fraction of days with missing data.
+- ‘Median missing per day’: Median count of missing data points per day.
+- ‘Mean missing per day’: Mean count of missing data points per day.
+- ‘Std missing per day’: Standard deviation of missing data points per day.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If ts_missing and ts_available contain overlapping timestamps.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.meteo.get_number_of_nans">
+<span class="sig-prename descclassname"><span class="pre">asi_core.meteo.</span></span><span class="sig-name descname"><span class="pre">get_number_of_nans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.meteo.get_number_of_nans" title="Link to this definition">¶</a></dt>
+<dd><p>Count number of nans in a dataframe columns-wise and total number of rows with a NaN value in at least one column.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../image/transform/index.html"
+       title="previous chapter">← asi_core.image.transform</a>
+  </li>
+  <li class="next">
+    <a href="downloading_datasets/index.html"
+       title="next chapter">asi_core.meteo.downloading_datasets →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

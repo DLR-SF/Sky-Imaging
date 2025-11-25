@@ -1,0 +1,34 @@
+asi_core.meteo.downloading_datasets
+===================================
+
+.. py:module:: asi_core.meteo.downloading_datasets
+
+.. autoapi-nested-parse::
+
+   Tools useful to download datasets from public/remote sources
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_core.meteo.downloading_datasets.download_and_store_dataset
+
+
+Module Contents
+---------------
+
+.. py:function:: download_and_store_dataset(url, targetpath_dataset)
+
+   Download a dataset from a url and save to file
+
+   This tool has only been tested with text files so far.
+
+   :param url: URL which starts the download
+   :type url: str
+   :param targetpath_dataset: Path including filename to which dataset should be stored
+   :type targetpath_dataset: str, pathlib.Path
+
+

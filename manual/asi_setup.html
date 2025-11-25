@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>Documentation on the setup of the SkyCam System</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Documentation of the image upload via FTP-S" href="ftps_upload.html" />
+  <link rel="prev" title="Physical setup camera" href="asi_physical_setup.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../autoapi/index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">User Manual</a> &raquo;</li>
+    
+    <li>Documentation on the setup of the SkyCam System</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="asi_physical_setup.html"
+       title="previous chapter">← Physical setup camera</a>
+  </li>
+  <li class="next">
+    <a href="ftps_upload.html"
+       title="next chapter">Documentation of the image upload via FTP-S →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="documentation-on-the-setup-of-the-skycam-system">
+<h1>Documentation on the setup of the SkyCam System<a class="headerlink" href="#documentation-on-the-setup-of-the-skycam-system" title="Link to this heading">¶</a></h1>
+<section id="quality-check">
+<h2>Quality check<a class="headerlink" href="#quality-check" title="Link to this heading">¶</a></h2>
+<p>(Should best be done before giving the camera to the user)</p>
+<p>Set up the camera outside take some sun images. Best if the atmosphere is very clear. Check if any abnormal flare effects are seen. (Scratches, faulty coating, …)</p>
+</section>
+<section id="create-a-site-specific-config-file">
+<h2>Create a site-specific config file<a class="headerlink" href="#create-a-site-specific-config-file" title="Link to this heading">¶</a></h2>
+<p>(Should best be done before giving the camera to the user)</p>
+<p>Use the following file as basis:
+<code class="docutils literal notranslate"><span class="pre">&lt;path_to_repository&gt;\data\camera_data\mobotix_cfg_templates\</span></code></p>
+<p>Adapt the following:</p>
+<ul class="simple">
+<li><p>Make sure text printed to image is short enough so that it does not reach into exposed image area leave some safety margin.</p></li>
+<li><p>If you already know the local network settings. Adapt these in the config file:</p>
+<ul>
+<li><p>Set a hostname, so you will find the camera, replace: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;HOSTNAME&gt;&gt;&gt;&gt;</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">Cloud_Cam_xxx</span></code>). We recommend to use the camera id here</p></li>
+<li><p>Set IP for camera in the local network, replace: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;CAM_IP&gt;&gt;&gt;&gt;</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">10.21.202.146</span></code>)</p></li>
+<li><p>Set the subnetmask of your local network, replace: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;SUBNETMASK&gt;&gt;&gt;&gt;</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">255.255.255.224</span></code>)</p></li>
+<li><p>Set gateway (usually the router’s IP), replace: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;GATEWAY&gt;&gt;&gt;&gt;</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">10.21.202.158</span></code>)</p></li>
+<li><p>Set dns servers, replace: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;DNS_SERVERS&gt;&gt;&gt;&gt;</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">172.21.154.193</span> <span class="pre">129.247.160.1</span> <span class="pre">8.8.8.8</span></code>). The last IP is public and therefore a safe option.</p></li>
+</ul>
+</li>
+<li><p>Specify the URL (or IP) of the sftp server to which you might want to upload replacing the tag <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;FTP_URL&gt;&gt;&gt;&gt;</span></code>.</p></li>
+<li><p>FTP folder to store to, if possible use the camera name. Try to use a consistent camera name everywhere, replace: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;CAM_FOLDER&gt;&gt;&gt;&gt;</span></code>  (e.g. <code class="docutils literal notranslate"><span class="pre">Cloud_Cam_Golden</span></code>). We recommend to use the camera id here.</p></li>
+<li><p>Login to the (s)ftp server may require a user name and password. Replace the tags <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;FTP_USER&gt;&gt;&gt;&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;FTP_PW&gt;&gt;&gt;&gt;</span></code> accordingly.</p></li>
+<li><p>Camera time zone, replace  <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;TIMEZONE&gt;&gt;&gt;&gt;</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">GMT/GMT+1</span></code>)</p></li>
+<li><p>Set NTP servers which can be reached by the camera, replace <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;NTP_SERVER&gt;&gt;&gt;&gt;</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">1.de.pool.ntp.org</span> <span class="pre">0.de.pool.ntp.org</span></code>)</p></li>
+</ul>
+<p>Consider changing the following:</p>
+<p>Section FTP is configured to upload to our server, this section may be adapted for some projects.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SECTION</span> <span class="n">ftp</span>
+<span class="o">...</span>
+<span class="n">ENDSECTION</span> <span class="n">ftp</span>
+</pre></div>
+</div>
+<p>If you recognize the need, update the template and commit it.</p>
+</section>
+<section id="adapt-the-asi-s-network-settings-to-your-local-network">
+<h2>Adapt the ASI’s network settings to your local network<a class="headerlink" href="#adapt-the-asi-s-network-settings-to-your-local-network" title="Link to this heading">¶</a></h2>
+<p>Find out the camera’s IP address by pressing the button on the camera. It will read out loud the camera’s IP address etc.</p>
+<p>Configure your PC’s network settings to be able to connect with the camera. Then enter the camera’s web interface and assign an IP address, etc. according to you local network. Then store the current configuration and reboot the camera.</p>
+<p>Adapt your PC’s network settings to be able to connect with the camera to test if everything worked fine. If not go back to the start of this section.</p>
+<p>Connect the camera at its final location to the network. Connect your computer to the same network. Make sure you can access the camera’s web interface.</p>
+</section>
+<section id="install-the-camera-physically">
+<h2>Install the camera physically<a class="headerlink" href="#install-the-camera-physically" title="Link to this heading">¶</a></h2>
+<p>Mount the camera horizontally. Make sure the camera is installed at a similar height as sensors nearby so that obstructions are avoided in any sensor’s field of view. Orient the camera so that the upper image side will be south (camera should be marked accordingly by manufacturer). In case of the mobotix Q26 the camera is marked with top (see image). Top marks the top of the 360° panoramic view.</p>
+<img src="media_asi_setup/q26Top.PNG" alt="Schematic view on the Q26 camera from above." title="" width="300"/>
+<p>If possible, mount the camera’s bracket on a tripod and level it horizontally. Make sure the leveling of the bracket is secured sufficiently to be stable over time. Always use 2 nuts on counter.</p>
+</section>
+<section id="update-the-camera-firmware">
+<h2>Update the camera firmware<a class="headerlink" href="#update-the-camera-firmware" title="Link to this heading">¶</a></h2>
+<p>(Should best be done before giving the camera to the user)</p>
+<p>Open the camera’s web interface. For this, type the cameras IP in a browser’s address bar.</p>
+<p>In the upper right image corner you should find an info button (i). Press it and check the firmware version given under “Software”, (e.g. MX-V4.7.3.11)</p>
+<p>If your firmware has a smaller number than MX-V4.7.3.11 (Q25) or MX-V5.2.1.4 (Q26), update it to at least that version as follows.</p>
+<p>Download the desired firmware from mobotix.com.</p>
+<p>Open the admin menu in the camera’s web interface.</p>
+<p>Go to Update system software.</p>
+<p>Upload the firmware to the camera.</p>
+<p>Start the firmware update.</p>
+</section>
+<section id="upload-the-configuration-file">
+<h2>Upload the configuration file<a class="headerlink" href="#upload-the-configuration-file" title="Link to this heading">¶</a></h2>
+<p>(Should best be done before giving the camera to the user)</p>
+<p>Open the cameras web interface. For this, type the cameras IP in a browser’s address bar.</p>
+<p>Go to admin …</p>
+<p>Under configuration select “Load configuration from local computer”</p>
+<p>With Browse select the provided config file for the station.</p>
+<p>Select “Replace everything except the parts checked below”.</p>
+<p>Untick all sections. Consider setting a tick near Networking. In this case you are sure not to lose the connection to the camera by
+unintentionally changing these settings. Only if you untick this section, configuration parameters regarding the camera’s host name,
+IP address, subnet mask, gateway, DNI server,… will be replaced which will be desired in many cases.</p>
+<p>Press upload.</p>
+<p>In the next page. Press “store”</p>
+<p>Then “store permanently”.</p>
+<p>Then “Reboot”.</p>
+<p>Then “Reboot now”.</p>
+<p>The camera will restart with the new configuration using the previous IP address.</p>
+</section>
+<section id="configure-your-local-network">
+<h2>Configure your local network<a class="headerlink" href="#configure-your-local-network" title="Link to this heading">¶</a></h2>
+<p>If the camera cannot upload its images to the FTP server yet, you may need to configure your local network.</p>
+<p>The outgoing ports 990 and 1337 to 1374 in the firewall in your network need to be open for the upload.</p>
+</section>
+<section id="download-the-final-configuration-file">
+<h2>Download the final configuration file<a class="headerlink" href="#download-the-final-configuration-file" title="Link to this heading">¶</a></h2>
+<p>Open the camera’s web interface. For this, type the cameras IP in a browser’s address bar.</p>
+<p>Go to the admin menu</p>
+<p>Under “configuration” select “Save current configuration to local computer”</p>
+<p>You will download a .cfg file.</p>
+<p>Store the cfg file in your documentation.</p>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="asi_physical_setup.html"
+       title="previous chapter">← Physical setup camera</a>
+  </li>
+  <li class="next">
+    <a href="ftps_upload.html"
+       title="next chapter">Documentation of the image upload via FTP-S →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

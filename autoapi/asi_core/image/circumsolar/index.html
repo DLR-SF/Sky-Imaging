@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.image.circumsolar</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.image.hdr" href="../hdr/index.html" />
+  <link rel="prev" title="asi_core.image.asi_dataset" href="../asi_dataset/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.image</a> &raquo;</li>
+    
+    <li>asi_core.image.circumsolar</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../asi_dataset/index.html"
+       title="previous chapter">← asi_core.image.asi_dataset</a>
+  </li>
+  <li class="next">
+    <a href="../hdr/index.html"
+       title="next chapter">asi_core.image.hdr →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.image.circumsolar">
+<span id="asi-core-image-circumsolar"></span><h1>asi_core.image.circumsolar<a class="headerlink" href="#module-asi_core.image.circumsolar" title="Link to this heading">¶</a></h1>
+<p>This module provides functions to analyse ASI (All-Sky Imager) images.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.image.circumsolar.get_sun_pos_in_asi_image" title="asi_core.image.circumsolar.get_sun_pos_in_asi_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sun_pos_in_asi_image</span></code></a>(sun_ele, sun_az, ele_mat, az_mat)</p></td>
+<td><p>Determines the pixel position of the sun in an ASI image.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.image.circumsolar.compute_sun_dist_map" title="asi_core.image.circumsolar.compute_sun_dist_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_sun_dist_map</span></code></a>(sun_ele, sun_az, ele_mat, az_mat)</p></td>
+<td><p>Computes the distance map from each pixel to the sun in an ASI image.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.image.circumsolar.compute_cloud_coverage_and_distance_to_sun" title="asi_core.image.circumsolar.compute_cloud_coverage_and_distance_to_sun"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_cloud_coverage_and_distance_to_sun</span></code></a>(seg_mask, ...)</p></td>
+<td><p>Computes cloud coverage and the minimum distance between clouds and the sun.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.image.circumsolar.get_sun_dist" title="asi_core.image.circumsolar.get_sun_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sun_dist</span></code></a>(az, ele, timestamp, location)</p></td>
+<td><p>Calculate the sun distance angle based on azimuth and elevation angles.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.image.circumsolar.get_saturated_mask" title="asi_core.image.circumsolar.get_saturated_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_saturated_mask</span></code></a>(img[, saturation_limit, ...])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.circumsolar.get_sun_pos_in_asi_image">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.circumsolar.</span></span><span class="sig-name descname"><span class="pre">get_sun_pos_in_asi_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sun_ele</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sun_az</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ele_mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">az_mat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.image.circumsolar.get_sun_pos_in_asi_image" title="Link to this definition">¶</a></dt>
+<dd><p>Determines the pixel position of the sun in an ASI image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sun_ele</strong> – Sun elevation angle in degrees.</p></li>
+<li><p><strong>sun_az</strong> – Sun azimuth angle in degrees.</p></li>
+<li><p><strong>ele_mat</strong> – Elevation matrix of the ASI image.</p></li>
+<li><p><strong>az_mat</strong> – Azimuth matrix of the ASI image.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(row, col) coordinates of the sun in the image.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.circumsolar.compute_sun_dist_map">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.circumsolar.</span></span><span class="sig-name descname"><span class="pre">compute_sun_dist_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sun_ele</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sun_az</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ele_mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">az_mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.image.circumsolar.compute_sun_dist_map" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the distance map from each pixel to the sun in an ASI image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sun_ele</strong> – Sun elevation angle in degrees.</p></li>
+<li><p><strong>sun_az</strong> – Sun azimuth angle in degrees.</p></li>
+<li><p><strong>ele_mat</strong> – Elevation matrix of the ASI image.</p></li>
+<li><p><strong>az_mat</strong> – Azimuth matrix of the ASI image.</p></li>
+<li><p><strong>apply_filter</strong> – Whether to apply median filtering (default: False).</p></li>
+<li><p><strong>size</strong> – Kernel size for median filtering (default: 5).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Distance map (in degrees) to the sun.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.circumsolar.compute_cloud_coverage_and_distance_to_sun">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.circumsolar.</span></span><span class="sig-name descname"><span class="pre">compute_cloud_coverage_and_distance_to_sun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seg_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cam_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sun_dist_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cloud_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.image.circumsolar.compute_cloud_coverage_and_distance_to_sun" title="Link to this definition">¶</a></dt>
+<dd><p>Computes cloud coverage and the minimum distance between clouds and the sun.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seg_mask</strong> – Segmentation mask of the sky (clouds vs. background).</p></li>
+<li><p><strong>cam_mask</strong> – Camera mask indicating valid pixels.</p></li>
+<li><p><strong>sun_dist_map</strong> – Distance map from each pixel to the sun.</p></li>
+<li><p><strong>cloud_value</strong> – Value representing clouds in the segmentation mask (default: 1).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple (cloud_coverage, min_dist_cloud, coord_cloud):
+- cloud_coverage: Fraction of the sky covered by clouds.
+- min_dist_cloud: Minimum distance between a cloud pixel and the sun.
+- coord_cloud: Coordinates of the closest cloud pixel to the sun.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.circumsolar.get_sun_dist">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.circumsolar.</span></span><span class="sig-name descname"><span class="pre">get_sun_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">az</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ele</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.image.circumsolar.get_sun_dist" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate the sun distance angle based on azimuth and elevation angles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>az</strong> – Azimuth angles (in degrees) of the sun.</p></li>
+<li><p><strong>ele</strong> – Elevation angles (in degrees) of the sun.</p></li>
+<li><p><strong>timestamp</strong> – Specific timestamp for which the solar position is calculated.</p></li>
+<li><p><strong>location</strong> – Dictionary containing the latitude, longitude, and altitude of the location.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Three values: sun distance angle, sun azimuth angle, and sun elevation angle.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.circumsolar.get_saturated_mask">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.circumsolar.</span></span><span class="sig-name descname"><span class="pre">get_saturated_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">240</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gray_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.image.circumsolar.get_saturated_mask" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../asi_dataset/index.html"
+       title="previous chapter">← asi_core.image.asi_dataset</a>
+  </li>
+  <li class="next">
+    <a href="../hdr/index.html"
+       title="next chapter">asi_core.image.hdr →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.utils.image_time_series</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.utils.mattermost_notifier" href="../mattermost_notifier/index.html" />
+  <link rel="prev" title="asi_core.utils.geometry" href="../geometry/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.utils</a> &raquo;</li>
+    
+    <li>asi_core.utils.image_time_series</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../geometry/index.html"
+       title="previous chapter">← asi_core.utils.geometry</a>
+  </li>
+  <li class="next">
+    <a href="../mattermost_notifier/index.html"
+       title="next chapter">asi_core.utils.mattermost_notifier →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.utils.image_time_series">
+<span id="asi-core-utils-image-time-series"></span><h1>asi_core.utils.image_time_series<a class="headerlink" href="#module-asi_core.utils.image_time_series" title="Link to this heading">¶</a></h1>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.image_time_series.generate_image_series_paths" title="asi_core.utils.image_time_series.generate_image_series_paths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_image_series_paths</span></code></a>(init_time, path_structure, ...)</p></td>
+<td><p>Create a list of image file paths for the given timestamp, camera, exposure time and time gaps</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.utils.image_time_series.find_closest_image" title="asi_core.utils.image_time_series.find_closest_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_closest_image</span></code></a>(missing_time, existing_paths)</p></td>
+<td><p>Find the image file with the closest time to the missing one from the given paths list</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.image_time_series.get_image_path" title="asi_core.utils.image_time_series.get_image_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_image_path</span></code></a>(expected_path, time_tolerance)</p></td>
+<td><p>Get the image file path with the closest time to the expected one with certain time tolerance</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.utils.image_time_series.get_image_series_path" title="asi_core.utils.image_time_series.get_image_series_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_image_series_path</span></code></a>(init_time, path_structure, ...)</p></td>
+<td><p>Get a list of paths of a series of images given a list of seconds between each image.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.image_time_series.generate_image_series_paths">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.image_time_series.</span></span><span class="sig-name descname"><span class="pre">generate_image_series_paths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_exposure_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_gap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.image_time_series.generate_image_series_paths" title="Link to this definition">¶</a></dt>
+<dd><p>Create a list of image file paths for the given timestamp, camera, exposure time and time gaps</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>init_time</strong> – (datetime) Initial timestamp for the creation of the image series.</p></li>
+<li><p><strong>path_structure</strong> – (string) formated string to build up the path to each camera image folder. It shall contain
+{camera_name}, {exposure_time} and {timestamp:…} where the camera name, exposure_time and evaluated date is
+inserted.</p></li>
+<li><p><strong>camera_name</strong> – (string) camera name</p></li>
+<li><p><strong>img_exposure_time</strong> – (int) exposure time of the image in milliseconds.</p></li>
+<li><p><strong>time_gap</strong> – (int) list of seconds between each image.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return image_paths<span class="colon">:</span></dt>
+<dd class="field-even"><p>(string) list of image file paths</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.image_time_series.find_closest_image">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.image_time_series.</span></span><span class="sig-name descname"><span class="pre">find_closest_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">missing_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">existing_paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.image_time_series.find_closest_image" title="Link to this definition">¶</a></dt>
+<dd><p>Find the image file with the closest time to the missing one from the given paths list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>missing_time</strong> – (datetime) timestamp of the missing image file.</p></li>
+<li><p><strong>existing_paths</strong> – (string list) list of paths to look for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(string) path to the image file closest in time.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.image_time_series.get_image_path">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.image_time_series.</span></span><span class="sig-name descname"><span class="pre">get_image_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expected_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_tolerance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.image_time_series.get_image_path" title="Link to this definition">¶</a></dt>
+<dd><p>Get the image file path with the closest time to the expected one with certain time tolerance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>expected_path</strong> – (string) expected path to the image file.</p></li>
+<li><p><strong>time_tolerance</strong> – (float)  time tolerance in seconds for searching a file path.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(string) path to the image file closest in time. If nothing found return [].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.image_time_series.get_image_series_path">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.image_time_series.</span></span><span class="sig-name descname"><span class="pre">get_image_series_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_gap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.image_time_series.get_image_series_path" title="Link to this definition">¶</a></dt>
+<dd><p>Get a list of paths of a series of images given a list of seconds between each image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>init_time</strong> – (datetime) initial timestamp for the creation of the image series.</p></li>
+<li><p><strong>path_structure</strong> – (string) formated string to build up the path to each camera image folder. It shall contain
+{camera_name}, {exposure_time} and {timestamp:…} where the camera name, expos is inserted, evaluated date is
+inserted and where the exposure time is inserted.</p></li>
+<li><p><strong>camera_name</strong> – (string) camera name</p></li>
+<li><p><strong>exposure_time</strong> – (int) exposure time of the image in milliseconds.</p></li>
+<li><p><strong>time_gap</strong> – (int) list of seconds between each image. Default is [0]</p></li>
+<li><p><strong>time_tolerance</strong> – (float) time tolerance in seconds for searching a file path. Default is 0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../geometry/index.html"
+       title="previous chapter">← asi_core.utils.geometry</a>
+  </li>
+  <li class="next">
+    <a href="../mattermost_notifier/index.html"
+       title="next chapter">asi_core.utils.mattermost_notifier →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

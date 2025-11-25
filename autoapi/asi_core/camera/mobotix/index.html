@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.camera.mobotix</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.camera.obstacle_mask" href="../obstacle_mask/index.html" />
+  <link rel="prev" title="asi_core.camera.calibration.self_calibration" href="../calibration/self_calibration/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.camera</a> &raquo;</li>
+    
+    <li>asi_core.camera.mobotix</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../calibration/self_calibration/index.html"
+       title="previous chapter">← asi_core.camera.calibration.self_calibration</a>
+  </li>
+  <li class="next">
+    <a href="../obstacle_mask/index.html"
+       title="next chapter">asi_core.camera.obstacle_mask →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.camera.mobotix">
+<span id="asi-core-camera-mobotix"></span><h1>asi_core.camera.mobotix<a class="headerlink" href="#module-asi_core.camera.mobotix" title="Link to this heading">¶</a></h1>
+<p>This module provides funtionality specific to mobotix cameras.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.camera.mobotix.extract_mobotix_meta_data" title="asi_core.camera.mobotix.extract_mobotix_meta_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_mobotix_meta_data</span></code></a>(img_bytes)</p></td>
+<td><p>Extract variables from image bytes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.camera.mobotix.get_mobotix_meta_data" title="asi_core.camera.mobotix.get_mobotix_meta_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mobotix_meta_data</span></code></a>(img_file[, max_header_length])</p></td>
+<td><p>Load image and read variables from header of a Mobotix image.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.camera.mobotix.search_header" title="asi_core.camera.mobotix.search_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">search_header</span></code></a>(search_pattern, header[, dtype])</p></td>
+<td><p>Use re to extract a variable from the mobotix image header</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.camera.mobotix.read_timestamp_from_header" title="asi_core.camera.mobotix.read_timestamp_from_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_timestamp_from_header</span></code></a>(header)</p></td>
+<td><p>Use re to extract image timestamp from the mobotix image header</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.camera.mobotix.extract_mobotix_meta_data">
+<span class="sig-prename descclassname"><span class="pre">asi_core.camera.mobotix.</span></span><span class="sig-name descname"><span class="pre">extract_mobotix_meta_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_bytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.camera.mobotix.extract_mobotix_meta_data" title="Link to this definition">¶</a></dt>
+<dd><p>Extract variables from image bytes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>img_bytes</strong> – byte array or filename of the image as str or subclass of Path</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary of image metadata variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.camera.mobotix.get_mobotix_meta_data">
+<span class="sig-prename descclassname"><span class="pre">asi_core.camera.mobotix.</span></span><span class="sig-name descname"><span class="pre">get_mobotix_meta_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_header_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.camera.mobotix.get_mobotix_meta_data" title="Link to this definition">¶</a></dt>
+<dd><p>Load image and read variables from header of a Mobotix image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img_file</strong> – filename of the image as str or subclass of Path</p></li>
+<li><p><strong>max_header_length</strong> – Expected maximum number of bytes in the image header (don’t read image further)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary of image metadata variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.camera.mobotix.search_header">
+<span class="sig-prename descclassname"><span class="pre">asi_core.camera.mobotix.</span></span><span class="sig-name descname"><span class="pre">search_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">np.float32</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.camera.mobotix.search_header" title="Link to this definition">¶</a></dt>
+<dd><p>Use re to extract a variable from the mobotix image header</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.camera.mobotix.read_timestamp_from_header">
+<span class="sig-prename descclassname"><span class="pre">asi_core.camera.mobotix.</span></span><span class="sig-name descname"><span class="pre">read_timestamp_from_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.camera.mobotix.read_timestamp_from_header" title="Link to this definition">¶</a></dt>
+<dd><p>Use re to extract image timestamp from the mobotix image header</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../calibration/self_calibration/index.html"
+       title="previous chapter">← asi_core.camera.calibration.self_calibration</a>
+  </li>
+  <li class="next">
+    <a href="../obstacle_mask/index.html"
+       title="next chapter">asi_core.camera.obstacle_mask →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

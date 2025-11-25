@@ -1,0 +1,128 @@
+asi_core.visualization.interactive
+==================================
+
+.. py:module:: asi_core.visualization.interactive
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   asi_core.visualization.interactive.InteractiveTimeSeriesPlot
+
+
+Module Contents
+---------------
+
+.. py:class:: InteractiveTimeSeriesPlot(df, **plot_kwargs)
+
+   Interactive time series plot with date and variable selection.
+
+   This class generates an interactive time series visualization using a pandas DataFrame
+   with a DatetimeIndex. It allows users to select specific dates and variables (columns)
+   to visualize through widgets like MultiSelect and DatePicker. Navigation buttons
+   enable browsing between available dates.
+
+   Attributes:
+       df (pd.DataFrame): Input time series DataFrame.
+       plot_kwargs (dict): Additional keyword arguments for `hvplot.line()`.
+       fontsize (dict): Font sizes for plot elements.
+       available_dates (list): Sorted list of unique dates from the DataFrame index.
+       columns (list): List of column names in the DataFrame.
+       variable_selector (pn.widgets.MultiSelect): Widget for selecting variables to plot.
+       date_picker (pn.widgets.DatePicker): Widget for selecting a date.
+       prev_button (pn.widgets.Button): Button for selecting the previous date.
+       next_button (pn.widgets.Button): Button for selecting the next date.
+       plot_pane (pn.pane.HoloViews): Pane for displaying the plot.
+       layout (pn.Column): The overall Panel layout for the interactive plot.
+
+   Parameters:
+       df (pd.DataFrame): A time series DataFrame with a DatetimeIndex.
+       \*\*plot_kwargs: Additional keyword arguments for `hvplot.line()` used for plotting customization.
+
+   Raises:
+       ValueError: If `df` is not a non-empty DataFrame with a DatetimeIndex.
+       ValueError: If no valid dates are found in `df`.
+
+   Example usage:
+       >>> plot = InteractiveTimeSeriesPlot(my_dataframe, title="My Time Series: ")
+       >>> plot.show()
+       >>> plot.save_as_html("output_plot.html")
+
+
+   .. py:attribute:: df
+
+
+   .. py:attribute:: plot_kwargs
+
+
+   .. py:attribute:: fontsize
+
+
+   .. py:attribute:: available_dates
+
+
+   .. py:attribute:: columns
+
+
+   .. py:attribute:: variable_selector
+
+
+   .. py:attribute:: date_picker
+
+
+   .. py:attribute:: prev_button
+
+
+   .. py:attribute:: next_button
+
+
+   .. py:attribute:: plot_pane
+
+
+   .. py:attribute:: layout
+
+
+   .. py:method:: plot_day(selected_date, selected_variables)
+
+      Filters and plots the data for the selected date and variables.
+
+      :param selected_date: The selected date for plotting.
+      :type selected_date: datetime.date
+      :param selected_variables: Selected columns to plot.
+      :type selected_variables: list
+      :returns: hvplot object
+
+
+
+   .. py:method:: update_plot(event)
+
+      Updates the plot when the selected date or variables change. 
+
+
+
+   .. py:method:: prev_date(event)
+
+      Moves to the previous available date in the dataset. 
+
+
+
+   .. py:method:: next_date(event)
+
+      Moves to the next available date in the dataset. 
+
+
+
+   .. py:method:: save_as_html(filename='interactive_plot.html')
+
+      Saves the interactive plot as an HTML file. 
+
+
+
+   .. py:method:: show()
+
+      Displays the Panel layout. 
+
+
+

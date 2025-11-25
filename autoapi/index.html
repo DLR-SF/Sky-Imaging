@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>API Reference</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="asi_core" href="asi_core/index.html" />
+  <link rel="prev" title="How to run the geometric self-calibration for All-Sky Imagers?" href="../manual/geom_self_calibration.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">API Reference</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#api-reference" class="reference internal">API Reference</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>API Reference</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../manual/geom_self_calibration.html"
+       title="previous chapter">← How to run the geometric self-calibration for All-Sky Imagers?</a>
+  </li>
+  <li class="next">
+    <a href="asi_core/index.html"
+       title="next chapter">asi_core →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">¶</a></h1>
+<p>This page contains auto-generated API reference documentation <a class="footnote-reference brackets" href="#f1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="asi_core/index.html">asi_core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="asi_core/camera/index.html">asi_core.camera</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/camera/calibration/index.html">asi_core.camera.calibration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="asi_core/camera/calibration/celestial_bodies/index.html">asi_core.camera.calibration.celestial_bodies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="asi_core/camera/calibration/self_calibration/index.html">asi_core.camera.calibration.self_calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/camera/mobotix/index.html">asi_core.camera.mobotix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/camera/obstacle_mask/index.html">asi_core.camera.obstacle_mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/camera/ocam/index.html">asi_core.camera.ocam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/camera/sky_imager/index.html">asi_core.camera.sky_imager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="asi_core/config/index.html">asi_core.config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/config/config_loader/index.html">asi_core.config.config_loader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/config/constants/index.html">asi_core.config.constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/config/logging_config/index.html">asi_core.config.logging_config</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="asi_core/dlr/index.html">asi_core.dlr</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/dlr/matlab_converters/index.html">asi_core.dlr.matlab_converters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="asi_core/image/index.html">asi_core.image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/image/asi_dataset/index.html">asi_core.image.asi_dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/image/circumsolar/index.html">asi_core.image.circumsolar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/image/hdr/index.html">asi_core.image.hdr</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="asi_core/image/hdr/calibration/index.html">asi_core.image.hdr.calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="asi_core/image/hdr/merge/index.html">asi_core.image.hdr.merge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="asi_core/image/hdr/pipeline/index.html">asi_core.image.hdr.pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="asi_core/image/hdr/utils/index.html">asi_core.image.hdr.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/image/image_loading/index.html">asi_core.image.image_loading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/image/transform/index.html">asi_core.image.transform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="asi_core/meteo/index.html">asi_core.meteo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/meteo/downloading_datasets/index.html">asi_core.meteo.downloading_datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/meteo/meteo/index.html">asi_core.meteo.meteo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="asi_core/real_time/index.html">asi_core.real_time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/real_time/http_image_receiver/index.html">asi_core.real_time.http_image_receiver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/real_time/image_folder_monitor/index.html">asi_core.real_time.image_folder_monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/real_time/meteo_data_log/index.html">asi_core.real_time.meteo_data_log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/real_time/meteo_data_opcua/index.html">asi_core.real_time.meteo_data_opcua</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/real_time/meteo_data_weblog/index.html">asi_core.real_time.meteo_data_weblog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/real_time/utils/index.html">asi_core.real_time.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="asi_core/utils/index.html">asi_core.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/utils/basics/index.html">asi_core.utils.basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/utils/daily_h5/index.html">asi_core.utils.daily_h5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/utils/datetime_handling/index.html">asi_core.utils.datetime_handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/utils/filesystem/index.html">asi_core.utils.filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/utils/geometry/index.html">asi_core.utils.geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/utils/image_time_series/index.html">asi_core.utils.image_time_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/utils/mattermost_notifier/index.html">asi_core.utils.mattermost_notifier</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="asi_core/visualization/index.html">asi_core.visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/visualization/asi_keogram/index.html">asi_core.visualization.asi_keogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/visualization/density_scatter/index.html">asi_core.visualization.density_scatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/visualization/interactive/index.html">asi_core.visualization.interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/visualization/masking/index.html">asi_core.visualization.masking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/visualization/sky_videos/index.html">asi_core.visualization.sky_videos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/visualization/timeseries/index.html">asi_core.visualization.timeseries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_core/visualization/video/index.html">asi_core.visualization.video</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="asi_tools/index.html">asi_tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="asi_tools/calibration/index.html">asi_tools.calibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_tools/calibration/__main__/index.html">asi_tools.calibration.__main__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_tools/calibration/process_self_calibration/index.html">asi_tools.calibration.process_self_calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="asi_tools/daq/index.html">asi_tools.daq</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_tools/daq/__main__/index.html">asi_tools.daq.__main__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_tools/daq/image_acquisition_simulator/index.html">asi_tools.daq.image_acquisition_simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="asi_tools/datacheck/index.html">asi_tools.datacheck</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_tools/datacheck/create_HDR_video/index.html">asi_tools.datacheck.create_HDR_video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_tools/datacheck/daily_video_tools/index.html">asi_tools.datacheck.daily_video_tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_tools/datacheck/plot_asi_availability/index.html">asi_tools.datacheck.plot_asi_availability</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="asi_tools/hdr/index.html">asi_tools.hdr</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_tools/hdr/__main__/index.html">asi_tools.hdr.__main__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asi_tools/hdr/calibration/index.html">asi_tools.hdr.calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="asi_tools/mask_creation/index.html">asi_tools.mask_creation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_tools/mask_creation/auto/index.html">asi_tools.mask_creation.auto</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="asi_tools/mask_creation/auto/__main__/index.html">asi_tools.mask_creation.auto.__main__</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="asi_tools/mask_creation/manual/index.html">asi_tools.mask_creation.manual</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="asi_tools/mask_creation/manual/__main__/index.html">asi_tools.mask_creation.manual.__main__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="asi_tools/mask_creation/manual/mask_creation/index.html">asi_tools.mask_creation.manual.mask_creation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="asi_tools/undistortion/index.html">asi_tools.undistortion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asi_tools/undistortion/__main__/index.html">asi_tools.undistortion.__main__</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Created with <a class="reference external" href="https://github.com/readthedocs/sphinx-autoapi">sphinx-autoapi</a></p>
+</aside>
+</aside>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../manual/geom_self_calibration.html"
+       title="previous chapter">← How to run the geometric self-calibration for All-Sky Imagers?</a>
+  </li>
+  <li class="next">
+    <a href="asi_core/index.html"
+       title="next chapter">asi_core →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

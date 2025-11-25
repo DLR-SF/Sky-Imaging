@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.real_time.http_image_receiver</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.real_time.image_folder_monitor" href="../image_folder_monitor/index.html" />
+  <link rel="prev" title="asi_core.real_time" href="../index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.real_time</a> &raquo;</li>
+    
+    <li>asi_core.real_time.http_image_receiver</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../index.html"
+       title="previous chapter">← asi_core.real_time</a>
+  </li>
+  <li class="next">
+    <a href="../image_folder_monitor/index.html"
+       title="next chapter">asi_core.real_time.image_folder_monitor →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.real_time.http_image_receiver">
+<span id="asi-core-real-time-http-image-receiver"></span><h1>asi_core.real_time.http_image_receiver<a class="headerlink" href="#module-asi_core.real_time.http_image_receiver" title="Link to this heading">¶</a></h1>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.real_time.http_image_receiver.EXIF_KEYS" title="asi_core.real_time.http_image_receiver.EXIF_KEYS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EXIF_KEYS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.real_time.http_image_receiver.KNOWN_MOBOTIX_MODELS" title="asi_core.real_time.http_image_receiver.KNOWN_MOBOTIX_MODELS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KNOWN_MOBOTIX_MODELS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.real_time.http_image_receiver.KNOWN_NIGHTIME_MODES" title="asi_core.real_time.http_image_receiver.KNOWN_NIGHTIME_MODES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KNOWN_NIGHTIME_MODES</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.real_time.http_image_receiver.MOBOTIX_CAMS_SWITCH_SETTINGS_DAY_NIGHT" title="asi_core.real_time.http_image_receiver.MOBOTIX_CAMS_SWITCH_SETTINGS_DAY_NIGHT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MOBOTIX_CAMS_SWITCH_SETTINGS_DAY_NIGHT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.real_time.http_image_receiver.detected_local_tz" title="asi_core.real_time.http_image_receiver.detected_local_tz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detected_local_tz</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.real_time.http_image_receiver.ImageReceiver" title="asi_core.real_time.http_image_receiver.ImageReceiver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImageReceiver</span></code></a></p></td>
+<td><p>Handles the image acquisition of an IP camera with http-API.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.real_time.http_image_receiver.SeriesReceiver" title="asi_core.real_time.http_image_receiver.SeriesReceiver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SeriesReceiver</span></code></a></p></td>
+<td><p>Defines the acquisition of image series with different exposure times.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.real_time.http_image_receiver.AxisSeriesReceiver" title="asi_core.real_time.http_image_receiver.AxisSeriesReceiver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxisSeriesReceiver</span></code></a></p></td>
+<td><p>Handles the acquisition of image series with an AXIS camera.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.real_time.http_image_receiver.MobotixSeriesReceiver" title="asi_core.real_time.http_image_receiver.MobotixSeriesReceiver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MobotixSeriesReceiver</span></code></a></p></td>
+<td><p>Handles the acquisition of image series with a Mobotix camera.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.EXIF_KEYS">
+<span class="sig-prename descclassname"><span class="pre">asi_core.real_time.http_image_receiver.</span></span><span class="sig-name descname"><span class="pre">EXIF_KEYS</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.EXIF_KEYS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.KNOWN_MOBOTIX_MODELS">
+<span class="sig-prename descclassname"><span class="pre">asi_core.real_time.http_image_receiver.</span></span><span class="sig-name descname"><span class="pre">KNOWN_MOBOTIX_MODELS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Q71',</span> <span class="pre">'Q26',</span> <span class="pre">'Q25',</span> <span class="pre">'Q24']</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.KNOWN_MOBOTIX_MODELS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.KNOWN_NIGHTIME_MODES">
+<span class="sig-prename descclassname"><span class="pre">asi_core.real_time.http_image_receiver.</span></span><span class="sig-name descname"><span class="pre">KNOWN_NIGHTIME_MODES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['moon_detection',</span> <span class="pre">'cloud_monitoring']</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.KNOWN_NIGHTIME_MODES" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.MOBOTIX_CAMS_SWITCH_SETTINGS_DAY_NIGHT">
+<span class="sig-prename descclassname"><span class="pre">asi_core.real_time.http_image_receiver.</span></span><span class="sig-name descname"><span class="pre">MOBOTIX_CAMS_SWITCH_SETTINGS_DAY_NIGHT</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.MOBOTIX_CAMS_SWITCH_SETTINGS_DAY_NIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.detected_local_tz">
+<span class="sig-prename descclassname"><span class="pre">asi_core.real_time.http_image_receiver.</span></span><span class="sig-name descname"><span class="pre">detected_local_tz</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.detected_local_tz" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.real_time.http_image_receiver.</span></span><span class="sig-name descname"><span class="pre">ImageReceiver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">http_snapshot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">timedelta(seconds=30)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">night_sampling_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">timedelta(seconds=60)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone_images</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">detected_local_tz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nighttime_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'moon_detection'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver" title="Link to this definition">¶</a></dt>
+<dd><p>Handles the image acquisition of an IP camera with http-API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>http_snapshot</strong> – str, http request sent to camera to get a snapshot</p></li>
+<li><p><strong>storage_path</strong> – path to which image series will be stored; folders for month, day, hour will be created</p></li>
+<li><p><strong>location</strong> – <p>dict, with fields indicating coordinates:</p>
+<ul>
+<li><p>”lat” (decimal degrees, northing positive),</p></li>
+<li><p>”lon” (decimal degrees, easting positive),</p></li>
+<li><p>”alt” (meters)</p></li>
+</ul>
+</p></li>
+<li><p><strong>sampling_time</strong> – datetime timedelta – temporal offset between image series</p></li>
+<li><p><strong>night_sampling_time</strong> – datetime timedelta – temporal offset between image series during nighttime</p></li>
+<li><p><strong>timezone_images</strong> – Specify pytz.timezone of the images and log file. If not provided computer timezone is
+used.</p></li>
+<li><p><strong>nighttime_mode</strong> – Acquisition mode used during nighttime. Optimized for different purposes: Moon detection,
+cloud detection, …</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.min_sun_ele_exp">
+<span class="sig-name descname"><span class="pre">min_sun_ele_exp</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.min_sun_ele_exp" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.max_sun_ele_exp">
+<span class="sig-name descname"><span class="pre">max_sun_ele_exp</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">90</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.max_sun_ele_exp" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.min_moon_ele">
+<span class="sig-name descname"><span class="pre">min_moon_ele</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.min_moon_ele" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.min_moon_phase">
+<span class="sig-name descname"><span class="pre">min_moon_phase</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.8</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.min_moon_phase" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.http_snapshot">
+<span class="sig-name descname"><span class="pre">http_snapshot</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.http_snapshot" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.storage_path">
+<span class="sig-name descname"><span class="pre">storage_path</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.storage_path" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.sampling_time">
+<span class="sig-name descname"><span class="pre">sampling_time</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.sampling_time" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.location">
+<span class="sig-name descname"><span class="pre">location</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.location" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.timezone_images">
+<span class="sig-name descname"><span class="pre">timezone_images</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.timezone_images" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.day_sampling_time">
+<span class="sig-name descname"><span class="pre">day_sampling_time</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.day_sampling_time" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.night_sampling_time">
+<span class="sig-name descname"><span class="pre">night_sampling_time</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.night_sampling_time" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.nighttime_mode">
+<span class="sig-name descname"><span class="pre">nighttime_mode</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'moon_detection'</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.nighttime_mode" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.record_night_image">
+<span class="sig-name descname"><span class="pre">record_night_image</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.record_night_image" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.midnight">
+<span class="sig-name descname"><span class="pre">midnight</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.midnight" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.ephem_observer">
+<span class="sig-name descname"><span class="pre">ephem_observer</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.ephem_observer" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.http_get_snapshot">
+<span class="sig-name descname"><span class="pre">http_get_snapshot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.http_get_snapshot" title="Link to this definition">¶</a></dt>
+<dd><p>Sends an http request and extract binary JPEG from response</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Binary encoded JPEG image</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.store_img_to_path">
+<span class="sig-name descname"><span class="pre">store_img_to_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.store_img_to_path" title="Link to this definition">¶</a></dt>
+<dd><p>Stores an image record in the folder structure according to the convention below</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts</strong> – datetime, timestamp at which the image was taken</p></li>
+<li><p><strong>img</strong> – binary encoded image (jpg)</p></li>
+<li><p><strong>exp_time</strong> – int, exposure time of the image (microseconds)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.record_continuously">
+<span class="sig-name descname"><span class="pre">record_continuously</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.record_continuously" title="Link to this definition">¶</a></dt>
+<dd><p>Once called, this function runs infinitely taking images at the defined sampling rate</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.trigger_store_exposure">
+<span class="sig-name descname"><span class="pre">trigger_store_exposure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.trigger_store_exposure" title="Link to this definition">¶</a></dt>
+<dd><p>Triggers, receives and saves a snapshot from the camera.</p>
+<p>Exposure time etc. remain unchanged. Only a snapshot is requested and saved</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.check_adjust_day_nighttime_settings">
+<span class="sig-name descname"><span class="pre">check_adjust_day_nighttime_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.check_adjust_day_nighttime_settings" title="Link to this definition">¶</a></dt>
+<dd><p>Check sun elevation and if needed change camera settings which are different during day- and nighttime.</p>
+<p>This is a dummy. Implemented for compatible cameras.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.ImageReceiver.prepare_image_acquisition">
+<span class="sig-name descname"><span class="pre">prepare_image_acquisition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.ImageReceiver.prepare_image_acquisition" title="Link to this definition">¶</a></dt>
+<dd><p>Prepare image acquisition.</p>
+<p>Check if conditions for recording images are met. Either for standard daylight images (depending on sun
+elevation) or nighttime images when there is (almost) full moon and the moon is above the horizon.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Boolean whether image should be recorded.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.SeriesReceiver">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.real_time.http_image_receiver.</span></span><span class="sig-name descname"><span class="pre">SeriesReceiver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_cam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">timedelta(seconds=30)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">night_sampling_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">timedelta(seconds=60)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[80,</span> <span class="pre">160,</span> <span class="pre">320,</span> <span class="pre">640,</span> <span class="pre">1280]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">night_exposure_times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[80000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settling_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">timedelta(seconds=0.25)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone_images</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">detected_local_tz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel_threshold_exposure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">safety_deadtime_between_exposure_series</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">timedelta(seconds=3)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nighttime_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'moon_detection'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.SeriesReceiver" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#asi_core.real_time.http_image_receiver.ImageReceiver" title="asi_core.real_time.http_image_receiver.ImageReceiver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImageReceiver</span></code></a></p>
+<p>Defines the acquisition of image series with different exposure times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url_cam</strong> – URL/ IP of the camera to be controlled</p></li>
+<li><p><strong>storage_path</strong> – see ImageReceiver</p></li>
+<li><p><strong>location</strong> – see ImageReceiver</p></li>
+<li><p><strong>sampling_time</strong> – see ImageReceiver</p></li>
+<li><p><strong>night_sampling_time</strong> – timedelta, sampling time used during nighttime</p></li>
+<li><p><strong>exposure_times</strong> – list, exposure times in microseconds. One snapshot per exp. time will be stored</p></li>
+<li><p><strong>settling_time</strong> – Time to wait until requesting an image from camera after setting new exposure time or
+after previous request</p></li>
+<li><p><strong>timezone_images</strong> – see ImageReceiver</p></li>
+<li><p><strong>rel_threshold_exposure</strong> – Relative deviation of exp. time. Image will be rejected if real exp. time
+deviates stronger from expected value</p></li>
+<li><p><strong>safety_deadtime_between_exposure_series</strong> – Cancel acquisition of exposure series if less than this time
+remains until end of sampling period</p></li>
+<li><p><strong>nighttime_mode</strong> – Acquisition mode used during nighttime. Optimized for different purposes: Moon detection,
+cloud detection, …</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.SeriesReceiver.exposure_times">
+<span class="sig-name descname"><span class="pre">exposure_times</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[80,</span> <span class="pre">160,</span> <span class="pre">320,</span> <span class="pre">640,</span> <span class="pre">1280]</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.SeriesReceiver.exposure_times" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.SeriesReceiver.night_exposure_times">
+<span class="sig-name descname"><span class="pre">night_exposure_times</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[80000]</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.SeriesReceiver.night_exposure_times" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.SeriesReceiver.url_cam">
+<span class="sig-name descname"><span class="pre">url_cam</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.SeriesReceiver.url_cam" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.SeriesReceiver.settling_time">
+<span class="sig-name descname"><span class="pre">settling_time</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.SeriesReceiver.settling_time" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.SeriesReceiver.rel_threshold_exposure">
+<span class="sig-name descname"><span class="pre">rel_threshold_exposure</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.1</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.SeriesReceiver.rel_threshold_exposure" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.SeriesReceiver.safety_deadtime_between_exposure_series">
+<span class="sig-name descname"><span class="pre">safety_deadtime_between_exposure_series</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.SeriesReceiver.safety_deadtime_between_exposure_series" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.SeriesReceiver.set_exposure">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_exposure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exp_set</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.SeriesReceiver.set_exposure" title="Link to this definition">¶</a></dt>
+<dd><p>”
+Request camera to change exposure time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>exp_set</strong> – Exposure time in microseconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.SeriesReceiver.trigger_store_exposure">
+<span class="sig-name descname"><span class="pre">trigger_store_exposure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.SeriesReceiver.trigger_store_exposure" title="Link to this definition">¶</a></dt>
+<dd><p>Records an image series with different exposure times</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.SeriesReceiver.get_real_exposure_properties">
+<span class="sig-name descname"><span class="pre">get_real_exposure_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.SeriesReceiver.get_real_exposure_properties" title="Link to this definition">¶</a></dt>
+<dd><p>Checks the exposure time noted in the EXIF header.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>img</strong> – Binary encoded jpeg image with EXIF header that contains actual exposure time</p>
+</dd>
+<dt class="field-even">Return exp<span class="colon">:</span></dt>
+<dd class="field-even"><p>int, read exposure time in microseconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.AxisSeriesReceiver">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.real_time.http_image_receiver.</span></span><span class="sig-name descname"><span class="pre">AxisSeriesReceiver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_cam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.AxisSeriesReceiver" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#asi_core.real_time.http_image_receiver.SeriesReceiver" title="asi_core.real_time.http_image_receiver.SeriesReceiver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SeriesReceiver</span></code></a></p>
+<p>Handles the acquisition of image series with an AXIS camera.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url_cam</strong> – see SeriesReceiver</p></li>
+<li><p><strong>storage_path</strong> – see ImageReceiver</p></li>
+<li><p><strong>location</strong> – see ImageReceiver</p></li>
+<li><p><strong>user</strong> – name of user authorized to set exposure parameters</p></li>
+<li><p><strong>password</strong> – password of user</p></li>
+<li><p><strong>sampling_time</strong> – see ImageReceiver</p></li>
+<li><p><strong>exposure_times</strong> – see SeriesReceiver</p></li>
+<li><p><strong>settling_time</strong> – see SeriesReceiver</p></li>
+<li><p><strong>user</strong> – name of user authorized to set exposure parameters</p></li>
+<li><p><strong>password</strong> – password of user</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.AxisSeriesReceiver.command_record">
+<span class="sig-name descname"><span class="pre">command_record</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'jpg/image.jpg?camera=1&amp;overview=0&amp;resolution=2016x2016&amp;videoframeskipmode=empty&amp;timestamp=166279...</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.AxisSeriesReceiver.command_record" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.AxisSeriesReceiver.authentication">
+<span class="sig-name descname"><span class="pre">authentication</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.AxisSeriesReceiver.authentication" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.AxisSeriesReceiver.set_exposure">
+<span class="sig-name descname"><span class="pre">set_exposure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exp_set</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.AxisSeriesReceiver.set_exposure" title="Link to this definition">¶</a></dt>
+<dd><p>”
+Request camera to change exposure time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>exp_set</strong> – Exposure time in microseconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.MobotixSeriesReceiver">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.real_time.http_image_receiver.</span></span><span class="sig-name descname"><span class="pre">MobotixSeriesReceiver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cam_cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.MobotixSeriesReceiver" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#asi_core.real_time.http_image_receiver.SeriesReceiver" title="asi_core.real_time.http_image_receiver.SeriesReceiver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SeriesReceiver</span></code></a></p>
+<p>Handles the acquisition of image series with a Mobotix camera.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cam_cfg</strong> – dict with the keys
+- url_cam: see SeriesReceiver
+- location: see ImageReceiver
+- camera_model: one of the models specified in KNOWN_MOBOTIX_MODELS</p></li>
+<li><p><strong>storage_path</strong> – see ImageReceiver</p></li>
+<li><p><strong>sampling_time</strong> – see ImageReceiver</p></li>
+<li><p><strong>exposure_times</strong> – see SeriesReceiver</p></li>
+<li><p><strong>settling_time</strong> – see SeriesReceiver</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.command_record">
+<span class="sig-name descname"><span class="pre">command_record</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'record/current.jpg'</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.command_record" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.ir_cut_filter_status">
+<span class="sig-name descname"><span class="pre">ir_cut_filter_status</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'unknown'</span></em><a class="headerlink" href="#asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.ir_cut_filter_status" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.exposure_settings">
+<span class="sig-name descname"><span class="pre">exposure_settings</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.exposure_settings" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.exposure_status">
+<span class="sig-name descname"><span class="pre">exposure_status</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.exposure_status" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.camera_type">
+<span class="sig-name descname"><span class="pre">camera_type</span></span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.camera_type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.set_exposure">
+<span class="sig-name descname"><span class="pre">set_exposure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exp_set</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.set_exposure" title="Link to this definition">¶</a></dt>
+<dd><p>”
+Request camera to change exposure time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>exp_set</strong> – Exposure time in microseconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.check_adjust_day_nighttime_settings">
+<span class="sig-name descname"><span class="pre">check_adjust_day_nighttime_settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_night</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.check_adjust_day_nighttime_settings" title="Link to this definition">¶</a></dt>
+<dd><p>Adapt exposure settings between day- and nighttime. So far only for one specific setup and camera type.</p>
+<p>Time of day information is received via argument. Information if night- or daytime settings are actually set,
+is read from images (in image acquisition method). If set and required settings do not match, the parameters
+are written to the camera.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>is_night</strong> – Boolean, True if nighttime is present.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.get_real_exposure_properties">
+<span class="sig-name descname"><span class="pre">get_real_exposure_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.http_image_receiver.MobotixSeriesReceiver.get_real_exposure_properties" title="Link to this definition">¶</a></dt>
+<dd><p>Checks the exposure time and other parameters noted in the header of a Mobotix JPEG.</p>
+<p>Mobotix JPEGs possess a specific header. This is fundamental for the function.</p>
+<p>Exposure times of 1e4 seconds and more are not expected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>img</strong> – Binary encoded mobotix jpeg image</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>int, read exposure time in microseconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../index.html"
+       title="previous chapter">← asi_core.real_time</a>
+  </li>
+  <li class="next">
+    <a href="../image_folder_monitor/index.html"
+       title="next chapter">asi_core.real_time.image_folder_monitor →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

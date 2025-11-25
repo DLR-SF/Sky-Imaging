@@ -1,0 +1,213 @@
+asi_core.image.hdr.pipeline
+===========================
+
+.. py:module:: asi_core.image.hdr.pipeline
+
+.. autoapi-nested-parse::
+
+   This module provides all processing steps for merging exposure series of all-sky images for high-dynamic range imaging.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   asi_core.image.hdr.pipeline._EXPO_RE
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_core.image.hdr.pipeline._parse_exposure_from_name
+   asi_core.image.hdr.pipeline._group_files_by_time
+   asi_core.image.hdr.pipeline._save_response_plot
+   asi_core.image.hdr.pipeline.save_response_curve
+   asi_core.image.hdr.pipeline.load_response_curve
+   asi_core.image.hdr.pipeline.calibrate_camera
+   asi_core.image.hdr.pipeline.get_lne_range
+   asi_core.image.hdr.pipeline.create_and_save_hdr
+   asi_core.image.hdr.pipeline.process_timestamp
+   asi_core.image.hdr.pipeline.process_hdr_series
+   asi_core.image.hdr.pipeline.process_directory
+
+
+Module Contents
+---------------
+
+.. py:data:: _EXPO_RE
+
+.. py:function:: _parse_exposure_from_name(name: str) -> Optional[int]
+
+   Parse exposure time (integer) from filename tail: \*_<EXPO>.<ext>
+
+
+.. py:function:: _group_files_by_time(directory: str | pathlib.Path, round_ts_to: str = '30s') -> pandas.core.groupby.DataFrameGroupBy
+
+   Group image files found in `directory` by rounded timestamp (e.g., every 30s) into exposure brackets.
+   Returns a pandas groupby indexed by the rounded timestamp.
+
+
+.. py:function:: _save_response_plot(response: numpy.ndarray, out_path: str | pathlib.Path, include_mean: bool = True, dpi: int = 150) -> pathlib.Path
+
+   Plot the camera log-response g(z) per channel and save the figure.
+
+   :param response: Response curve in LOG domain. Shape (256, 1, C) or (256, C).
+   :type response: np.ndarray
+   :param out_path: Output image path (e.g., 'response_curve.png').
+   :type out_path: str | Path
+   :param include_mean: If True, also plot the channel-mean curve. Default is `True`.
+   :type include_mean: bool
+   :param dpi: Figure DPI. Default is `150`.
+   :type dpi: int
+   :returns: The saved file path.
+   :rtype: Path
+
+
+.. py:function:: save_response_curve(path: str | pathlib.Path, response: numpy.ndarray, metadata: dict = None, save_plot: bool = True, plot_filename: str = 'response_curve.jpg') -> None
+
+   Save response curve to npz file in LOG domain (Debevec g(z)) with JSON-formatted metadata.
+
+   The response curve is stored in a .npz file with the key 'response' containing an array of shape (256, C),
+   where C is the number of color channels. Metadata is saved as a JSON string under the key 'metadata'.
+
+   If ``save_plot`` is True, a plot of the response curve is also saved as a JPEG file in the same directory.
+
+   :param path: The output file path for the .npz file.
+   :type path: str | Path
+   :param response: The response curve data of shape (256, C) or (256, 1, C).
+   :type response: np.ndarray
+   :param metadata: A dictionary containing metadata to be saved with the curve.
+   :type metadata: dict, optional
+   :param save_plot: Whether to save a plot of the response curve.
+   :type save_plot: bool
+   :param plot_filename: The filename of the plot of the response curve.
+   :type plot_filename: str
+   :returns: None
+   :rtype: None
+
+
+.. py:function:: load_response_curve(path: str | pathlib.Path) -> numpy.ndarray
+
+   Load response curve from npz, returning (256, C) in LOG domain and metadata dict.
+
+
+.. py:function:: calibrate_camera(image_dir: str | pathlib.Path, response_file: str | pathlib.Path, samples_per_image: int = 1000, sample_technique: str = 'random', max_processed_groups: int = 10, smoothness: float = 50.0, weight_type: str = 'triangle', low_clip: int = 5, high_clip: int = 250, seed: Optional[int] = None, round_ts_to: str = '30s') -> numpy.ndarray
+
+   Calibrate camera response (Debevec) from a subset of exposure brackets in a directory.
+
+   - Groups files by rounded timestamp (e.g., every 30s).
+   - For up to ``max_processed_groups`` groups:
+       * parses and sorts images by exposure time,
+       * samples P pixels (xs, ys),
+       * builds stacks (P, N, C) across N exposures,
+       * (optionally) clips dynamic range for stability,
+       * calibrates response g(z) per channel.
+   - Saves response to ``response_file`` (NPZ of shape (256, C), LOG domain).
+   - Returns response as (256, 1, C) in LOG domain.
+
+   Notes:
+   - Assumes filenames like: YYYYmmddHHMMSS_<EXPO>.<ext>, where <EXPO> is an integer.
+
+   :param image_dir: Directory containing image files grouped by timestamp.
+   :type image_dir: str | Path
+   :param response_file: Output file path for saving the calibrated response curve.
+   :type response_file: str | Path
+   :param samples_per_image: Number of pixel samples to extract from each image. 
+       Default is ``1000``.
+   :type samples_per_image: int
+   :param sample_technique: Sampling method (``'random'``` (default) | ``'histogram'```).
+   :type sample_technique: str
+   :param max_processed_groups: Maximum number of timestamp groups to process. Default is ``10``.
+   :type max_processed_groups: int
+   :param smoothness: Smoothing factor for the response curve fitting. Default is ``50.0``.
+   :type smoothness: float
+   :param weight_type: Weighting function type for calibration 
+       ((``'triangle'``` (default) | ``'sine'```).
+   :type weight_type: str
+   :param low_clip: Lower intensity threshold to discard unreliable low values. Default is ``5``.
+   :type low_clip: int
+   :param high_clip: Upper intensity threshold to discard unreliable high values. Default is ``250``.
+   :type high_clip: int
+   :param seed: Optional random seed for reproducibility.
+   :type seed: Optional[int]
+   :param round_ts_to: Time resolution for grouping images (e.g., ``'30s'`` (default), ``'1min'``).
+   :type round_ts_to: str
+   :returns: Camera response curve in LOG domain with shape (256, 1, C).
+   :rtype: np.ndarray
+
+
+.. py:function:: get_lne_range(image_dir: str | pathlib.Path, response_file: str | pathlib.Path, round_ts_to: str = '30s') -> Tuple[float, float]
+
+   Compute a global (min_lnE, max_lnE) using the saved NPZ response curve and all
+   exposure times present in `directory`. Useful for consistent normalization.
+
+   :param image_dir: Directory containing image files grouped by timestamp.
+   :type image_dir: str | Path
+   :param response_file: Path to the saved NPZ response curve file.
+   :type response_file: str | Path
+   :param round_ts_to: Time resolution for grouping images (e.g., '30s' (default), '1min').
+   :type round_ts_to: str
+   :returns: A tuple of (min_lnE, max_lnE) representing the global log exposure range.
+   :rtype: Tuple[float, float]
+
+
+.. py:function:: create_and_save_hdr(img_series, exposure_times, output_path, **kwargs_merging)
+
+   Creates an HDR image from a series of exposures and saves it to a file.
+
+   :param img_series: List of images as NumPy arrays.
+   :param exposure_times: List of exposure times corresponding to the images.
+   :param output_path: Path where the HDR image will be saved.
+   :param kwargs_merging: Additional parameters for the merging function.
+
+
+.. py:function:: process_timestamp(timestamp_group, root_dir, target_dir)
+
+   Process all images corresponding to a single timestamp.
+
+
+.. py:function:: process_hdr_series(asi_files: pandas.Series, root_dir: str, target_dir: str, n_workers=0)
+
+   Process a multi-index Pandas Series containing relative image paths to generate HDR images.
+
+   :param asi_files: A multi-index Pandas Series where the index consists of timestamps and exposure times, and the values contain relative image paths.
+   :type asi_files: pd.Series
+   :param root_dir: The root directory containing all the source images.
+   :type root_dir: str
+   :param target_dir: The target directory where the generated HDR images will be stored (relative paths with respect to root_dir are retained).
+   :type target_dir: str
+   :param n_workers: The number of parallel workers to use for processing. Defaults to 0 (no parallelism).
+   :type n_workers: int, optional
+   :return: A Pandas Series with timestamps as the index and generated HDR file paths as values.
+   :rtype: pd.Series
+
+
+.. py:function:: process_directory(directory, save_dir, round_ts_to='30s', response_file=None, **kwargs)
+
+   Processes a directory of images by grouping them into short time intervals and creating HDR images.
+
+   This function performs the following steps:
+
+   1. Groups image files in the specified directory by timestamp with a given rounding interval.
+   2. If a response file is provided, it loads the camera response curve.
+   3. For each group of images with similar timestamps, it creates an HDR image.
+   4. Saves the resulting HDR images to the specified output directory.
+
+   :param directory: Path to the directory containing images.
+   :type directory: str
+   :param save_dir: Path to the directory where HDR images will be saved.
+   :type save_dir: str
+   :param round_ts_to: Time resolution for grouping images (e.g., '30s' (default), '1min').
+   :type round_ts_to: str
+   :param response_file: Path to the saved NPZ response curve file (optional).
+   :type response_file: str, optional
+   :param kwargs: Additional keyword arguments passed to the HDR merging function.
+   :type kwargs: dict
+   :returns: None
+   :rtype: None
+
+

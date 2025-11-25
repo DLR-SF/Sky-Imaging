@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.visualization.sky_videos</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.visualization.timeseries" href="../timeseries/index.html" />
+  <link rel="prev" title="asi_core.visualization.masking" href="../masking/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.visualization</a> &raquo;</li>
+    
+    <li>asi_core.visualization.sky_videos</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../masking/index.html"
+       title="previous chapter">← asi_core.visualization.masking</a>
+  </li>
+  <li class="next">
+    <a href="../timeseries/index.html"
+       title="next chapter">asi_core.visualization.timeseries →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.visualization.sky_videos">
+<span id="asi-core-visualization-sky-videos"></span><h1>asi_core.visualization.sky_videos<a class="headerlink" href="#module-asi_core.visualization.sky_videos" title="Link to this heading">¶</a></h1>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.visualization.sky_videos.make_image_grid" title="asi_core.visualization.sky_videos.make_image_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_image_grid</span></code></a>(images[, n_rows, n_cols, padding, ...])</p></td>
+<td><p>Creates grid of images.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.visualization.sky_videos.combine_image_and_measurement_curve" title="asi_core.visualization.sky_videos.combine_image_and_measurement_curve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">combine_image_and_measurement_curve</span></code></a>(image, ...[, ...])</p></td>
+<td><p>Combines image and measurement curve.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.visualization.sky_videos.create_video_from_images" title="asi_core.visualization.sky_videos.create_video_from_images"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_video_from_images</span></code></a>(images, output_path[, fps, ...])</p></td>
+<td><p>Creates video from images.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.visualization.sky_videos.create_video_with_measurement_curve" title="asi_core.visualization.sky_videos.create_video_with_measurement_curve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_video_with_measurement_curve</span></code></a>(images, ...[, ...])</p></td>
+<td><p>Creates video from images with measurement curve.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.visualization.sky_videos.create_daily_videos_with_measurement_curves" title="asi_core.visualization.sky_videos.create_daily_videos_with_measurement_curves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_daily_videos_with_measurement_curves</span></code></a>(...[, ...])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.visualization.sky_videos.make_image_grid">
+<span class="sig-prename descclassname"><span class="pre">asi_core.visualization.sky_videos.</span></span><span class="sig-name descname"><span class="pre">make_image_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">images</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_rows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.sky_videos.make_image_grid" title="Link to this definition">¶</a></dt>
+<dd><p>Creates grid of images.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>images</strong> – list of images that should be combined.</p></li>
+<li><p><strong>n_rows</strong> – number of rows in figure.</p></li>
+<li><p><strong>n_cols</strong> – number of columns in figure.</p></li>
+<li><p><strong>padding</strong> – padding between images.</p></li>
+<li><p><strong>pad_color</strong> – color of padding (default is white).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>nummpy array of image grid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.visualization.sky_videos.combine_image_and_measurement_curve">
+<span class="sig-prename descclassname"><span class="pre">asi_core.visualization.sky_videos.</span></span><span class="sig-name descname"><span class="pre">combine_image_and_measurement_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Irradiance</span> <span class="pre">[W/m²]'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(8,</span> <span class="pre">2)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.sky_videos.combine_image_and_measurement_curve" title="Link to this definition">¶</a></dt>
+<dd><p>Combines image and measurement curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> – an image in numpy format.</p></li>
+<li><p><strong>measurement_data</strong> – dataframe of measurements.</p></li>
+<li><p><strong>idx</strong> – index of measurement.</p></li>
+<li><p><strong>measurement_name</strong> – name of measurement.</p></li>
+<li><p><strong>plot_height</strong> – height of plot.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.visualization.sky_videos.create_video_from_images">
+<span class="sig-prename descclassname"><span class="pre">asi_core.visualization.sky_videos.</span></span><span class="sig-name descname"><span class="pre">create_video_from_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">images</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fourcc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rgb_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.sky_videos.create_video_from_images" title="Link to this definition">¶</a></dt>
+<dd><p>Creates video from images.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>images</strong> – list of images in numpy format.</p></li>
+<li><p><strong>output_path</strong> – path of output video.</p></li>
+<li><p><strong>fps</strong> – frames per second.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.visualization.sky_videos.create_video_with_measurement_curve">
+<span class="sig-prename descclassname"><span class="pre">asi_core.visualization.sky_videos.</span></span><span class="sig-name descname"><span class="pre">create_video_with_measurement_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">images</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fourcc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">640</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">480</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Irradiance</span> <span class="pre">[W/m²]'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.sky_videos.create_video_with_measurement_curve" title="Link to this definition">¶</a></dt>
+<dd><p>Creates video from images with measurement curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>images</strong> – list of images in numpy format.</p></li>
+<li><p><strong>output_path</strong> – path of output video.</p></li>
+<li><p><strong>measurement_data</strong> – pandas series of measurements.</p></li>
+<li><p><strong>fps</strong> – frames per second.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.visualization.sky_videos.create_daily_videos_with_measurement_curves">
+<span class="sig-prename descclassname"><span class="pre">asi_core.visualization.sky_videos.</span></span><span class="sig-name descname"><span class="pre">create_daily_videos_with_measurement_curves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asi_files_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asi_root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">video_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_rows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.sky_videos.create_daily_videos_with_measurement_curves" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../masking/index.html"
+       title="previous chapter">← asi_core.visualization.masking</a>
+  </li>
+  <li class="next">
+    <a href="../timeseries/index.html"
+       title="next chapter">asi_core.visualization.timeseries →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

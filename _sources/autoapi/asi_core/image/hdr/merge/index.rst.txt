@@ -1,0 +1,86 @@
+asi_core.image.hdr.merge
+========================
+
+.. py:module:: asi_core.image.hdr.merge
+
+.. autoapi-nested-parse::
+
+   This module provides functionality of merging exposure series of all-sky images for high-dynamic range imaging.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_core.image.hdr.merge.correction_oversatured_regions
+   asi_core.image.hdr.merge.merge_exposure_series
+   asi_core.image.hdr.merge.reconstruct_hdr_from_response
+
+
+Module Contents
+---------------
+
+.. py:function:: correction_oversatured_regions(images, saturation=255)
+
+   Corrects oversaturated regions in a series of images by setting all channels to maximum intensity.
+
+   :param images: List of images as NumPy arrays.
+   :param saturation: Saturation threshold (default: 255).
+   :return: Tuple of corrected images and a mask indicating non-oversaturated regions.
+
+
+.. py:function:: merge_exposure_series(img_series, exposure_times, algorithm='debevec', response=None, saturation=255, low_clip=5, high_clip=250, weight_type='triangle', lnE_range=None, apply_tonemapping=True, gamma=2.2, filetype='.jpg')
+
+   Merge a series of differently exposed images into a single HDR image.
+
+   :param img_series: Sequence of input images as NumPy arrays (HxWxC, 8-bit or float32).
+   :type img_series: list[numpy.ndarray]
+   :param exposure_times: Exposure times corresponding to each image (in seconds).
+   :type exposure_times: list[float]
+   :param algorithm: HDR merging algorithm to use: ``'mertens'`` (exposure fusion),
+       ``'debevec'`` (calibrated HDR), or ``'debevec_custom'`` (uses pre-computed response and custom processing).
+       Default is ``'debevec'``.
+   :type algorithm: str
+   :param response: Optional pre-computed camera response function.
+   :type response: numpy.ndarray | None
+   :param saturation: Pixel value above which intensities are considered saturated.
+       Used only for Debevec methods. Default is ``255``.
+   :type saturation: int
+   :param low_clip: Lower intensity threshold to discard unreliable low values. Default is ``5``.
+   :type low_clip: int
+   :param high_clip: Upper intensity threshold to discard unreliable high values. Default is ``250``.
+   :type high_clip: int
+   :param weight_type: Weighting function for Debevec reconstruction, either ``'triangle'`` (default) or ``'sine'``.
+   :type weight_type: str
+   :param lnE_range: Optional global log-irradiance range ``(min_lnE, max_lnE)`` for consistent scaling.
+   :type lnE_range: tuple[float, float] | None
+   :param apply_tonemapping: Whether to apply tone mapping to the final HDR image. Default is ``True``.
+   :type apply_tonemapping: bool
+   :param gamma: Gamma applied to tone-map the HDR result for display. Default is ``2.2``.
+   :type gamma: float
+   :param filetype: Output file type (``'.jpg'``, ``'.jp2'``, or ``'.png'``). Default ``'.jpg'``.
+   :type filetype: str
+   :returns: Merged HDR image as a NumPy float32 array.
+   :rtype: numpy.ndarray
+
+
+.. py:function:: reconstruct_hdr_from_response(images, exposure_times, response, weight_type: str = 'triangle', lnE_range: tuple | None = None)
+
+   Debevec-style HDR radiance reconstruction using a precomputed response curve.
+
+   :param images: List or array of HxWxC uint8/float images in 0..255 scale.
+   :type images: list[numpy.ndarray] or numpy.ndarray
+   :param exposure_times: Array-like of length N containing exposure times for each image.
+   :type exposure_times: array-like
+   :param response: Per-channel response g(z) in log domain (shape: (256, C)).
+   :type response: numpy.ndarray
+   :param weight_type: Weighting function for Debevec reconstruction, either ``'triangle'`` (default) or ``'sine'``.
+   :type weight_type: str
+   :param lnE_range: Optional global log-irradiance range ``(min_lnE, max_lnE)`` for consistent scaling.
+   :type lnE_range: tuple[float, float] | None
+   :returns: Reconstructed HDR image as a NumPy float32 array in [0, 1] range.
+   :rtype: numpy.ndarray
+
+

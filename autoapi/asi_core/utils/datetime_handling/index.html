@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.utils.datetime_handling</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.utils.filesystem" href="../filesystem/index.html" />
+  <link rel="prev" title="asi_core.utils.daily_h5" href="../daily_h5/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.utils</a> &raquo;</li>
+    
+    <li>asi_core.utils.datetime_handling</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../daily_h5/index.html"
+       title="previous chapter">← asi_core.utils.daily_h5</a>
+  </li>
+  <li class="next">
+    <a href="../filesystem/index.html"
+       title="next chapter">asi_core.utils.filesystem →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.utils.datetime_handling">
+<span id="asi-core-utils-datetime-handling"></span><h1>asi_core.utils.datetime_handling<a class="headerlink" href="#module-asi_core.utils.datetime_handling" title="Link to this heading">¶</a></h1>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.datetime_handling.get_ETC_GMT_timezone" title="asi_core.utils.datetime_handling.get_ETC_GMT_timezone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ETC_GMT_timezone</span></code></a>([desired_timezone])</p></td>
+<td><p>Convert the given Etc/GMT timezone into a <cite>pytz</cite> timezone object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.utils.datetime_handling.parse_datetime" title="asi_core.utils.datetime_handling.parse_datetime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_datetime</span></code></a>(dt_string[, datetime_format, raise_on_fail])</p></td>
+<td><p>Extract timestamp from string into datetime object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.datetime_handling.get_temporal_resolution_from_timeseries" title="asi_core.utils.datetime_handling.get_temporal_resolution_from_timeseries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_temporal_resolution_from_timeseries</span></code></a>(data)</p></td>
+<td><p>Get temporal resolution from a pandas DataFrame with a DatetimeIndex.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.utils.datetime_handling.timezone_ISO8601_to_pytz_posix" title="asi_core.utils.datetime_handling.timezone_ISO8601_to_pytz_posix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timezone_ISO8601_to_pytz_posix</span></code></a>(tz)</p></td>
+<td><p>Convert from ISO 8601 to posix convention (ISO 8601: Positive east of Greenwich)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.datetime_handling.get_ETC_GMT_timezone">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.datetime_handling.</span></span><span class="sig-name descname"><span class="pre">get_ETC_GMT_timezone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desired_timezone</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GMT'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.datetime_handling.get_ETC_GMT_timezone" title="Link to this definition">¶</a></dt>
+<dd><p>Convert the given Etc/GMT timezone into a <cite>pytz</cite> timezone object.</p>
+<p>Example: UTC+2: get_ETC_GMT_timezone(‘GMT+2’) returns pytz timezone object for “Etc/GMT-2”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>desired_timezone</strong> – (str) A string specifying the desired GMT timezone. It should be in the format ‘GMT+1’
+(in the case of UTC+1). If a ‘+’ sign is used, it will be replaced with ‘-’ to follow the Etc/GMT convention
+(<a class="reference external" href="https://en.wikipedia.org/wiki/Tz_database#Area">https://en.wikipedia.org/wiki/Tz_database#Area</a>).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(pytz.timezone), Etc/GMT timezone</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.datetime_handling.parse_datetime">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.datetime_handling.</span></span><span class="sig-name descname"><span class="pre">parse_datetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datetime_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%Y%m%d%H%M%S'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_on_fail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.datetime_handling.parse_datetime" title="Link to this definition">¶</a></dt>
+<dd><p>Extract timestamp from string into datetime object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dt_string</strong> (<em>str</em>) – Timestamp string</p></li>
+<li><p><strong>datetime_format</strong> (<em>str</em>) – Datetime format template with the following placeholders:
+%Y year, %m month, %d day, %H hour, %M minute, %S second. Default is “%Y%m%d%H%M%S”.</p></li>
+<li><p><strong>raise_on_fail</strong> (<em>bool</em>) – Flag to decide whether to raise an error or return None
+if no timestamp could be extracted. Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Timestamp from given string.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>datetime.datetime</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.datetime_handling.get_temporal_resolution_from_timeseries">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.datetime_handling.</span></span><span class="sig-name descname"><span class="pre">get_temporal_resolution_from_timeseries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.datetime_handling.get_temporal_resolution_from_timeseries" title="Link to this definition">¶</a></dt>
+<dd><p>Get temporal resolution from a pandas DataFrame with a DatetimeIndex.
+Resolution is rounded to seconds</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – (DataFrame) DataFrame with datetime index</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(Timedelta) DataFrame time resolution</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.datetime_handling.timezone_ISO8601_to_pytz_posix">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.datetime_handling.</span></span><span class="sig-name descname"><span class="pre">timezone_ISO8601_to_pytz_posix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tz</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.datetime_handling.timezone_ISO8601_to_pytz_posix" title="Link to this definition">¶</a></dt>
+<dd><p>Convert from ISO 8601 to posix convention (ISO 8601: Positive east of Greenwich)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tz</strong> – (str) A string specifying the desired GMT timezone. It should be in the format ‘GMT+1’
+(in the case of UTC+1). If a ‘+’ sign is used, it will be replaced with ‘-’ to follow the Etc/GMT convention
+(<a class="reference external" href="https://en.wikipedia.org/wiki/Tz_database#Area">https://en.wikipedia.org/wiki/Tz_database#Area</a>).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str), Etc/GMT timezone</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../daily_h5/index.html"
+       title="previous chapter">← asi_core.utils.daily_h5</a>
+  </li>
+  <li class="next">
+    <a href="../filesystem/index.html"
+       title="next chapter">asi_core.utils.filesystem →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

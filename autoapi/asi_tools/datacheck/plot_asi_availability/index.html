@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_tools.datacheck.plot_asi_availability</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_tools.hdr" href="../../hdr/index.html" />
+  <link rel="prev" title="asi_tools.datacheck.daily_video_tools" href="../daily_video_tools/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_tools</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_tools.datacheck</a> &raquo;</li>
+    
+    <li>asi_tools.datacheck.plot_asi_availability</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../daily_video_tools/index.html"
+       title="previous chapter">← asi_tools.datacheck.daily_video_tools</a>
+  </li>
+  <li class="next">
+    <a href="../../hdr/index.html"
+       title="next chapter">asi_tools.hdr →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_tools.datacheck.plot_asi_availability">
+<span id="asi-tools-datacheck-plot-asi-availability"></span><h1>asi_tools.datacheck.plot_asi_availability<a class="headerlink" href="#module-asi_tools.datacheck.plot_asi_availability" title="Link to this heading">¶</a></h1>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_tools.datacheck.plot_asi_availability.tz_offset" title="asi_tools.datacheck.plot_asi_availability.tz_offset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tz_offset</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_tools.datacheck.plot_asi_availability.AvailabilityChecker" title="asi_tools.datacheck.plot_asi_availability.AvailabilityChecker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AvailabilityChecker</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_tools.datacheck.plot_asi_availability.AvailabilityChecker">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_tools.datacheck.plot_asi_availability.</span></span><span class="sig-name descname"><span class="pre">AvailabilityChecker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_base_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cam_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.datacheck.plot_asi_availability.AvailabilityChecker" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="asi_tools.datacheck.plot_asi_availability.AvailabilityChecker.img_base_path">
+<span class="sig-name descname"><span class="pre">img_base_path</span></span><a class="headerlink" href="#asi_tools.datacheck.plot_asi_availability.AvailabilityChecker.img_base_path" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_tools.datacheck.plot_asi_availability.AvailabilityChecker.cam_id">
+<span class="sig-name descname"><span class="pre">cam_id</span></span><a class="headerlink" href="#asi_tools.datacheck.plot_asi_availability.AvailabilityChecker.cam_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_tools.datacheck.plot_asi_availability.AvailabilityChecker.get_img_path">
+<span class="sig-name descname"><span class="pre">get_img_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">day_eval</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.datacheck.plot_asi_availability.AvailabilityChecker.get_img_path" title="Link to this definition">¶</a></dt>
+<dd><p>Get the path to requested timestamp and station.
+This function is specific to the hourly folder structure. It may be overridden in the future.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_tools.datacheck.plot_asi_availability.AvailabilityChecker.get_availability">
+<span class="sig-name descname"><span class="pre">get_availability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tz_offset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.datacheck.plot_asi_availability.AvailabilityChecker.get_availability" title="Link to this definition">¶</a></dt>
+<dd><p>Compare expected timestamps with the found timestamps and compile image availability in dictionary.</p>
+<dl>
+<dt>Args:</dt><dd><p>year – string (%Y), year for which image availability is evaluated
+month – string (%m), month for which image availability is evaluated
+tz_offset – integer, offset in hours from UTC
+station_coords – dictionary with keys lat (latitude northing in float/ decimal degrees),</p>
+<blockquote>
+<div><p>lon (longitude easting in float/ decimal degrees)</p>
+</div></blockquote>
+<p>sampling_time – float [seconds], sampling time</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>availabilityInfo – dictionary, informing on image availability. Keys:</dt><dd><p>num_imgs_per_day_expected – 1D array of integers, number of expected images based on sun position
+num_imgs_per_day_found – 1D array of integers, number of found images based on sun position
+histogram_days_hours – numpy 2D array, histogram with days on y and sampling intervals on x
+year – string (%Y), year for which image availability is evaluated
+month – string (%m), month for which image availability is evaluated</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_tools.datacheck.plot_asi_availability.AvailabilityChecker.plot_availability">
+<span class="sig-name descname"><span class="pre">plot_availability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">availability_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.datacheck.plot_asi_availability.AvailabilityChecker.plot_availability" title="Link to this definition">¶</a></dt>
+<dd><p>Plot image availability for the evaluated month.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>availabilityInfo – dictionary, informing on image availability. Keys:</dt><dd><p>num_imgs_per_day_expected – 1D array of integers, number of expected images based on sun position
+num_imgs_per_day_found – 1D array of integers, number of found images based on sun position
+histogram_days_hours – numpy 2D array, histogram with days on y and sampling intervals on x
+year – string (%Y), year for which image availability is evaluated
+month – string (%m), month for which image availability is evaluated</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_tools.datacheck.plot_asi_availability.tz_offset">
+<span class="sig-prename descclassname"><span class="pre">asi_tools.datacheck.plot_asi_availability.</span></span><span class="sig-name descname"><span class="pre">tz_offset</span></span><a class="headerlink" href="#asi_tools.datacheck.plot_asi_availability.tz_offset" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../daily_video_tools/index.html"
+       title="previous chapter">← asi_tools.datacheck.daily_video_tools</a>
+  </li>
+  <li class="next">
+    <a href="../../hdr/index.html"
+       title="next chapter">asi_tools.hdr →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,51 @@
+asi_tools.hdr.__main__
+======================
+
+.. py:module:: asi_tools.hdr.__main__
+
+.. autoapi-nested-parse::
+
+   Main tool for high-dynamic range (HDR) generation from exposure series
+
+
+   This script processes a directory of exposure-bracketed images and merges them
+   into HDR composites. It is intended to be used on a set of images captured
+   with varying exposure times from all-sky imagers.
+
+   The merging is handled by the `asi_core.hdr.process.process_directory` function.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_tools.hdr.__main__.parse_arguments
+   asi_tools.hdr.__main__.main
+
+
+Module Contents
+---------------
+
+.. py:function:: parse_arguments()
+
+   Parse command-line arguments for HDR image generation.
+
+   :returns: Parsed arguments including source and destination directories.
+   :rtype: argparse.Namespace
+
+
+.. py:function:: main()
+
+   Main execution function for HDR merging.
+
+   This function:
+
+   1. Parses command-line arguments.
+   2. Converts input paths to `Path` objects.
+   3. Calls `process_directory` to merge image series into HDR images.
+
+   :returns: None
+
+

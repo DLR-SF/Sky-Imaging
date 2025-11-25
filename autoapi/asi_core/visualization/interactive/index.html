@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.visualization.interactive</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.visualization.masking" href="../masking/index.html" />
+  <link rel="prev" title="asi_core.visualization.density_scatter" href="../density_scatter/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.visualization</a> &raquo;</li>
+    
+    <li>asi_core.visualization.interactive</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../density_scatter/index.html"
+       title="previous chapter">← asi_core.visualization.density_scatter</a>
+  </li>
+  <li class="next">
+    <a href="../masking/index.html"
+       title="next chapter">asi_core.visualization.masking →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.visualization.interactive">
+<span id="asi-core-visualization-interactive"></span><h1>asi_core.visualization.interactive<a class="headerlink" href="#module-asi_core.visualization.interactive" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot" title="asi_core.visualization.interactive.InteractiveTimeSeriesPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InteractiveTimeSeriesPlot</span></code></a></p></td>
+<td><p>Interactive time series plot with date and variable selection.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.visualization.interactive.</span></span><span class="sig-name descname"><span class="pre">InteractiveTimeSeriesPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">plot_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot" title="Link to this definition">¶</a></dt>
+<dd><p>Interactive time series plot with date and variable selection.</p>
+<p>This class generates an interactive time series visualization using a pandas DataFrame
+with a DatetimeIndex. It allows users to select specific dates and variables (columns)
+to visualize through widgets like MultiSelect and DatePicker. Navigation buttons
+enable browsing between available dates.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>df (pd.DataFrame): Input time series DataFrame.
+plot_kwargs (dict): Additional keyword arguments for <cite>hvplot.line()</cite>.
+fontsize (dict): Font sizes for plot elements.
+available_dates (list): Sorted list of unique dates from the DataFrame index.
+columns (list): List of column names in the DataFrame.
+variable_selector (pn.widgets.MultiSelect): Widget for selecting variables to plot.
+date_picker (pn.widgets.DatePicker): Widget for selecting a date.
+prev_button (pn.widgets.Button): Button for selecting the previous date.
+next_button (pn.widgets.Button): Button for selecting the next date.
+plot_pane (pn.pane.HoloViews): Pane for displaying the plot.
+layout (pn.Column): The overall Panel layout for the interactive plot.</p>
+</dd>
+<dt>Parameters:</dt><dd><p>df (pd.DataFrame): A time series DataFrame with a DatetimeIndex.
+**plot_kwargs: Additional keyword arguments for <cite>hvplot.line()</cite> used for plotting customization.</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: If <cite>df</cite> is not a non-empty DataFrame with a DatetimeIndex.
+ValueError: If no valid dates are found in <cite>df</cite>.</p>
+</dd>
+<dt>Example usage:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span> <span class="o">=</span> <span class="n">InteractiveTimeSeriesPlot</span><span class="p">(</span><span class="n">my_dataframe</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;My Time Series: &quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">save_as_html</span><span class="p">(</span><span class="s2">&quot;output_plot.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.df">
+<span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.df" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.plot_kwargs">
+<span class="sig-name descname"><span class="pre">plot_kwargs</span></span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.plot_kwargs" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.fontsize">
+<span class="sig-name descname"><span class="pre">fontsize</span></span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.fontsize" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.available_dates">
+<span class="sig-name descname"><span class="pre">available_dates</span></span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.available_dates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.columns">
+<span class="sig-name descname"><span class="pre">columns</span></span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.columns" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.variable_selector">
+<span class="sig-name descname"><span class="pre">variable_selector</span></span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.variable_selector" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.date_picker">
+<span class="sig-name descname"><span class="pre">date_picker</span></span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.date_picker" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.prev_button">
+<span class="sig-name descname"><span class="pre">prev_button</span></span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.prev_button" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.next_button">
+<span class="sig-name descname"><span class="pre">next_button</span></span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.next_button" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.plot_pane">
+<span class="sig-name descname"><span class="pre">plot_pane</span></span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.plot_pane" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.layout">
+<span class="sig-name descname"><span class="pre">layout</span></span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.layout" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.plot_day">
+<span class="sig-name descname"><span class="pre">plot_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selected_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected_variables</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.plot_day" title="Link to this definition">¶</a></dt>
+<dd><p>Filters and plots the data for the selected date and variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>selected_date</strong> (<em>datetime.date</em>) – The selected date for plotting.</p></li>
+<li><p><strong>selected_variables</strong> (<em>list</em>) – Selected columns to plot.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>hvplot object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.update_plot">
+<span class="sig-name descname"><span class="pre">update_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.update_plot" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the plot when the selected date or variables change.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.prev_date">
+<span class="sig-name descname"><span class="pre">prev_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.prev_date" title="Link to this definition">¶</a></dt>
+<dd><p>Moves to the previous available date in the dataset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.next_date">
+<span class="sig-name descname"><span class="pre">next_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.next_date" title="Link to this definition">¶</a></dt>
+<dd><p>Moves to the next available date in the dataset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.save_as_html">
+<span class="sig-name descname"><span class="pre">save_as_html</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'interactive_plot.html'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.save_as_html" title="Link to this definition">¶</a></dt>
+<dd><p>Saves the interactive plot as an HTML file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.visualization.interactive.InteractiveTimeSeriesPlot.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.interactive.InteractiveTimeSeriesPlot.show" title="Link to this definition">¶</a></dt>
+<dd><p>Displays the Panel layout.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../density_scatter/index.html"
+       title="previous chapter">← asi_core.visualization.density_scatter</a>
+  </li>
+  <li class="next">
+    <a href="../masking/index.html"
+       title="next chapter">asi_core.visualization.masking →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

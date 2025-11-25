@@ -1,0 +1,57 @@
+asi_tools.undistortion.__main__
+===============================
+
+.. py:module:: asi_tools.undistortion.__main__
+
+.. autoapi-nested-parse::
+
+   Undistortion script for all-sky camera images.
+
+   This script provides a command-line interface to undistort images taken with 
+   fisheye or omnidirectional all-sky imagers, based on pre-calibrated camera models.
+
+   It supports:
+   - Configuration via YAML files
+   - Automated image series processing within a time window
+   - Application of calibration parameters (internal + external)
+   - Optional use of binary camera masks to exclude invalid regions
+   - Saving the undistorted images as JPEG
+
+   The internal calibration model follows:
+   Scaramuzza, D., et al. (2006). A Toolbox for Easily Calibrating Omnidirectional Cameras.
+   IROS, Beijing, China.
+
+   The external orientation (Euler angles) is defined following:
+   Luhmann, T. (2000). Nahbereichsphotogrammetrie. Wichmann Verlag.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   asi_tools.undistortion.__main__.logger
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_tools.undistortion.__main__.parse_arguments
+   asi_tools.undistortion.__main__.process_image
+   asi_tools.undistortion.__main__.main
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:function:: parse_arguments()
+
+.. py:function:: process_image(image_path, asi=None, image_root=None, output_dir='./undistorted')
+
+.. py:function:: main()
+

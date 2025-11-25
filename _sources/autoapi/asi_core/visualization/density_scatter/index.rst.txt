@@ -1,0 +1,41 @@
+asi_core.visualization.density_scatter
+======================================
+
+.. py:module:: asi_core.visualization.density_scatter
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_core.visualization.density_scatter.plot_density
+
+
+Module Contents
+---------------
+
+.. py:function:: plot_density(x, y, pairs=False, ax=None, xlabel=None, ylabel=None, title='', xlim=(None, None), ylim=(None, None), cbar_scale='linear', cbar_lim=(None, None), metrics=None, quantiles=False, quan_bin_num=10, save=False, cut_bins=True, print_perc_legend=True, print_metrics_box=True)
+
+   Create density plot with defined grid size allowing to interpret color code quantitatively.
+
+   :param x: (list, DataFrame column) x-axis values 
+   :param y: (list, DataFrame column) y-axis values 
+   :param pairs: (bool) If True, parity plot will be produced (equal aspect and angle bisecting)
+   :param ax: (matplotlib axis) Here a subplots axis can be passed. If None, a single plot will be returned
+   :param xlabel: (str) Custom xlabel
+   :param ylabel: (str) Custom ylabel
+   :param title: (str) Desired plot title
+   :param xlim: (tuple) x-axis limits
+   :param ylim: (tuple) y-axis limits
+   :param cbar_scale: (string) use 'linear' or 'log' color coding and colorbar
+   :param cbar_lim: (tuple) Limits of colorbar
+   :param metrics: (str) Choose between rel for relative or abs for absolute or both
+   :param quantiles: (bool) If True, 5%, 25%, 50%, 75%, and 95% quantiles will be plotted
+   :param quan_bin_num: (int) Number of bins for quantiles
+   :param save: (bool or str) If Truthy, plot is saved as pickle. If truthy str, file is named to the value of save
+   :param cut_bins: If False, bin edges will not cut the x values
+   :param print_perc_legend: If True, print a legend describing plotted percentiles
+   :param print_metrics_box: If True, print deviation metrics in plot
+
+

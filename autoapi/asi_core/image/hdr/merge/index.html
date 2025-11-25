@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.image.hdr.merge</title>
+    
+          <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../../search.html" />
+  <link rel="next" title="asi_core.image.hdr.pipeline" href="../pipeline/index.html" />
+  <link rel="prev" title="asi_core.image.hdr.calibration" href="../calibration/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core.image</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.image.hdr</a> &raquo;</li>
+    
+    <li>asi_core.image.hdr.merge</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../calibration/index.html"
+       title="previous chapter">← asi_core.image.hdr.calibration</a>
+  </li>
+  <li class="next">
+    <a href="../pipeline/index.html"
+       title="next chapter">asi_core.image.hdr.pipeline →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.image.hdr.merge">
+<span id="asi-core-image-hdr-merge"></span><h1>asi_core.image.hdr.merge<a class="headerlink" href="#module-asi_core.image.hdr.merge" title="Link to this heading">¶</a></h1>
+<p>This module provides functionality of merging exposure series of all-sky images for high-dynamic range imaging.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.image.hdr.merge.correction_oversatured_regions" title="asi_core.image.hdr.merge.correction_oversatured_regions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">correction_oversatured_regions</span></code></a>(images[, saturation])</p></td>
+<td><p>Corrects oversaturated regions in a series of images by setting all channels to maximum intensity.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.image.hdr.merge.merge_exposure_series" title="asi_core.image.hdr.merge.merge_exposure_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_exposure_series</span></code></a>(img_series, exposure_times[, ...])</p></td>
+<td><p>Merge a series of differently exposed images into a single HDR image.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.image.hdr.merge.reconstruct_hdr_from_response" title="asi_core.image.hdr.merge.reconstruct_hdr_from_response"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reconstruct_hdr_from_response</span></code></a>(images, exposure_times, ...)</p></td>
+<td><p>Debevec-style HDR radiance reconstruction using a precomputed response curve.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.hdr.merge.correction_oversatured_regions">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.hdr.merge.</span></span><span class="sig-name descname"><span class="pre">correction_oversatured_regions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">images</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">255</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.image.hdr.merge.correction_oversatured_regions" title="Link to this definition">¶</a></dt>
+<dd><p>Corrects oversaturated regions in a series of images by setting all channels to maximum intensity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>images</strong> – List of images as NumPy arrays.</p></li>
+<li><p><strong>saturation</strong> – Saturation threshold (default: 255).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple of corrected images and a mask indicating non-oversaturated regions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.hdr.merge.merge_exposure_series">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.hdr.merge.</span></span><span class="sig-name descname"><span class="pre">merge_exposure_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'debevec'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">255</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'triangle'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lnE_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_tonemapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filetype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.jpg'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.image.hdr.merge.merge_exposure_series" title="Link to this definition">¶</a></dt>
+<dd><p>Merge a series of differently exposed images into a single HDR image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img_series</strong> (<em>list</em><em>[</em><em>numpy.ndarray</em><em>]</em>) – Sequence of input images as NumPy arrays (HxWxC, 8-bit or float32).</p></li>
+<li><p><strong>exposure_times</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – Exposure times corresponding to each image (in seconds).</p></li>
+<li><p><strong>algorithm</strong> (<em>str</em>) – HDR merging algorithm to use: <code class="docutils literal notranslate"><span class="pre">'mertens'</span></code> (exposure fusion),
+<code class="docutils literal notranslate"><span class="pre">'debevec'</span></code> (calibrated HDR), or <code class="docutils literal notranslate"><span class="pre">'debevec_custom'</span></code> (uses pre-computed response and custom processing).
+Default is <code class="docutils literal notranslate"><span class="pre">'debevec'</span></code>.</p></li>
+<li><p><strong>response</strong> (<em>numpy.ndarray</em><em> | </em><em>None</em>) – Optional pre-computed camera response function.</p></li>
+<li><p><strong>saturation</strong> (<em>int</em>) – Pixel value above which intensities are considered saturated.
+Used only for Debevec methods. Default is <code class="docutils literal notranslate"><span class="pre">255</span></code>.</p></li>
+<li><p><strong>low_clip</strong> (<em>int</em>) – Lower intensity threshold to discard unreliable low values. Default is <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p></li>
+<li><p><strong>high_clip</strong> (<em>int</em>) – Upper intensity threshold to discard unreliable high values. Default is <code class="docutils literal notranslate"><span class="pre">250</span></code>.</p></li>
+<li><p><strong>weight_type</strong> (<em>str</em>) – Weighting function for Debevec reconstruction, either <code class="docutils literal notranslate"><span class="pre">'triangle'</span></code> (default) or <code class="docutils literal notranslate"><span class="pre">'sine'</span></code>.</p></li>
+<li><p><strong>lnE_range</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>] </em><em>| </em><em>None</em>) – Optional global log-irradiance range <code class="docutils literal notranslate"><span class="pre">(min_lnE,</span> <span class="pre">max_lnE)</span></code> for consistent scaling.</p></li>
+<li><p><strong>apply_tonemapping</strong> (<em>bool</em>) – Whether to apply tone mapping to the final HDR image. Default is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em>) – Gamma applied to tone-map the HDR result for display. Default is <code class="docutils literal notranslate"><span class="pre">2.2</span></code>.</p></li>
+<li><p><strong>filetype</strong> (<em>str</em>) – Output file type (<code class="docutils literal notranslate"><span class="pre">'.jpg'</span></code>, <code class="docutils literal notranslate"><span class="pre">'.jp2'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'.png'</span></code>). Default <code class="docutils literal notranslate"><span class="pre">'.jpg'</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Merged HDR image as a NumPy float32 array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.hdr.merge.reconstruct_hdr_from_response">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.hdr.merge.</span></span><span class="sig-name descname"><span class="pre">reconstruct_hdr_from_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">images</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'triangle'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lnE_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.image.hdr.merge.reconstruct_hdr_from_response" title="Link to this definition">¶</a></dt>
+<dd><p>Debevec-style HDR radiance reconstruction using a precomputed response curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>images</strong> (<em>list</em><em>[</em><em>numpy.ndarray</em><em>] or </em><em>numpy.ndarray</em>) – List or array of HxWxC uint8/float images in 0..255 scale.</p></li>
+<li><p><strong>exposure_times</strong> (<em>array-like</em>) – Array-like of length N containing exposure times for each image.</p></li>
+<li><p><strong>response</strong> (<em>numpy.ndarray</em>) – Per-channel response g(z) in log domain (shape: (256, C)).</p></li>
+<li><p><strong>weight_type</strong> (<em>str</em>) – Weighting function for Debevec reconstruction, either <code class="docutils literal notranslate"><span class="pre">'triangle'</span></code> (default) or <code class="docutils literal notranslate"><span class="pre">'sine'</span></code>.</p></li>
+<li><p><strong>lnE_range</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>] </em><em>| </em><em>None</em>) – Optional global log-irradiance range <code class="docutils literal notranslate"><span class="pre">(min_lnE,</span> <span class="pre">max_lnE)</span></code> for consistent scaling.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reconstructed HDR image as a NumPy float32 array in [0, 1] range.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../calibration/index.html"
+       title="previous chapter">← asi_core.image.hdr.calibration</a>
+  </li>
+  <li class="next">
+    <a href="../pipeline/index.html"
+       title="next chapter">asi_core.image.hdr.pipeline →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

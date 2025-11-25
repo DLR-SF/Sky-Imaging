@@ -1,0 +1,357 @@
+asi_core.real_time.http_image_receiver
+======================================
+
+.. py:module:: asi_core.real_time.http_image_receiver
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   asi_core.real_time.http_image_receiver.EXIF_KEYS
+   asi_core.real_time.http_image_receiver.KNOWN_MOBOTIX_MODELS
+   asi_core.real_time.http_image_receiver.KNOWN_NIGHTIME_MODES
+   asi_core.real_time.http_image_receiver.MOBOTIX_CAMS_SWITCH_SETTINGS_DAY_NIGHT
+   asi_core.real_time.http_image_receiver.detected_local_tz
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   asi_core.real_time.http_image_receiver.ImageReceiver
+   asi_core.real_time.http_image_receiver.SeriesReceiver
+   asi_core.real_time.http_image_receiver.AxisSeriesReceiver
+   asi_core.real_time.http_image_receiver.MobotixSeriesReceiver
+
+
+Module Contents
+---------------
+
+.. py:data:: EXIF_KEYS
+
+.. py:data:: KNOWN_MOBOTIX_MODELS
+   :value: ['Q71', 'Q26', 'Q25', 'Q24']
+
+
+.. py:data:: KNOWN_NIGHTIME_MODES
+   :value: ['moon_detection', 'cloud_monitoring']
+
+
+.. py:data:: MOBOTIX_CAMS_SWITCH_SETTINGS_DAY_NIGHT
+
+.. py:data:: detected_local_tz
+   :value: None
+
+
+.. py:class:: ImageReceiver(http_snapshot, storage_path, location, sampling_time=timedelta(seconds=30), night_sampling_time=timedelta(seconds=60), timezone_images=detected_local_tz, nighttime_mode='moon_detection')
+
+   Handles the image acquisition of an IP camera with http-API.
+
+   :param http_snapshot: str, http request sent to camera to get a snapshot
+   :param storage_path: path to which image series will be stored; folders for month, day, hour will be created
+   :param location: dict, with fields indicating coordinates:
+
+       - "lat" (decimal degrees, northing positive),
+       - "lon" (decimal degrees, easting positive),
+       - "alt" (meters)
+   :param sampling_time: datetime timedelta -- temporal offset between image series
+   :param night_sampling_time: datetime timedelta -- temporal offset between image series during nighttime
+   :param timezone_images: Specify pytz.timezone of the images and log file. If not provided computer timezone is
+       used.
+   :param nighttime_mode: Acquisition mode used during nighttime. Optimized for different purposes: Moon detection,
+       cloud detection, ...
+
+
+   .. py:attribute:: min_sun_ele_exp
+      :value: 0
+
+
+
+   .. py:attribute:: max_sun_ele_exp
+      :value: 90
+
+
+
+   .. py:attribute:: min_moon_ele
+      :value: 10
+
+
+
+   .. py:attribute:: min_moon_phase
+      :value: 0.8
+
+
+
+   .. py:attribute:: http_snapshot
+
+
+   .. py:attribute:: storage_path
+
+
+   .. py:attribute:: sampling_time
+
+
+   .. py:attribute:: location
+
+
+   .. py:attribute:: timezone_images
+
+
+   .. py:attribute:: day_sampling_time
+
+
+   .. py:attribute:: night_sampling_time
+
+
+   .. py:attribute:: nighttime_mode
+      :value: 'moon_detection'
+
+
+
+   .. py:attribute:: record_night_image
+      :value: False
+
+
+
+   .. py:attribute:: midnight
+      :value: None
+
+
+
+   .. py:attribute:: ephem_observer
+
+
+   .. py:method:: http_get_snapshot()
+
+      Sends an http request and extract binary JPEG from response
+
+      :return: Binary encoded JPEG image
+
+
+
+   .. py:method:: store_img_to_path(ts, img, exp_time=0)
+
+      Stores an image record in the folder structure according to the convention below
+
+      :param ts: datetime, timestamp at which the image was taken
+      :param img: binary encoded image (jpg)
+      :param exp_time: int, exposure time of the image (microseconds)
+
+
+
+   .. py:method:: record_continuously()
+
+      Once called, this function runs infinitely taking images at the defined sampling rate
+
+
+
+   .. py:method:: trigger_store_exposure()
+
+      Triggers, receives and saves a snapshot from the camera.
+
+      Exposure time etc. remain unchanged. Only a snapshot is requested and saved
+
+
+
+   .. py:method:: check_adjust_day_nighttime_settings()
+
+      Check sun elevation and if needed change camera settings which are different during day- and nighttime.
+
+      This is a dummy. Implemented for compatible cameras.
+
+
+
+   .. py:method:: prepare_image_acquisition()
+
+      Prepare image acquisition.
+
+      Check if conditions for recording images are met. Either for standard daylight images (depending on sun
+      elevation) or nighttime images when there is (almost) full moon and the moon is above the horizon.
+
+      :return: Boolean whether image should be recorded.
+
+
+
+.. py:class:: SeriesReceiver(url_cam, storage_path, location, sampling_time=timedelta(seconds=30), night_sampling_time=timedelta(seconds=60), exposure_times=[80, 160, 320, 640, 1280], night_exposure_times=[80000], settling_time=timedelta(seconds=0.25), timezone_images=detected_local_tz, rel_threshold_exposure=0.1, safety_deadtime_between_exposure_series=timedelta(seconds=3), nighttime_mode='moon_detection')
+
+   Bases: :py:obj:`ImageReceiver`
+
+
+   Defines the acquisition of image series with different exposure times.
+
+   :param url_cam: URL/ IP of the camera to be controlled
+   :param storage_path: see ImageReceiver
+   :param location: see ImageReceiver
+   :param sampling_time: see ImageReceiver
+   :param night_sampling_time: timedelta, sampling time used during nighttime
+   :param exposure_times: list, exposure times in microseconds. One snapshot per exp. time will be stored
+   :param settling_time: Time to wait until requesting an image from camera after setting new exposure time or
+       after previous request
+   :param timezone_images: see ImageReceiver
+   :param rel_threshold_exposure: Relative deviation of exp. time. Image will be rejected if real exp. time
+       deviates stronger from expected value
+   :param safety_deadtime_between_exposure_series: Cancel acquisition of exposure series if less than this time
+       remains until end of sampling period
+   :param nighttime_mode: Acquisition mode used during nighttime. Optimized for different purposes: Moon detection,
+       cloud detection, ...
+
+
+   .. py:attribute:: exposure_times
+      :value: [80, 160, 320, 640, 1280]
+
+
+
+   .. py:attribute:: night_exposure_times
+      :value: [80000]
+
+
+
+   .. py:attribute:: url_cam
+
+
+   .. py:attribute:: settling_time
+
+
+   .. py:attribute:: rel_threshold_exposure
+      :value: 0.1
+
+
+
+   .. py:attribute:: safety_deadtime_between_exposure_series
+
+
+   .. py:method:: set_exposure(exp_set)
+      :abstractmethod:
+
+
+      "
+      Request camera to change exposure time
+
+      :param exp_set: Exposure time in microseconds
+
+
+
+   .. py:method:: trigger_store_exposure()
+
+      Records an image series with different exposure times
+
+
+
+   .. py:method:: get_real_exposure_properties(img)
+
+      Checks the exposure time noted in the EXIF header.
+
+      :param img: Binary encoded jpeg image with EXIF header that contains actual exposure time
+      :return exp: int, read exposure time in microseconds
+
+
+
+.. py:class:: AxisSeriesReceiver(url_cam, storage_path, location, user, password, **kwargs)
+
+   Bases: :py:obj:`SeriesReceiver`
+
+
+   Handles the acquisition of image series with an AXIS camera.
+
+   :param url_cam: see SeriesReceiver
+   :param storage_path: see ImageReceiver
+   :param location: see ImageReceiver
+   :param user: name of user authorized to set exposure parameters
+   :param password: password of user
+   :param sampling_time: see ImageReceiver
+   :param exposure_times: see SeriesReceiver
+   :param settling_time: see SeriesReceiver
+   :param user: name of user authorized to set exposure parameters
+   :param password: password of user
+
+
+   .. py:attribute:: command_record
+      :value: 'jpg/image.jpg?camera=1&overview=0&resolution=2016x2016&videoframeskipmode=empty&timestamp=166279...
+
+
+
+   .. py:attribute:: authentication
+
+
+   .. py:method:: set_exposure(exp_set)
+
+      "
+      Request camera to change exposure time
+
+      :param exp_set: Exposure time in microseconds
+
+
+
+.. py:class:: MobotixSeriesReceiver(cam_cfg, storage_path, **kwargs)
+
+   Bases: :py:obj:`SeriesReceiver`
+
+
+   Handles the acquisition of image series with a Mobotix camera.
+
+   :param cam_cfg: dict with the keys
+       - url_cam: see SeriesReceiver
+       - location: see ImageReceiver
+       - camera_model: one of the models specified in KNOWN_MOBOTIX_MODELS
+   :param storage_path: see ImageReceiver
+   :param sampling_time: see ImageReceiver
+   :param exposure_times: see SeriesReceiver
+   :param settling_time: see SeriesReceiver
+
+
+   .. py:attribute:: command_record
+      :value: 'record/current.jpg'
+
+
+
+   .. py:attribute:: ir_cut_filter_status
+      :value: 'unknown'
+
+
+
+   .. py:attribute:: exposure_settings
+
+
+   .. py:attribute:: exposure_status
+
+
+   .. py:attribute:: camera_type
+
+
+   .. py:method:: set_exposure(exp_set)
+
+      "
+      Request camera to change exposure time
+
+      :param exp_set: Exposure time in microseconds
+
+
+
+   .. py:method:: check_adjust_day_nighttime_settings(is_night)
+
+      Adapt exposure settings between day- and nighttime. So far only for one specific setup and camera type.
+
+      Time of day information is received via argument. Information if night- or daytime settings are actually set, 
+      is read from images (in image acquisition method). If set and required settings do not match, the parameters 
+      are written to the camera.
+
+      :param is_night: Boolean, True if nighttime is present.
+
+
+
+   .. py:method:: get_real_exposure_properties(img)
+
+      Checks the exposure time and other parameters noted in the header of a Mobotix JPEG.
+
+      Mobotix JPEGs possess a specific header. This is fundamental for the function.
+
+      Exposure times of 1e4 seconds and more are not expected.
+
+      :param img: Binary encoded mobotix jpeg image
+      :return: int, read exposure time in microseconds
+
+
+

@@ -1,0 +1,32 @@
+asi_core.utils.basics
+=====================
+
+.. py:module:: asi_core.utils.basics
+
+.. autoapi-nested-parse::
+
+   This module provides basic helper functions.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_core.utils.basics.ifnone_do
+
+
+Module Contents
+---------------
+
+.. py:function:: ifnone_do(var, notnone_function, none_function)
+
+   Apply different functions to a variable depending on if it is None or not
+
+   :param var: variable checked if None or not
+   :param notnone_function: function applied to var if var is not None
+   :param none_function: function applied to var if var is None
+   :return: return of the respective function
+
+

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.utils.geometry</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.utils.image_time_series" href="../image_time_series/index.html" />
+  <link rel="prev" title="asi_core.utils.filesystem" href="../filesystem/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.utils</a> &raquo;</li>
+    
+    <li>asi_core.utils.geometry</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../filesystem/index.html"
+       title="previous chapter">← asi_core.utils.filesystem</a>
+  </li>
+  <li class="next">
+    <a href="../image_time_series/index.html"
+       title="next chapter">asi_core.utils.image_time_series →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.utils.geometry">
+<span id="asi-core-utils-geometry"></span><h1>asi_core.utils.geometry<a class="headerlink" href="#module-asi_core.utils.geometry" title="Link to this heading">¶</a></h1>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.geometry.to_radians" title="asi_core.utils.geometry.to_radians"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_radians</span></code></a>(elevation, azimuth)</p></td>
+<td><p>Converts elevation and azimuth angles from degrees to radians.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.utils.geometry.spherical_to_cartesian" title="asi_core.utils.geometry.spherical_to_cartesian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spherical_to_cartesian</span></code></a>(azimuth, elevation, r)</p></td>
+<td><p>Transform spherical to cartesian coordinates</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.geometry.cartesian_to_spherical" title="asi_core.utils.geometry.cartesian_to_spherical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cartesian_to_spherical</span></code></a>(x, y, z)</p></td>
+<td><p>Transform cartesian to spherical coordinates. See reverse function spherical_to_cartesian, for further convention.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.utils.geometry.is_circle_contour" title="asi_core.utils.geometry.is_circle_contour"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_circle_contour</span></code></a>(contour[, aspect_ratio_tolerance, ...])</p></td>
+<td><p>Determines if a contour is circular based on its aspect ratio and circularity.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.geometry.to_radians">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.geometry.</span></span><span class="sig-name descname"><span class="pre">to_radians</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elevation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.geometry.to_radians" title="Link to this definition">¶</a></dt>
+<dd><p>Converts elevation and azimuth angles from degrees to radians.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elevation</strong> – Elevation angle [º]</p></li>
+<li><p><strong>azimuth</strong> – Azimuth angle [º], over positive x-axis, rotating around z-axis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(np.float64) Elevation and Azimuth angles in radians.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.geometry.spherical_to_cartesian">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.geometry.</span></span><span class="sig-name descname"><span class="pre">spherical_to_cartesian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">azimuth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.geometry.spherical_to_cartesian" title="Link to this definition">¶</a></dt>
+<dd><p>Transform spherical to cartesian coordinates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>azimuth</strong> – array of the azimuth angle [radians], over positive x-axis, rotating around z-axis</p></li>
+<li><p><strong>elevation</strong> – array of the elevation angle [radians]</p></li>
+<li><p><strong>r</strong> – array of the radius</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>arrays of the cartesian coordinates x, y, z (same unit as radius)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.geometry.cartesian_to_spherical">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.geometry.</span></span><span class="sig-name descname"><span class="pre">cartesian_to_spherical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.geometry.cartesian_to_spherical" title="Link to this definition">¶</a></dt>
+<dd><p>Transform cartesian to spherical coordinates. See reverse function spherical_to_cartesian, for further convention.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – cartesian coordinate x</p></li>
+<li><p><strong>y</strong> – cartesian coordinate y, same unit as x</p></li>
+<li><p><strong>z</strong> – cartesian coordinate z, same unit as x</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>arrays of the azimuth angle [radians], elevation angle [radians], radius (same unit as x)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.geometry.is_circle_contour">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.geometry.</span></span><span class="sig-name descname"><span class="pre">is_circle_contour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contour</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect_ratio_tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circularity_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.geometry.is_circle_contour" title="Link to this definition">¶</a></dt>
+<dd><p>Determines if a contour is circular based on its aspect ratio and circularity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>contour</strong> – (numpy.ndarray) The contour to analyze.</p></li>
+<li><p><strong>aspect_ratio_tolerance</strong> – (float, optional) The maximum difference between the aspect ratio of the contour’s
+bounding rectangle and 1. Default is 0.1.</p></li>
+<li><p><strong>circularity_threshold</strong> – (float, optional) The minimum circularity of the contour. Default is 0.7.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>is_circular, True if the contour is circular, False otherwise</p></li>
+<li><p>aspcet_ratio, Aspect ratio of the contour</p></li>
+<li><p>circularity, Circularity of the contour</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../filesystem/index.html"
+       title="previous chapter">← asi_core.utils.filesystem</a>
+  </li>
+  <li class="next">
+    <a href="../image_time_series/index.html"
+       title="next chapter">asi_core.utils.image_time_series →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

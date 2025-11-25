@@ -1,0 +1,52 @@
+asi_tools.mask_creation.auto.__main__
+=====================================
+
+.. py:module:: asi_tools.mask_creation.auto.__main__
+
+.. autoapi-nested-parse::
+
+   Main tool for automatic camera mask creation
+
+   This script generates a mask identifying fixed obstructions in sky images,
+   based on images from a clear day. It computes an average image from a
+   selection of samples, derives a binary mask, and saves the result along with
+   a visual overlay.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_tools.mask_creation.auto.__main__.parse_arguments
+   asi_tools.mask_creation.auto.__main__.main
+
+
+Module Contents
+---------------
+
+.. py:function:: parse_arguments()
+
+   Parse command-line arguments for generating a camera mask.
+
+   :returns: Parsed arguments containing image directory, date, camera name,
+             output mask directory, and image sampling options.
+   :rtype: argparse.Namespace
+
+
+.. py:function:: main()
+
+   Main entry point for mask creation and visualization.
+
+   This function:
+
+   1. Parses user arguments from the CLI.
+   2. Loads images.
+   3. Computes an average image and derives a binary mask.
+   4. Saves the generated mask and an overlay visualization.
+
+   :raises AssertionError: If the image directory does not exist or contains no images or 
+                           the Number of required images is less than the image subset.
+
+

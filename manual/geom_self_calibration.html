@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>How to run the geometric self-calibration for All-Sky Imagers?</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="API Reference" href="../autoapi/index.html" />
+  <link rel="prev" title="Camera Mask" href="mask_creation.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../autoapi/index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">User Manual</a> &raquo;</li>
+    
+    <li>How to run the geometric self-calibration for All-Sky Imagers?</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="mask_creation.html"
+       title="previous chapter">← Camera Mask</a>
+  </li>
+  <li class="next">
+    <a href="../autoapi/index.html"
+       title="next chapter">API Reference →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="how-to-run-the-geometric-self-calibration-for-all-sky-imagers">
+<h1>How to run the geometric self-calibration for All-Sky Imagers?<a class="headerlink" href="#how-to-run-the-geometric-self-calibration-for-all-sky-imagers" title="Link to this heading">¶</a></h1>
+<p>This section describes the steps to run the geometric camera self-calibration functionality in asi-core.</p>
+<p>Make sure that the asi-core package is properly installed.</p>
+<p>To learn how to setup asi-core see <a class="reference internal" href="getting_started.html"><span class="std std-doc">Getting started</span></a></p>
+<section id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Link to this heading">¶</a></h2>
+<p>Before running the geometric self-calibration it is necessary to configure parameters related to the camera being calibrated and to the calibration process itself.</p>
+<p>This information is contained in 3 different files that are input to the calibration program.</p>
+<p>The following sections explain how to prepare these 3 input files.</p>
+<p>It is recommended to create a working folder in a suited location where the config files and calibration results are saved temporarily.</p>
+<section id="camera-data-yaml-file">
+<h3>Camera data yaml file<a class="headerlink" href="#camera-data-yaml-file" title="Link to this heading">¶</a></h3>
+<p>In asi-core, each camera sample is described by its own camera data yaml file. A camera data file template can be found in asi-core:</p>
+<p><code class="docutils literal notranslate"><span class="pre">data/camera_data/ASI_Template.yaml</span></code></p>
+<p>The camera data file template should be modified with the specific information of the camera being calibrated. The template contains comments describing the different fields to help configure the camera. Some relevant considerations are:</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">camera_name</span></code> identifies the camera uniquely and shall match with the camera name used in the image folder etc.</p></li>
+<li><p>The period between the dates <code class="docutils literal notranslate"><span class="pre">mounted</span></code> and <code class="docutils literal notranslate"><span class="pre">demounted</span></code> shall include the calibration period.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">internal_calibration</span></code> parameters can be taken over from a camera of the same type, as an initial approximiation. When calibrating a sample of a completely new camera type, the polynomial coefficients <code class="docutils literal notranslate"><span class="pre">ss</span></code> taken from another camera type should be scaled linearly to the new camera’s image resolution (i.e. <code class="docutils literal notranslate"><span class="pre">ss_new[i]</span> <span class="pre">=</span> <span class="pre">ss_old[i]*resolution_new/resolution_old</span></code>). For some camera types it might be required to perform the calibration according to Scaramuzza for one sample of that camera type to receive suited start values for cameras of that type. In this case, large deviations would be noticed after the calibration. For the 5 camera types tested so far, it was not necessary to adjust the start values.</p></li>
+<li><p>The parameter <code class="docutils literal notranslate"><span class="pre">internal_calibration/diameter</span></code> can be added if needed. It indicates the diameter of the exposed image area. By default it is estimated as the smaller image side length. Only if the exposed image area’s diameter is much larger than the smaller image side length (i.e. the exposed area is cut off notably at the image boundary), the diameter may be set in the config file.</p></li>
+<li><p>The specified width and height shall correspond to the actual width and height of the sky images.</p></li>
+<li><p>The center of the camera lens (<code class="docutils literal notranslate"><span class="pre">xc</span></code>, <code class="docutils literal notranslate"><span class="pre">yc</span></code>) will be determined by the calibration and not be used as start value by default.</p></li>
+<li><p>If possible each camera should be installed horizontally leveled, with the Sun in the upper image part at solar noon.
+In that case set</p>
+<p><code class="docutils literal notranslate"><span class="pre">external_orientation:</span> <span class="pre">[0.,</span>&#160;&#160; <span class="pre">3.14,</span>&#160;&#160; <span class="pre">1.57]</span></code> (northern hemisphere) or</p>
+<p><code class="docutils literal notranslate"><span class="pre">external_orientation:</span> <span class="pre">[0.,</span>&#160;&#160; <span class="pre">3.14,</span>&#160;&#160; <span class="pre">-1.57]</span></code> (southern hemisphere).</p>
+<p>Note: This is only a precaution. The calibration procedure should be able also to work with strongly deviating external orientations.</p>
+</li>
+<li><p>Specify your camera’s exposure times under <code class="docutils literal notranslate"><span class="pre">exposure_settings/exposure_times</span></code>:</p>
+<ul class="simple">
+<li><p>day and night indicate the exposure times (as list) used during day- and nighttime respectively</p></li>
+<li><p>The camera exposure times can differ between day and night. If taking image series, multiple exposure times can be specified but only images with the lowest listed exposure time are used for calibration. When calibrating with WDR / HDR images or images with variable exposure time, set [0] as exposure time. Multiple images of the same exposure time (if applicable) for the same timestamp are not allowed.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exposure_settings/tolerance_timestamp</span></code> controls the accepted time deviation in seconds between requested and found image timestamp</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera_mask_file</span></code>: The path to the camera mask shall be specified.</p></li>
+</ul>
+<p>It is recommended to create a camera_data subfolder in the working directory and store the camera data yaml file in there.</p>
+</section>
+<section id="camera-mask-file">
+<h3>Camera mask file<a class="headerlink" href="#camera-mask-file" title="Link to this heading">¶</a></h3>
+<p>In addition to the camera data yaml file it is necessary to have a camera mask file which is apt for the calibration and validation periods.</p>
+<p>To learn how to create a camera mask see <a class="reference internal" href="mask_creation.html"><span class="std std-doc">Mask creation</span></a></p>
+<p>The path to the camera mask file needs to be stated in the above-mentioned camera data yaml file.</p>
+</section>
+<section id="calibration-config-file">
+<h3>Calibration config file<a class="headerlink" href="#calibration-config-file" title="Link to this heading">¶</a></h3>
+<p>There is a set of parameters that need to be established to run the calibration. All these parameters are compiled in a calibration config yaml file. A calibration config file template can be found in asi-core:</p>
+<p><code class="docutils literal notranslate"><span class="pre">asi_tools/calibration/self_calibration_cfg.yaml</span></code></p>
+<p>The config file template can be modified with the specific information of the calibration that is about to be done. The template contains comments describing the different fields to help configure the calibration. Relevant fields in the config file that shall be adapted are:</p>
+<ul>
+<li><p>camera_name indicates the name of the camera to calibrate and should match the one specified in the camera data yaml file.</p></li>
+<li><p>camera_data_dir should provide the path to the camera data folder described in the previous sections.</p></li>
+<li><p>img_path_structure specifies the template string for the image files path. It can contain any combination of the following placeholders:</p>
+<ul class="simple">
+<li><p>{camera_name} for the camera name,</p></li>
+<li><p>{exposure_time} for the image exposure time.</p></li>
+<li><p>{timestamp:dt_format} for the image timestamp. dt_format is a combination of the following placeholders:
+%Y year, %m month, %d day, %H hour, %M minute, %S second (e.g. {timestamp:%Y%m%d%H%M%S})</p></li>
+</ul>
+<p>An example: /a/path/to/image/{timestamp:%Y}/{camera_name}/{timestamp:%Y%m%d%H%M%S}_00{exposure_time}.jpg</p>
+</li>
+<li><p>mode defines what task is performed <em>calibration</em>, <em>validation</em> or both of them. Additionally, if orb positions can either be detected from images are be taken from a csv file which was created in advance. <em>calibrate_validate_from_images</em> should be used as default. The following modes are available:<br />
+- calibrate_from_csv: Perform only the calibration using a csv file of orb observations.
+- validate_from_csv: Perform only the validation using a csv file of orb observations.
+- calibrate_validate_from_images: Perform calibration and validation receiving orb positions from image files.
+- validate_from_images: Perform only the validation receiving orb positions from image files.</p></li>
+<li><p>last_timestamp indicates the last timestamp included in the calibration period</p></li>
+<li><p>last_timestamp_validation indicates the last timestamp included in the validation period</p></li>
+<li><p>moon_detection/number_days sets the length of the calibration period in days for orb Moon</p></li>
+<li><p>sun_detection/number_days sets the length of the calibration period in days for orb Sun</p></li>
+<li><p>moon_validation/number_days sets the length of the validation period in days for orb Moon</p></li>
+<li><p>sun_validation/number_days sets the length of the validation period in days for orb Sun</p></li>
+</ul>
+<p>The rest of the parameters usually remain unchanged, at least for Mobotix cameras.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Calibration/target_calibration:</span> <span class="pre">'optimize_eor_ior_center'</span></code> is the default setting. In this mode external orientation, lens distortion and lens center coordinates will be determined.</p></li>
+</ul>
+<p>The period included in the calibration should be long enough to have orb observations in a wide
+range of sky areas regarding azimuth and zenith angle. Note that depending on location and season this can sometimes be
+difficult. In the best case use one of the following:</p>
+<ul class="simple">
+<li><p>Moon positions from at least half a year between summer and winter solstice.</p></li>
+<li><p>Moon positions from at least one moon phase in winter.</p></li>
+<li><p>Moon positions from at least one moon phase in summer AND sun positions from one month in summer.</p></li>
+</ul>
+<p>A sampling time of 10 minutes is usually enough to get all orb positions. Consider to use larger sampling time in order to save computing resources. When working in very cloudy conditions, reducing the sampling time can help to detect Sun and Moon in short cloud-free periods.
+The visualization received from the calibration will help to estimate
+if a sufficient number of orb positions distributed rather homogeneously over a wide range of azimuth and zenith angles has been detected.</p>
+</section>
+</section>
+<section id="run-the-calibration-program">
+<h2>Run the calibration program<a class="headerlink" href="#run-the-calibration-program" title="Link to this heading">¶</a></h2>
+<p>Open a terminal. If applicable, open the conda environment in which asi-core is installed. Run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python &lt;path_to_repository&gt;/asi_tools/calibration
+</pre></div>
+</div>
+<p>The calibration program has the following arguments:</p>
+<ul>
+<li><p>‘-c’, ‘–config’: Path to calibration config file. If not provided, a file ‘self_calibration_cfg.yaml’ is expected to be in the current working directory.</p></li>
+<li><p>‘–last_timestamp’: Last timestamp included in calibration in ISO format including timezone. If not provided, the timestamp is read from the config file or if not found there, set to 6 days after the most recent full moon date.</p></li>
+<li><p>‘–mode’: One of four modes:</p>
+<ul class="simple">
+<li><p>calibrate_from_csv: Perform only the calibration using a csv file of orb observations.</p></li>
+<li><p>validate_from_csv: Perform only the validation using a csv file of orb observations.</p></li>
+<li><p>calibrate_validate_from_images: Perform calibration and validation receiving orb positions from image files.</p></li>
+<li><p>validate_from_images: Perform only the validation receiving orb positions from image files.</p></li>
+</ul>
+<p>If not provided, the mode is read from the config file.</p>
+</li>
+</ul>
+<p>The calibration could take some time to run, depending on the data connection to the image storage location,
+the computing resources and the number of timestamps included in the calibration. The program creates a log file <code class="docutils literal notranslate"><span class="pre">geometric_calib_processed_&lt;start</span> <span class="pre">date</span> <span class="pre">and</span> <span class="pre">time&gt;.log</span></code> that is updated during the process. Check this file to see how the calibration progresses.
+You will see in the log file that the orb detection loops through all timestamps of the calibration. Subsequently, the progress of the iterative center detection is logged. Thereafter, the orb detection will loop through all timestamps included in the calibration.</p>
+</section>
+<section id="calibration-results">
+<h2>Calibration results<a class="headerlink" href="#calibration-results" title="Link to this heading">¶</a></h2>
+<p>Once the calibration is completed, in the working directory, the following files are created:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">calib_&lt;camera_name&gt;_&lt;start&gt;_&lt;end&gt;.yaml</span></code></p></td>
+<td><p>All results of the calibration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">calib_&lt;camera_name&gt;_&lt;start&gt;_&lt;end&gt;.mat</span></code></p></td>
+<td><p>All results of the calibration as mat file for the use of legacy MATLAB tools</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">moon_observations_&lt;start&gt;_&lt;end&gt;.csv</span></code></p></td>
+<td><p>Moon observations included in the validation or calibration. The observations can be used to reproduce the calibration/validation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sun_&lt;start&gt;_&lt;end&gt;.csv</span></code></p></td>
+<td><p>Sun observations included in the validation or calibration. The observations can be used to reproduce the calibration/validation.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">calibrated_observations_&lt;start&gt;_&lt;end&gt;.csv</span></code></p></td>
+<td><p>All orb observations included in the calibration. In this file the final calibration parameters are applied.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">validation_observations_&lt;start&gt;_&lt;end&gt;.csv</span></code></p></td>
+<td><p>All orb observations included in the validation. In this file the final calibration parameters are applied.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">calibrated_observations_&lt;start&gt;_&lt;end&gt;.png</span></code></p></td>
+<td><p>Chart showing the detected and expected orb positions in the calibration</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">validation_observations_&lt;start&gt;_&lt;end&gt;.png</span></code></p></td>
+<td><p>Chart showing the detected and expected orb positions in the validation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">azimuth_matrix_&lt;camera_name&gt;_&lt;timestamp_processed&gt;.npy</span></code></p></td>
+<td><p>A matrix of the azimuth angle viewed by each pixel</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">elevation_matrix_&lt;camera_name&gt;_&lt;timestamp_processed&gt;.npy</span></code></p></td>
+<td><p>A matrix of the elevation angle viewed by each pixel</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;start&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;end&gt;</span></code> indicate the timestamps bounding the period included in the calibration.</p>
+<p>When the calibration is completed, the camera data file shall be updated with the calibration results from <code class="docutils literal notranslate"><span class="pre">calib_&lt;camera_name&gt;_&lt;start&gt;_&lt;end&gt;.yaml</span></code>.</p>
+<p>It is also recommended to save the calibration results together with the config files used in an accessible location, identified with the date on which it was performed. E.g.:</p>
+<p><code class="docutils literal notranslate"><span class="pre">../CloudCamCalibration/&lt;camera_name&gt;/&lt;calibration_date&gt;/&lt;calibration_results_and_configs&gt;</span></code></p>
+<section id="example-of-calibration-results">
+<h3>Example of Calibration results<a class="headerlink" href="#example-of-calibration-results" title="Link to this heading">¶</a></h3>
+<p>This is an example of how to check the results of a calibration.
+In this case, Moon positions were used for the calibration and Sun positions for the validation.</p>
+<section id="calibration-with-the-moon">
+<h4>Calibration with the Moon<a class="headerlink" href="#calibration-with-the-moon" title="Link to this heading">¶</a></h4>
+<p>The Moon observations included in the calibration can be seen in the following figure (<code class="docutils literal notranslate"><span class="pre">calibrated_observations_*.png</span></code>):</p>
+<p><img alt="Moon positions in calibration" src="../_images/calibrated_observations_20230205000000_20230804000000.png" /></p>
+<p>In the case of a successful calibration most expected and detected moon positions, represented by the blue and red dots
+in the figure, coincide well.
+Accordingly, you should see a low value of RMSE in the text box at the bottom.
+Usually a small number of outliers can be found. After filtering out 1% of the data points with the largest deviations,
+RMSE is typically less than 2 pixels (at 4-megapixel resolution). An RMSE larger than 4 pixels (at 4-megapixel
+resolution) indicates a rather low quality of the calibration. Only these 99% of the data points were included in the
+optimization of the camera model’s parameters.</p>
+<p>You should see a large number of visualized orb positions spread over a wide range of azimuth and
+elevation angles in one half of the hemisphere, as shown in the figure above. If this condition is not fulfilled, the
+calibration may be
+over-fitted to the sky region from which the observations were received.</p>
+</section>
+<section id="validation-with-the-sun">
+<h4>Validation with the Sun<a class="headerlink" href="#validation-with-the-sun" title="Link to this heading">¶</a></h4>
+<p>The Sun observations included in the validation can be seen in the following figure (<code class="docutils literal notranslate"><span class="pre">validation_observations_*.png</span></code>):</p>
+<p><img alt="Sun positions in validation" src="../_images/validation_observations_20230807063000_20240202163000.png" /></p>
+<p>In this case, sun positions are used for the validation and were not included in the calibration.
+The test should verify that deviations between sun positions from astronomic
+expectation and image processing are small. Slightly larger deviations are possible if the validation
+interval includes a high fraction of turbid or cloudy situations in which the sun disk may still appear roundish while
+being disturbed by these influences. Usually you should receive an RMSD of around 3 pixels.</p>
+</section>
+</section>
+<section id="optional-refinement-of-calibration-results">
+<h3>Optional refinement of calibration results<a class="headerlink" href="#optional-refinement-of-calibration-results" title="Link to this heading">¶</a></h3>
+<p>If sun positions are used for the calibration, stronger deviations in the orb positions from image processing are
+possible.
+This is caused in particular by lens soiling, increased turbidity, clouds near the sun, cirrus clouds in general.
+When calibrating with sun positions and if the dataset is unfavourable, it might be necessary to manually filter out
+low quality images.
+To do so, run the calibration once more with the following adaptions in the config file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Calibration</span><span class="p">:</span>
+	<span class="n">mode</span><span class="p">:</span> <span class="n">calibrate_from_csv</span>  
+	<span class="n">sort_out_imgs_manually</span><span class="p">:</span> <span class="kc">True</span>
+	<span class="n">path_orb_observations</span><span class="p">:</span> <span class="s1">&#39;&lt;path_to_orb_observations_for_calibration&gt;.csv&#39;</span>  <span class="c1"># specify path to csv with orb observations from first run here</span>
+</pre></div>
+</div>
+<p>This will lead through a dialog which requests to delete invalid images from the subfolder used_imgs in the working
+directory (copied from the original image folder).
+Erased images will then be excluded from the calibration.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="mask_creation.html"
+       title="previous chapter">← Camera Mask</a>
+  </li>
+  <li class="next">
+    <a href="../autoapi/index.html"
+       title="next chapter">API Reference →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

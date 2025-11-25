@@ -1,0 +1,73 @@
+asi_core.real_time.meteo_data_weblog
+====================================
+
+.. py:module:: asi_core.real_time.meteo_data_weblog
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   asi_core.real_time.meteo_data_weblog.url_cs_logger_table
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   asi_core.real_time.meteo_data_weblog.MeteoDataWebLog
+
+
+Module Contents
+---------------
+
+.. py:class:: MeteoDataWebLog(url_cs_logger_table, log_filepath, timezone, name_desired_columns_cs_table=None, log_size=pd.Timedelta(days=3), latitude=37.1, longitude=-2.36, altitude=490, min_sun_elevation=5, when_to_resize_log=datetime.strptime('00:00:00', '%H:%M:%S').time(), write_mode='w')
+
+   Bases: :py:obj:`asi_core.real_time.meteo_data_log.MeteoDataLog`
+
+
+   Meteo Data Logger of html string of a campbell scientific logger
+
+   :param url_cs_logger_table: (str) url of table as string
+   :param log_filepath: (str) file path of the meteo data log
+   :param timezone: (str) desired time zone (e.g. "GMT+1" = UTC+1)
+   :param name_desired_columns_cs_table: (dict) List with 2 columns and n rows. First column holds the original names
+       of channels which shall be renamed. The second column holds the new names for the channels.
+   :param log_size: (Timedelta) size of the log express as Timedelta, default is 3 days 
+   :param latitude: (float) latitude of the camera position. Default is 37.1º
+   :param longitude: (float) longitude of the camera position. Default is -2.36º
+   :param altitude: (float) altitude of the camera position. Default is 490m
+   :param min_sun_elevation: (float) minimum sun elevation to log meteo data. Default is 5º
+   :param when_to_resize_log: (time) time of day when to resize log. Default is 00:00:00 
+   :param write_mode: (str) meteo data log write mode, 'w' for write or 'a' for append. Default is 'w'
+
+
+   .. py:attribute:: url_cs_logger_table
+
+
+   .. py:attribute:: name_desired_columns_cs_table
+      :value: None
+
+
+
+   .. py:method:: log_html_meteodata()
+
+      Monitor the given url and log updates in the given file
+
+
+
+   .. py:method:: parse_logger_data(html_string)
+
+      Parse a html string of a campbell scientific logger
+
+      :param html_string: (str) html string of a campbell scientific logger
+      :return meteodata_df: data frame with n columns for each channel + timestamp index as datetime
+
+
+
+.. py:data:: url_cs_logger_table
+   :value: 'http://10.21.202.135/?command=NewestRecord&table=WattsCorrSec'
+
+

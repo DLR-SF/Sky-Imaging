@@ -1,0 +1,77 @@
+asi_core.image.circumsolar
+==========================
+
+.. py:module:: asi_core.image.circumsolar
+
+.. autoapi-nested-parse::
+
+   This module provides functions to analyse ASI (All-Sky Imager) images.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_core.image.circumsolar.get_sun_pos_in_asi_image
+   asi_core.image.circumsolar.compute_sun_dist_map
+   asi_core.image.circumsolar.compute_cloud_coverage_and_distance_to_sun
+   asi_core.image.circumsolar.get_sun_dist
+   asi_core.image.circumsolar.get_saturated_mask
+
+
+Module Contents
+---------------
+
+.. py:function:: get_sun_pos_in_asi_image(sun_ele, sun_az, ele_mat, az_mat)
+
+   Determines the pixel position of the sun in an ASI image.
+
+   :param sun_ele: Sun elevation angle in degrees.
+   :param sun_az: Sun azimuth angle in degrees.
+   :param ele_mat: Elevation matrix of the ASI image.
+   :param az_mat: Azimuth matrix of the ASI image.
+   :return: (row, col) coordinates of the sun in the image.
+
+
+.. py:function:: compute_sun_dist_map(sun_ele, sun_az, ele_mat, az_mat, apply_filter=False, size=5)
+
+   Computes the distance map from each pixel to the sun in an ASI image.
+
+   :param sun_ele: Sun elevation angle in degrees.
+   :param sun_az: Sun azimuth angle in degrees.
+   :param ele_mat: Elevation matrix of the ASI image.
+   :param az_mat: Azimuth matrix of the ASI image.
+   :param apply_filter: Whether to apply median filtering (default: False).
+   :param size: Kernel size for median filtering (default: 5).
+   :return: Distance map (in degrees) to the sun.
+
+
+.. py:function:: compute_cloud_coverage_and_distance_to_sun(seg_mask, cam_mask, sun_dist_map, cloud_value=1)
+
+   Computes cloud coverage and the minimum distance between clouds and the sun.
+
+   :param seg_mask: Segmentation mask of the sky (clouds vs. background).
+   :param cam_mask: Camera mask indicating valid pixels.
+   :param sun_dist_map: Distance map from each pixel to the sun.
+   :param cloud_value: Value representing clouds in the segmentation mask (default: 1).
+   :return: Tuple (cloud_coverage, min_dist_cloud, coord_cloud):
+            - cloud_coverage: Fraction of the sky covered by clouds.
+            - min_dist_cloud: Minimum distance between a cloud pixel and the sun.
+            - coord_cloud: Coordinates of the closest cloud pixel to the sun.
+
+
+.. py:function:: get_sun_dist(az, ele, timestamp, location)
+
+   Calculate the sun distance angle based on azimuth and elevation angles.
+
+   :param az: Azimuth angles (in degrees) of the sun.
+   :param ele: Elevation angles (in degrees) of the sun.
+   :param timestamp: Specific timestamp for which the solar position is calculated.
+   :param location: Dictionary containing the latitude, longitude, and altitude of the location.
+   :return: Three values: sun distance angle, sun azimuth angle, and sun elevation angle.
+
+
+.. py:function:: get_saturated_mask(img, saturation_limit=240, gray_scale=True, channel_dim=-1)
+

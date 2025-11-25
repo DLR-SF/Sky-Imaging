@@ -1,0 +1,131 @@
+asi_core.real_time.image_folder_monitor
+=======================================
+
+.. py:module:: asi_core.real_time.image_folder_monitor
+
+.. autoapi-nested-parse::
+
+   Main script, multiple functions and one class in order to monitor folders for new images. New images trigger event:
+   e.g. real time camera application. If desired results are presented over a web application.
+   Classes: ImageHandler: child class from FileSystemEventHandler (watchdog.events) which monitors the event of new images.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   asi_core.real_time.image_folder_monitor.ImageHandler
+   asi_core.real_time.image_folder_monitor.ImageWatchdog
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_core.real_time.image_folder_monitor.start_image_watchdog
+   asi_core.real_time.image_folder_monitor.get_file_list
+   asi_core.real_time.image_folder_monitor.start_image_polling
+   asi_core.real_time.image_folder_monitor.run_image_folder_monitor
+
+
+Module Contents
+---------------
+
+.. py:class:: ImageHandler(on_event_do_function, exposure_time)
+
+   A class for handling image file creation events and processing image files.
+
+
+   .. py:attribute:: on_event_do_function
+
+
+   .. py:attribute:: exposure_time
+
+
+   .. py:method:: process_new_image(new_filepath)
+
+      React to file creation events if the created file is an image ("jpg", "jpeg", "png")
+      :param new_filepath: (str) new file path
+
+
+
+   .. py:method:: extract_exposure_time(image_filepath)
+
+      Extract exposure time from a file name.
+      :param image_filepath: (string) path to the image file
+      :return exposure_time: (int) exposure time.
+
+
+
+.. py:class:: ImageWatchdog(an_Image_Handler)
+
+   Bases: :py:obj:`watchdog.events.FileSystemEventHandler`
+
+
+   A class for handling file creation events and processing image files.
+   This class extends the functionality of the `FileSystemEventHandler` class by
+   reacting to file creation events.
+
+
+   .. py:attribute:: Image_Handler
+
+
+   .. py:method:: on_created(event)
+
+      React to file creation events. 
+      :param event: (object) event triggered by watchdog
+
+
+
+.. py:function:: start_image_watchdog(on_event_do_function, path_to_watch_structure, camera_name, exposure_time, timezone)
+
+   React to image file ("jpg", "jpeg", "png") creation events running the given function.
+
+   :param on_event_do_function: (function) function to run when a new image is created. This function shall get a path
+       to the created image file as the only input argument.
+   :param path_to_watch_structure: (string) path to watch folder, containing {camera_name} where the camera name should
+       be inserted and {timestamp:...} (e.g. {timestamp:%Y%m%d%H%M%S%f}) where the evaluated timestamp should be inserted
+   :param camera_name: (string) name of the camera.
+   :param exposure_time: (int) list of exposure time of the image in milliseconds.
+   :param timezone: (timezone) time zone of the datimes in the file 
+
+
+.. py:function:: get_file_list(path)
+
+   Get the list of all files in the given path
+   :param path: (str) path to get the list of files.
+   :return file_list: (list str) list of files in the given path.
+
+
+.. py:function:: start_image_polling(on_event_do_function, path_to_watch_structure, camera_name, exposure_time, timezone, polling_interval=2)
+
+   React to image file ("jpg", "jpeg", "png") creation running the given function.
+
+   :param on_event_do_function: (function) function to run when a new image is created. This function shall get a path
+       to the created image file as the only input argument.
+   :param path_to_watch_structure: (string) path to watch folder, containing {camera_name} where the camera name should
+       be inserted and {timestamp:...} (e.g. {timestamp:%Y%m%d%H%M%S%f}) where the evaluated timestamp should be inserted
+   :camera_name: (string) name of the camera.
+   :param exposure_time: (int) list of exposure time of the image in milliseconds.
+   :param timezone: (timezone) time zone of the datimes in the file 
+   :polling_interval: (int) time to wait between polling checks in seconds. Default is 2.
+
+
+.. py:function:: run_image_folder_monitor(on_event_do_function, path_to_watch_structure, camera_name, exposure_time, timezone='UTC', use_watchdog=True, polling_interval=2)
+
+   React to image file ("jpg", "jpeg", "png") creation events running the given function.
+
+   :param on_event_do_function: (function) function to run when a new image is created. This function shall get a path
+       to the created image file as the only input argument.
+   :param path_to_watch_structure: (string) path to watch folder, containing {camera_name} where the camera name should
+       be inserted and {timestamp:...} (e.g. {timestamp:%Y%m%d%H%M%S%f}) where the evaluated timestamp should be inserted
+   :camera_name: (string) name of the camera.
+   :param exposure_time: (int) list of exposure time of the image in milliseconds.
+   :param timezone: (timezone) time zone of the datetimes in the file. Default is UTC.
+   :param use_watchdog: (boolean) True for using watchdog, False for using polling. Defaults is True.
+   :param polling_interval: (int) time to wait between polling checks in seconds. Default is 2.
+
+

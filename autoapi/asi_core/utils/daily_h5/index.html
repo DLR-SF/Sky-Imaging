@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.utils.daily_h5</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.utils.datetime_handling" href="../datetime_handling/index.html" />
+  <link rel="prev" title="asi_core.utils.basics" href="../basics/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.utils</a> &raquo;</li>
+    
+    <li>asi_core.utils.daily_h5</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../basics/index.html"
+       title="previous chapter">← asi_core.utils.basics</a>
+  </li>
+  <li class="next">
+    <a href="../datetime_handling/index.html"
+       title="next chapter">asi_core.utils.datetime_handling →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.utils.daily_h5">
+<span id="asi-core-utils-daily-h5"></span><h1>asi_core.utils.daily_h5<a class="headerlink" href="#module-asi_core.utils.daily_h5" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.daily_h5.DailyH5" title="asi_core.utils.daily_h5.DailyH5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DailyH5</span></code></a></p></td>
+<td><p>Base class for DailyH5 file manipulation</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.utils.daily_h5.DailyH5Writer" title="asi_core.utils.daily_h5.DailyH5Writer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DailyH5Writer</span></code></a></p></td>
+<td><p>Base class for DailyH5 file manipulation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.daily_h5.DailyH5Reader" title="asi_core.utils.daily_h5.DailyH5Reader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DailyH5Reader</span></code></a></p></td>
+<td><p>Base class for DailyH5 file manipulation</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.utils.daily_h5.</span></span><span class="sig-name descname"><span class="pre">DailyH5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">products_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta_infos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5" title="Link to this definition">¶</a></dt>
+<dd><p>Base class for DailyH5 file manipulation</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5.products_path">
+<span class="sig-name descname"><span class="pre">products_path</span></span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5.products_path" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5.meta_infos">
+<span class="sig-name descname"><span class="pre">meta_infos</span></span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5.meta_infos" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5.daily_h5">
+<span class="sig-name descname"><span class="pre">daily_h5</span></span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5.daily_h5" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5.get_file">
+<span class="sig-name descname"><span class="pre">get_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5.get_file" title="Link to this definition">¶</a></dt>
+<dd><p>Get the path to the current daily h5 file. Initialize if not done yet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timestamp</strong> – Timestamp of the data to be stored</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path to the current daily h5 file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5.init_h5file">
+<span class="sig-name descname"><span class="pre">init_h5file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5.init_h5file" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize daily h5 file for reading or writing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timestamp</strong> – Timestamp of the current data to be stored</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5.process_entry">
+<span class="sig-name descname"><span class="pre">process_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_forecasted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5.process_entry" title="Link to this definition">¶</a></dt>
+<dd><p>Stores a dataset of one timestamp to the daily h5 file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> – Timestamp based on which dataset was created</p></li>
+<li><p><strong>mode</strong> – character, r/w/a, i.e. read, write or append</p></li>
+<li><p><strong>data</strong> – Dataset to be saved either dataset which can be stored by h5py or dict of such datasets</p></li>
+<li><p><strong>timestamp_forecasted</strong> – (Optional) timestamp forecasted by the dataset</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5.process_sub_entry">
+<span class="sig-name descname"><span class="pre">process_sub_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5.process_sub_entry" title="Link to this definition">¶</a></dt>
+<dd><p>Defines the read/ write operation to be applied recursively</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> – Label of the current data to be stored/ read</p></li>
+<li><p><strong>data</strong> – Data to be processed</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5Writer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.utils.daily_h5.</span></span><span class="sig-name descname"><span class="pre">DailyH5Writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">products_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta_infos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5Writer" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#asi_core.utils.daily_h5.DailyH5" title="asi_core.utils.daily_h5.DailyH5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DailyH5</span></code></a></p>
+<p>Base class for DailyH5 file manipulation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5Writer.store_entry">
+<span class="sig-name descname"><span class="pre">store_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_forecasted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5Writer.store_entry" title="Link to this definition">¶</a></dt>
+<dd><p>Stores a dataset of one timestamp to the daily h5 file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> – Timestamp based on which dataset was created</p></li>
+<li><p><strong>timestamp_forecasted</strong> – (Optional) timestamp forecasted by the dataset</p></li>
+<li><p><strong>data</strong> – Dataset to be saved either dataset which can be stored by h5py or dict of such datasets</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5Writer.init_h5file">
+<span class="sig-name descname"><span class="pre">init_h5file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_not_overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5Writer.init_h5file" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize daily h5 file, create folders if required, store meta infos to a new h5 file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> – Timestamp of the current data to be stored</p></li>
+<li><p><strong>do_not_overwrite</strong> – If called and a daily file already exists, create additional file instead of
+overwriting the previous one.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5Writer.process_sub_entry">
+<span class="sig-name descname"><span class="pre">process_sub_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5Writer.process_sub_entry" title="Link to this definition">¶</a></dt>
+<dd><p>Recursively store all datasets in data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to an h5file or a group in an h5 file</p></li>
+<li><p><strong>label</strong> – Label under which data will be stored</p></li>
+<li><p><strong>data</strong> – dataset or dict of datasets</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5Reader">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.utils.daily_h5.</span></span><span class="sig-name descname"><span class="pre">DailyH5Reader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">products_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta_infos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5Reader" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#asi_core.utils.daily_h5.DailyH5" title="asi_core.utils.daily_h5.DailyH5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DailyH5</span></code></a></p>
+<p>Base class for DailyH5 file manipulation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5Reader.list_entries">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list_entries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5Reader.list_entries" title="Link to this definition">¶</a></dt>
+<dd><p>Generate a dataframe of the keys and corresponding timestamps and forecasted timestamps in the h5 file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>h5_path</strong> – Path of the h5 file, the ke</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dataframe with columns key, timestamp, forecasted_timestamp</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5Reader.init_from_path">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init_from_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h5_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5Reader.init_from_path" title="Link to this definition">¶</a></dt>
+<dd><p>Create a DailyH5Reader instance and initializes it from a specific h5 file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> – Timestamp based on which dataset was created</p></li>
+<li><p><strong>h5_path</strong> – Path of the h5 file to be read (naming can deviate from convention of DailyH5Writer)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DailyH5Reader instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5Reader.get_entry">
+<span class="sig-name descname"><span class="pre">get_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_forecasted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5Reader.get_entry" title="Link to this definition">¶</a></dt>
+<dd><p>Stores a dataset of one timestamp to the daily h5 file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> – Timestamp based on which dataset was created</p></li>
+<li><p><strong>timestamp_forecasted</strong> – (Optional) timestamp forecasted by the dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dataset to be saved either dataset which can be stored by h5py or dict of such datasets</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5Reader.process_sub_entry">
+<span class="sig-name descname"><span class="pre">process_sub_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5Reader.process_sub_entry" title="Link to this definition">¶</a></dt>
+<dd><p>Recursively get all datasets in handle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handle</strong> – Handle to an h5file or a group in an h5 file</p></li>
+<li><p><strong>label</strong> – Label under which data will be stored</p></li>
+<li><p><strong>data</strong> – dataset or dict of datasets</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.utils.daily_h5.DailyH5Reader.init_h5file">
+<span class="sig-name descname"><span class="pre">init_h5file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_counter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.daily_h5.DailyH5Reader.init_h5file" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize daily h5 file, load meta data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> – Timestamp of the current data to be stored</p></li>
+<li><p><strong>file_counter</strong> – Appends counter suffix to file name. May be useful if multiple files created for a day.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../basics/index.html"
+       title="previous chapter">← asi_core.utils.basics</a>
+  </li>
+  <li class="next">
+    <a href="../datetime_handling/index.html"
+       title="next chapter">asi_core.utils.datetime_handling →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

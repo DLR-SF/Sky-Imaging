@@ -1,0 +1,31 @@
+asi_tools.datacheck.daily_video_tools
+=====================================
+
+.. py:module:: asi_tools.datacheck.daily_video_tools
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   asi_tools.datacheck.daily_video_tools.site
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_tools.datacheck.daily_video_tools.create_video
+
+
+Module Contents
+---------------
+
+.. py:function:: create_video(site, evaluatedDate, pathImageStorage='//129.247.24.131/Meteo/MeteoCamera', exp_time_range=[0, int(10000000000.0)])
+
+.. py:data:: site
+   :value: 'siteerror'
+
+

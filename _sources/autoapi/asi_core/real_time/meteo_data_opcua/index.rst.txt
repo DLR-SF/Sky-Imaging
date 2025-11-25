@@ -1,0 +1,56 @@
+asi_core.real_time.meteo_data_opcua
+===================================
+
+.. py:module:: asi_core.real_time.meteo_data_opcua
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   asi_core.real_time.meteo_data_opcua.url
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   asi_core.real_time.meteo_data_opcua.MeteoDataOPCLog
+
+
+Module Contents
+---------------
+
+.. py:class:: MeteoDataOPCLog(url_opc, log_filepath, timezone, log_size=pd.Timedelta(days=3), latitude=37.1, longitude=-2.36, altitude=490, min_sun_elevation=5, when_to_resize_log=datetime.strptime('00:00:00', '%H:%M:%S').time(), write_mode='w')
+
+   Bases: :py:obj:`asi_core.real_time.meteo_data_log.MeteoDataLog`
+
+
+   Meteo Data Logger of OPC UA server.
+   :param url_opc: (str) url of the OPC server
+   :param log_meteodata_filepath: (str) file path of the meteo data log
+   :param timezone: (str) desired time zone (e.g. "GMT+1" = UTC+1)
+   :param log_size: (Timedelta) size of the log express as Timedelta, default is 3 days 
+   :param latitude: (float) latitude of the camera position. Default is 37.1º
+   :param longitude: (float) longitude of the camera position. Default is -2.36º
+   :param altitude: (float) altitude of the camera position. Default is 490m
+   :param min_sun_elevation: (float) minimum sun elevation to log meteo data. Default is 5º
+   :param when_to_resize_log: (time) time of day when to resize log. Default is 00:00:00 
+   :param write_mode: (str) meteo data log write mode, 'w' for write or 'a' for append. Default is 'w'
+
+
+   .. py:attribute:: url_opc
+
+
+   .. py:method:: log_opc_meteodata()
+
+      Monitor the given url and log updates in the given file
+
+
+
+.. py:data:: url
+   :value: 'opc.tcp://192.168.0.102:48050'
+
+

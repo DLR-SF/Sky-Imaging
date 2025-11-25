@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.real_time.image_folder_monitor</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.real_time.meteo_data_log" href="../meteo_data_log/index.html" />
+  <link rel="prev" title="asi_core.real_time.http_image_receiver" href="../http_image_receiver/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.real_time</a> &raquo;</li>
+    
+    <li>asi_core.real_time.image_folder_monitor</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../http_image_receiver/index.html"
+       title="previous chapter">← asi_core.real_time.http_image_receiver</a>
+  </li>
+  <li class="next">
+    <a href="../meteo_data_log/index.html"
+       title="next chapter">asi_core.real_time.meteo_data_log →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.real_time.image_folder_monitor">
+<span id="asi-core-real-time-image-folder-monitor"></span><h1>asi_core.real_time.image_folder_monitor<a class="headerlink" href="#module-asi_core.real_time.image_folder_monitor" title="Link to this heading">¶</a></h1>
+<p>Main script, multiple functions and one class in order to monitor folders for new images. New images trigger event:
+e.g. real time camera application. If desired results are presented over a web application.
+Classes: ImageHandler: child class from FileSystemEventHandler (watchdog.events) which monitors the event of new images.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.real_time.image_folder_monitor.ImageHandler" title="asi_core.real_time.image_folder_monitor.ImageHandler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImageHandler</span></code></a></p></td>
+<td><p>A class for handling image file creation events and processing image files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.real_time.image_folder_monitor.ImageWatchdog" title="asi_core.real_time.image_folder_monitor.ImageWatchdog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImageWatchdog</span></code></a></p></td>
+<td><p>A class for handling file creation events and processing image files.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.real_time.image_folder_monitor.start_image_watchdog" title="asi_core.real_time.image_folder_monitor.start_image_watchdog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_image_watchdog</span></code></a>(on_event_do_function, ...)</p></td>
+<td><p>React to image file (&quot;jpg&quot;, &quot;jpeg&quot;, &quot;png&quot;) creation events running the given function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.real_time.image_folder_monitor.get_file_list" title="asi_core.real_time.image_folder_monitor.get_file_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_file_list</span></code></a>(path)</p></td>
+<td><p>Get the list of all files in the given path</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.real_time.image_folder_monitor.start_image_polling" title="asi_core.real_time.image_folder_monitor.start_image_polling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_image_polling</span></code></a>(on_event_do_function, ...[, ...])</p></td>
+<td><p>React to image file (&quot;jpg&quot;, &quot;jpeg&quot;, &quot;png&quot;) creation running the given function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.real_time.image_folder_monitor.run_image_folder_monitor" title="asi_core.real_time.image_folder_monitor.run_image_folder_monitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_image_folder_monitor</span></code></a>(on_event_do_function, ...[, ...])</p></td>
+<td><p>React to image file (&quot;jpg&quot;, &quot;jpeg&quot;, &quot;png&quot;) creation events running the given function.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.real_time.image_folder_monitor.ImageHandler">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.real_time.image_folder_monitor.</span></span><span class="sig-name descname"><span class="pre">ImageHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">on_event_do_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.image_folder_monitor.ImageHandler" title="Link to this definition">¶</a></dt>
+<dd><p>A class for handling image file creation events and processing image files.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.image_folder_monitor.ImageHandler.on_event_do_function">
+<span class="sig-name descname"><span class="pre">on_event_do_function</span></span><a class="headerlink" href="#asi_core.real_time.image_folder_monitor.ImageHandler.on_event_do_function" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.image_folder_monitor.ImageHandler.exposure_time">
+<span class="sig-name descname"><span class="pre">exposure_time</span></span><a class="headerlink" href="#asi_core.real_time.image_folder_monitor.ImageHandler.exposure_time" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.image_folder_monitor.ImageHandler.process_new_image">
+<span class="sig-name descname"><span class="pre">process_new_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_filepath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.image_folder_monitor.ImageHandler.process_new_image" title="Link to this definition">¶</a></dt>
+<dd><p>React to file creation events if the created file is an image (“jpg”, “jpeg”, “png”)
+:param new_filepath: (str) new file path</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.image_folder_monitor.ImageHandler.extract_exposure_time">
+<span class="sig-name descname"><span class="pre">extract_exposure_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_filepath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.image_folder_monitor.ImageHandler.extract_exposure_time" title="Link to this definition">¶</a></dt>
+<dd><p>Extract exposure time from a file name.
+:param image_filepath: (string) path to the image file
+:return exposure_time: (int) exposure time.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.real_time.image_folder_monitor.ImageWatchdog">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.real_time.image_folder_monitor.</span></span><span class="sig-name descname"><span class="pre">ImageWatchdog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">an_Image_Handler</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.image_folder_monitor.ImageWatchdog" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">watchdog.events.FileSystemEventHandler</span></code></p>
+<p>A class for handling file creation events and processing image files.
+This class extends the functionality of the <cite>FileSystemEventHandler</cite> class by
+reacting to file creation events.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.image_folder_monitor.ImageWatchdog.Image_Handler">
+<span class="sig-name descname"><span class="pre">Image_Handler</span></span><a class="headerlink" href="#asi_core.real_time.image_folder_monitor.ImageWatchdog.Image_Handler" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.image_folder_monitor.ImageWatchdog.on_created">
+<span class="sig-name descname"><span class="pre">on_created</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.image_folder_monitor.ImageWatchdog.on_created" title="Link to this definition">¶</a></dt>
+<dd><p>React to file creation events.
+:param event: (object) event triggered by watchdog</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.real_time.image_folder_monitor.start_image_watchdog">
+<span class="sig-prename descclassname"><span class="pre">asi_core.real_time.image_folder_monitor.</span></span><span class="sig-name descname"><span class="pre">start_image_watchdog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">on_event_do_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_watch_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.image_folder_monitor.start_image_watchdog" title="Link to this definition">¶</a></dt>
+<dd><p>React to image file (“jpg”, “jpeg”, “png”) creation events running the given function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>on_event_do_function</strong> – (function) function to run when a new image is created. This function shall get a path
+to the created image file as the only input argument.</p></li>
+<li><p><strong>path_to_watch_structure</strong> – (string) path to watch folder, containing {camera_name} where the camera name should
+be inserted and {timestamp:…} (e.g. {timestamp:%Y%m%d%H%M%S%f}) where the evaluated timestamp should be inserted</p></li>
+<li><p><strong>camera_name</strong> – (string) name of the camera.</p></li>
+<li><p><strong>exposure_time</strong> – (int) list of exposure time of the image in milliseconds.</p></li>
+<li><p><strong>timezone</strong> – (timezone) time zone of the datimes in the file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.real_time.image_folder_monitor.get_file_list">
+<span class="sig-prename descclassname"><span class="pre">asi_core.real_time.image_folder_monitor.</span></span><span class="sig-name descname"><span class="pre">get_file_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.image_folder_monitor.get_file_list" title="Link to this definition">¶</a></dt>
+<dd><p>Get the list of all files in the given path
+:param path: (str) path to get the list of files.
+:return file_list: (list str) list of files in the given path.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.real_time.image_folder_monitor.start_image_polling">
+<span class="sig-prename descclassname"><span class="pre">asi_core.real_time.image_folder_monitor.</span></span><span class="sig-name descname"><span class="pre">start_image_polling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">on_event_do_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_watch_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polling_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.image_folder_monitor.start_image_polling" title="Link to this definition">¶</a></dt>
+<dd><p>React to image file (“jpg”, “jpeg”, “png”) creation running the given function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>on_event_do_function</strong> – (function) function to run when a new image is created. This function shall get a path
+to the created image file as the only input argument.</p></li>
+<li><p><strong>path_to_watch_structure</strong> – (string) path to watch folder, containing {camera_name} where the camera name should
+be inserted and {timestamp:…} (e.g. {timestamp:%Y%m%d%H%M%S%f}) where the evaluated timestamp should be inserted</p></li>
+<li><p><strong>exposure_time</strong> – (int) list of exposure time of the image in milliseconds.</p></li>
+<li><p><strong>timezone</strong> – (timezone) time zone of the datimes in the file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Camera_name<span class="colon">:</span></dt>
+<dd class="field-even"><p>(string) name of the camera.</p>
+</dd>
+<dt class="field-odd">Polling_interval<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(int) time to wait between polling checks in seconds. Default is 2.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.real_time.image_folder_monitor.run_image_folder_monitor">
+<span class="sig-prename descclassname"><span class="pre">asi_core.real_time.image_folder_monitor.</span></span><span class="sig-name descname"><span class="pre">run_image_folder_monitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">on_event_do_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_watch_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UTC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_watchdog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polling_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.image_folder_monitor.run_image_folder_monitor" title="Link to this definition">¶</a></dt>
+<dd><p>React to image file (“jpg”, “jpeg”, “png”) creation events running the given function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>on_event_do_function</strong> – (function) function to run when a new image is created. This function shall get a path
+to the created image file as the only input argument.</p></li>
+<li><p><strong>path_to_watch_structure</strong> – (string) path to watch folder, containing {camera_name} where the camera name should
+be inserted and {timestamp:…} (e.g. {timestamp:%Y%m%d%H%M%S%f}) where the evaluated timestamp should be inserted</p></li>
+<li><p><strong>exposure_time</strong> – (int) list of exposure time of the image in milliseconds.</p></li>
+<li><p><strong>timezone</strong> – (timezone) time zone of the datetimes in the file. Default is UTC.</p></li>
+<li><p><strong>use_watchdog</strong> – (boolean) True for using watchdog, False for using polling. Defaults is True.</p></li>
+<li><p><strong>polling_interval</strong> – (int) time to wait between polling checks in seconds. Default is 2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Camera_name<span class="colon">:</span></dt>
+<dd class="field-even"><p>(string) name of the camera.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../http_image_receiver/index.html"
+       title="previous chapter">← asi_core.real_time.http_image_receiver</a>
+  </li>
+  <li class="next">
+    <a href="../meteo_data_log/index.html"
+       title="next chapter">asi_core.real_time.meteo_data_log →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

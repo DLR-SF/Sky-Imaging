@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.real_time.utils</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.utils" href="../../utils/index.html" />
+  <link rel="prev" title="asi_core.real_time.meteo_data_weblog" href="../meteo_data_weblog/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.real_time</a> &raquo;</li>
+    
+    <li>asi_core.real_time.utils</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../meteo_data_weblog/index.html"
+       title="previous chapter">← asi_core.real_time.meteo_data_weblog</a>
+  </li>
+  <li class="next">
+    <a href="../../utils/index.html"
+       title="next chapter">asi_core.utils →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.real_time.utils">
+<span id="asi-core-real-time-utils"></span><h1>asi_core.real_time.utils<a class="headerlink" href="#module-asi_core.real_time.utils" title="Link to this heading">¶</a></h1>
+<p>Utility functions for real time applications.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.real_time.utils.parse_logger_data" title="asi_core.real_time.utils.parse_logger_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_logger_data</span></code></a>(url_cs_logger_table, timezone[, ...])</p></td>
+<td><p>Access the measurements table of a campbell scientific logger via HTTP</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.real_time.utils.parse_latest_image_ssh" title="asi_core.real_time.utils.parse_latest_image_ssh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_latest_image_ssh</span></code></a>(asi_img_fmt, host[, interval, ...])</p></td>
+<td><p>Function to load latest images from remote server</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.real_time.utils.parse_logger_data">
+<span class="sig-prename descclassname"><span class="pre">asi_core.real_time.utils.</span></span><span class="sig-name descname"><span class="pre">parse_logger_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_cs_logger_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_desired_columns_cs_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.utils.parse_logger_data" title="Link to this definition">¶</a></dt>
+<dd><p>Access the measurements table of a campbell scientific logger via HTTP</p>
+<p>All channels and the time stamp are retrieved from the HTML string and placed in a data frame. If desired some
+channels can be renamed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url_cs_logger_table</strong> – (str) url of table as string</p></li>
+<li><p><strong>timezone</strong> – (str) desired time zone (e.g. “GMT+1” = UTC+1)</p></li>
+<li><p><strong>name_desired_columns_cs_table</strong> – (dict) List with 2 columns and n rows. First column holds the original names
+of channels which shall be renamed. The second column holds the new names for the channels.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return df<span class="colon">:</span></dt>
+<dd class="field-even"><p>data frame single row with n columns for each channel + timestamp index as datetime</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.real_time.utils.parse_latest_image_ssh">
+<span class="sig-prename descclassname"><span class="pre">asi_core.real_time.utils.</span></span><span class="sig-name descname"><span class="pre">parse_latest_image_ssh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asi_img_fmt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.utils.parse_latest_image_ssh" title="Link to this definition">¶</a></dt>
+<dd><p>Function to load latest images from remote server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>asi_img_fmt</strong> – (str) filename format of image to load from server (absolute path). Requires identifier for
+timestamp (dt, e.g. {dt:%Y%m%d%H%M%S})</p></li>
+<li><p><strong>host</strong> – (str) host name to be accessed via ssh</p></li>
+<li><p><strong>interval</strong> – (int, optional, default=30) Interval for image acquisition</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return img, dt<span class="colon">:</span></dt>
+<dd class="field-even"><p>image + timestamp (datetime64)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../meteo_data_weblog/index.html"
+       title="previous chapter">← asi_core.real_time.meteo_data_weblog</a>
+  </li>
+  <li class="next">
+    <a href="../../utils/index.html"
+       title="next chapter">asi_core.utils →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

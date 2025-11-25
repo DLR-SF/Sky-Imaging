@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.utils.filesystem</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.utils.geometry" href="../geometry/index.html" />
+  <link rel="prev" title="asi_core.utils.datetime_handling" href="../datetime_handling/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.utils</a> &raquo;</li>
+    
+    <li>asi_core.utils.filesystem</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../datetime_handling/index.html"
+       title="previous chapter">← asi_core.utils.datetime_handling</a>
+  </li>
+  <li class="next">
+    <a href="../geometry/index.html"
+       title="next chapter">asi_core.utils.geometry →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.utils.filesystem">
+<span id="asi-core-utils-filesystem"></span><h1>asi_core.utils.filesystem<a class="headerlink" href="#module-asi_core.utils.filesystem" title="Link to this heading">¶</a></h1>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.filesystem.get_absolute_path" title="asi_core.utils.filesystem.get_absolute_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_absolute_path</span></code></a>(filepath[, root, as_string])</p></td>
+<td><p>Make filepath an absolute path. It can be combined with a root path.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.utils.filesystem.replace_double_backslashes_with_slashes_in_path" title="asi_core.utils.filesystem.replace_double_backslashes_with_slashes_in_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_double_backslashes_with_slashes_in_path</span></code></a>(str_path)</p></td>
+<td><p>Replace double backslashes from windows paths with slashes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.filesystem._get_files" title="asi_core.utils.filesystem._get_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_get_files</span></code></a>(p, fs[, extensions, substring])</p></td>
+<td><p>Get all files in path with 'extensions' and a name containing a 'substring'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.utils.filesystem.get_files" title="asi_core.utils.filesystem.get_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_files</span></code></a>(path[, extensions, substring, recursive, ...])</p></td>
+<td><p>Get all files in <cite>path</cite> with optional <cite>extensions</cite> or <cite>substring</cite>, optionally <cite>recursive</cite>, only in <cite>folders</cite>,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.filesystem.get_image_files" title="asi_core.utils.filesystem.get_image_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_image_files</span></code></a>(path[, recursive, folders, ...])</p></td>
+<td><p>Get image files in <cite>path</cite> recursively, only in <cite>folders</cite> and with <cite>substring</cite>, if specified.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.utils.filesystem.image_filelist_to_pandas_series" title="asi_core.utils.filesystem.image_filelist_to_pandas_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">image_filelist_to_pandas_series</span></code></a>(img_files[, ...])</p></td>
+<td><p>Convert list of image files with datetime names into pandas Series.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.filesystem.copy_file" title="asi_core.utils.filesystem.copy_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_file</span></code></a>(source_file[, target_file, ...])</p></td>
+<td><p>Copy a file to a specified target file or directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.utils.filesystem.copy_file_relative_to_directories" title="asi_core.utils.filesystem.copy_file_relative_to_directories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_file_relative_to_directories</span></code></a>(relative_filepath, ...)</p></td>
+<td><p>Copy a file from the source directory to the target directory while preserving its relative path.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.filesystem.parallel_copy_files" title="asi_core.utils.filesystem.parallel_copy_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parallel_copy_files</span></code></a>(filepaths, source_directory, ...)</p></td>
+<td><p>Copy multiple files in parallel, optionally preserving directory structure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.utils.filesystem.assemble_path" title="asi_core.utils.filesystem.assemble_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assemble_path</span></code></a>(path_structure, camera_name, timestamp)</p></td>
+<td><p>Assemble path by replacing timestamp, camera name and exposure time 'tags' with actual values</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.utils.filesystem.fstring_to_re" title="asi_core.utils.filesystem.fstring_to_re"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fstring_to_re</span></code></a>(string)</p></td>
+<td><p>Convert from f-string syntax to regular expression syntax</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.filesystem.get_absolute_path">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.filesystem.</span></span><span class="sig-name descname"><span class="pre">get_absolute_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.filesystem.get_absolute_path" title="Link to this definition">¶</a></dt>
+<dd><p>Make filepath an absolute path. It can be combined with a root path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> – (str) file path.</p></li>
+<li><p><strong>root</strong> – (str) root path. Default is None.</p></li>
+<li><p><strong>as_string</strong> – (bool) if True, return absolute path as a string. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(Path or str) absolute path.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.filesystem.replace_double_backslashes_with_slashes_in_path">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.filesystem.</span></span><span class="sig-name descname"><span class="pre">replace_double_backslashes_with_slashes_in_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.filesystem.replace_double_backslashes_with_slashes_in_path" title="Link to this definition">¶</a></dt>
+<dd><p>Replace double backslashes from windows paths with slashes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>str_path</strong> – (str) file path</p></li>
+<li><p><strong>root_dir</strong> – (str) root path. Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(Path) String path as a Path object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.filesystem._get_files">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.filesystem.</span></span><span class="sig-name descname"><span class="pre">_get_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extensions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.filesystem._get_files" title="Link to this definition">¶</a></dt>
+<dd><p>Get all files in path with ‘extensions’ and a name containing a ‘substring’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> – (str) directory path</p></li>
+<li><p><strong>fs</strong> – (list str) filenames.</p></li>
+<li><p><strong>extensions</strong> – (str) File extension to filter file list. Default is None.</p></li>
+<li><p><strong>substring</strong> – (str) Substring in filename to filter file list. Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(Path) String path as a Path object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.filesystem.get_files">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.filesystem.</span></span><span class="sig-name descname"><span class="pre">get_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extensions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">followlinks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.filesystem.get_files" title="Link to this definition">¶</a></dt>
+<dd><p>Get all files in <cite>path</cite> with optional <cite>extensions</cite> or <cite>substring</cite>, optionally <cite>recursive</cite>, only in <cite>folders</cite>,
+if specified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – (str) directory path</p></li>
+<li><p><strong>extensions</strong> – (list str) File extensions to filter file list, i.e. [“.txt”, “.jpg”]. Default is [].</p></li>
+<li><p><strong>substring</strong> – (str) Substring in filename to filter file list. Default is None.</p></li>
+<li><p><strong>recursive</strong> – (bool) If True, visit files in subfolders. Default is True.</p></li>
+<li><p><strong>folders</strong> – (list str) Subfolders to visit. Default is [].</p></li>
+<li><p><strong>followlinks</strong> – (bool) If True, visit directories pointed to by symlinks, on systems that support them.
+Default is True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(list Path) File paths.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.filesystem.get_image_files">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.filesystem.</span></span><span class="sig-name descname"><span class="pre">get_image_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extensions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">IMAGE_EXTENSIONS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_series</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%Y%m%d%H%M%S'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.filesystem.get_image_files" title="Link to this definition">¶</a></dt>
+<dd><p>Get image files in <cite>path</cite> recursively, only in <cite>folders</cite> and with <cite>substring</cite>, if specified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – (str) directory path</p></li>
+<li><p><strong>recursive</strong> – (bool) If True, visit files in subfolders. Default is True.</p></li>
+<li><p><strong>folders</strong> – (list str) Subfolders to visit. Default is [].</p></li>
+<li><p><strong>extensions</strong> – (list str) File extension to filter file list. Default is IMAGE_EXTENSIONS.</p></li>
+<li><p><strong>substring</strong> – (str) Substring in filename to filter file list. Default is None.</p></li>
+<li><p><strong>as_series</strong> – (bool) if True, return a pandas series. Default is False.</p></li>
+<li><p><strong>dt_format</strong> – <p>(str) Datetime format template with the following placeholders:</p>
+<ul>
+<li><p>%Y year,</p></li>
+<li><p>%m month,</p></li>
+<li><p>%d day,</p></li>
+<li><p>%H hour,</p></li>
+<li><p>%M minute,</p></li>
+<li><p>%S second.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+<p>Default is “%Y%m%d%H%M%S”.
+:param round_to: (str) Value to round to, i.e. ‘1D’, ‘2H’, ’30s’. When None no rounding is done. Default is None.
+:return: (list Path or Pandas series) Image file paths.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.filesystem.image_filelist_to_pandas_series">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.filesystem.</span></span><span class="sig-name descname"><span class="pre">image_filelist_to_pandas_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%Y%m%d%H%M%S'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_nat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.filesystem.image_filelist_to_pandas_series" title="Link to this definition">¶</a></dt>
+<dd><p>Convert list of image files with datetime names into pandas Series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img_files</strong> – (list Path) Image file paths</p></li>
+<li><p><strong>dt_format</strong> – (str) Datetime format template with the following placeholders:
+%Y year, %m month, %d day, %H hour, %M minute, %S second.
+Default is “%Y%m%d%H%M%S”.</p></li>
+<li><p><strong>round_to</strong> – (str) Value to round to, i.e. ‘1D’, ‘2H’, ’30s’. When None no rounding is done. Default is None.</p></li>
+<li><p><strong>drop_nat</strong> – (bool) Flag to determine whether to drop entries where the timestamp could not be extracted.
+Default is True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(Pandas series) Image file paths.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.filesystem.copy_file">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.filesystem.</span></span><span class="sig-name descname"><span class="pre">copy_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_parents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.filesystem.copy_file" title="Link to this definition">¶</a></dt>
+<dd><p>Copy a file to a specified target file or directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_file</strong> – (str) Path to the source file.</p></li>
+<li><p><strong>target_file</strong> – (str) Path to the target file (optional if target_directory is provided).</p></li>
+<li><p><strong>target_directory</strong> – (str) Path to the target directory (optional if tgt_file is provided).</p></li>
+<li><p><strong>create_parents</strong> – (bool) If True parent directories are created if don’t exist. Default is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.filesystem.copy_file_relative_to_directories">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.filesystem.</span></span><span class="sig-name descname"><span class="pre">copy_file_relative_to_directories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">relative_filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.filesystem.copy_file_relative_to_directories" title="Link to this definition">¶</a></dt>
+<dd><p>Copy a file from the source directory to the target directory while preserving its relative path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>relative_filepath</strong> – (str) File path relative to the source directory.</p></li>
+<li><p><strong>source_directory</strong> – (str) Root source directory.</p></li>
+<li><p><strong>target_directory</strong> – (str) Root target directory.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.filesystem.parallel_copy_files">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.filesystem.</span></span><span class="sig-name descname"><span class="pre">parallel_copy_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepaths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_dir_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.filesystem.parallel_copy_files" title="Link to this definition">¶</a></dt>
+<dd><p>Copy multiple files in parallel, optionally preserving directory structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepaths</strong> – (List str) File paths to copy.</p></li>
+<li><p><strong>source_directory</strong> – (str) Source directory (used to determine relative paths).</p></li>
+<li><p><strong>target_directory</strong> – (str) Target directory where files will be copied.</p></li>
+<li><p><strong>keep_dir_structure</strong> – (bool) If True maintain the original directory structure. Default is False.</p></li>
+<li><p><strong>num_workers</strong> – (int) Number of parallel workers for file copying. Default is 0, meaning sequential execution.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.filesystem.assemble_path">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.filesystem.</span></span><span class="sig-name descname"><span class="pre">assemble_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_subday_to_wildcard</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.filesystem.assemble_path" title="Link to this definition">¶</a></dt>
+<dd><p>Assemble path by replacing timestamp, camera name and exposure time ‘tags’ with actual values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_structure</strong> – <p>(str) Template for the file path. It can contain any combination of the following placeholders:
+{camera_name} for the camera name,
+{exposure_time} for the exposure time.
+{timestamp:dt_format} for the image timestamp. dt_format is a combination of the following placeholders:</p>
+<blockquote>
+<div><ul>
+<li><p>%Y year,</p></li>
+<li><p>%m month,</p></li>
+<li><p>%d day,</p></li>
+<li><p>%H hour,</p></li>
+<li><p>%M minute,</p></li>
+<li><p>%S second</p></li>
+</ul>
+</div></blockquote>
+<p>e.g. {timestamp:%Y%m%d%H%M%S}
+and full path e.g. /a/path/to/image/{timestamp:%Y}/{camera_name}/{timestamp:%Y%m%d%H%M%S}_00{exposure_time}.jpg</p>
+</p></li>
+<li><p><strong>camera_name</strong> – (str) Name of the camera as used in image folder structure.</p></li>
+<li><p><strong>timestamp</strong> – (datetime, tz-aware) Timestamp for which an image file is requested.</p></li>
+<li><p><strong>set_subday_to_wildcard</strong> – (bool) If True, replace time placeholders hours, minutes and seconds with wildcards.
+Default is False. Exposure time has to be set if set_subday_to_wildcard is False.</p></li>
+<li><p><strong>exposure_time</strong> – (int) Exposure time of images. Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return assembled_path<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str) Assembled file path.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.utils.filesystem.fstring_to_re">
+<span class="sig-prename descclassname"><span class="pre">asi_core.utils.filesystem.</span></span><span class="sig-name descname"><span class="pre">fstring_to_re</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.utils.filesystem.fstring_to_re" title="Link to this definition">¶</a></dt>
+<dd><p>Convert from f-string syntax to regular expression syntax</p>
+<p>Only a limited set of formatters supported so far, FSTRING_RE should be extended as needed.
+:param string: (str) f-string syntax string.
+:return string: (str) regular expression string.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../datetime_handling/index.html"
+       title="previous chapter">← asi_core.utils.datetime_handling</a>
+  </li>
+  <li class="next">
+    <a href="../geometry/index.html"
+       title="next chapter">asi_core.utils.geometry →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>
