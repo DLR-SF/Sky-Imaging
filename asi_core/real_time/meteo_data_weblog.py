@@ -12,8 +12,8 @@ class MeteoDataWebLog(MeteoDataLog):
     :param url_cs_logger_table: (str) url of table as string
     :param log_filepath: (str) file path of the meteo data log
     :param timezone: (str) desired time zone (e.g. "GMT+1" = UTC+1)
-    :param name_desired_columns_cs_table: (dict) List with 2 columns and n rows. First column holds the original names of channels
-                                        which shall be renamed. The second column holds the new names for the channels.
+    :param name_desired_columns_cs_table: (dict) List with 2 columns and n rows. First column holds the original names
+        of channels which shall be renamed. The second column holds the new names for the channels.
     :param log_size: (Timedelta) size of the log express as Timedelta, default is 3 days 
     :param latitude: (float) latitude of the camera position. Default is 37.1º
     :param longitude: (float) longitude of the camera position. Default is -2.36º
@@ -81,6 +81,7 @@ class MeteoDataWebLog(MeteoDataLog):
     def parse_logger_data(self, html_string):
         """
         Parse a html string of a campbell scientific logger
+
         :param html_string: (str) html string of a campbell scientific logger
         :return meteodata_df: data frame with n columns for each channel + timestamp index as datetime
         """
