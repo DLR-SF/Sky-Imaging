@@ -234,7 +234,8 @@ def load_matlab_ceilometer_data(mat_file, timestamp_col='time', cloud_base_heigh
     :param mat_file: full path of mat file.
     :param timestamp_col: name of column with timestamps
     :param cloud_base_height_col: name of column with cloud base height measurements
-    :param timezone as pytz timezone or as integer (+/- UTC).
+    :param timezone: as pytz timezone or as integer (+/- UTC).
+    :return: pd.DataFrame of ceilometer readings
     """
     data_dict = scipy.io.loadmat(mat_file)
     timestamps = matlab_datenum_to_pandas_datetime(data_dict[timestamp_col].squeeze(), timezone=timezone)

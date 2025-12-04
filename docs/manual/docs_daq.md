@@ -37,12 +37,12 @@ To learn how to setup asi-core see [Getting started](getting_started.md)
   `daq/url_cam: 'http://10.21.202.145'`
 
  
-- Set the path to which you want to store your results:
+- Set the path to which you want to store your results, e.g.:
  
   `daq/storage_path: 'C:/data/test_daq/server_folder'`
 
 
-- Set the working directory of the DAQ program. In this folder log files will be stored
+- Set the working directory of the DAQ program. In this folder log files will be stored, e.g.
  
   `daq/daq_working_dir: 'C:/data/test_daq/asi-core/log_folder'`
 
@@ -56,12 +56,12 @@ To learn how to setup asi-core see [Getting started](getting_started.md)
 
 - Run the daq providing your config file as argument, e.g.:
 
-  `python C:\git\sfpt_meteo_nowcasting\asi-core\asi_core\daq\http_image_receiver.py -c "C:\git\sfpt_meteo_nowcasting\asi-core\data\camera_data\Cloud_Cam_Metas_20190711.yaml"`
+  `python <path_to_repository>/asi_tools/daq -c "<path_to_repository>/data/camera_data/Cloud_Cam_Metas_20190711.yaml"`
 
 
 - You can adapt the following script to do the job
 
-  `C:\git\sfpt_meteo_nowcasting\asi-core\asi_core\daq\run_all_GUIs.bat`
+  `<path_to_repository>/scripts/daq_scripts/run_all_GUIs.bat`
 
 - We recommend to restart the DAQ once per day. E.g. around midnight.
 

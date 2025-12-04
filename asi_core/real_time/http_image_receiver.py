@@ -47,9 +47,10 @@ class ImageReceiver:
     :param http_snapshot: str, http request sent to camera to get a snapshot
     :param storage_path: path to which image series will be stored; folders for month, day, hour will be created
     :param location: dict, with fields indicating coordinates:
-        "lat" (decimal degrees, northing positive),
-        "lon" (decimal degrees, easting positive),
-        "alt" (meters)
+
+        - "lat" (decimal degrees, northing positive),
+        - "lon" (decimal degrees, easting positive),
+        - "alt" (meters)
     :param sampling_time: datetime timedelta -- temporal offset between image series
     :param night_sampling_time: datetime timedelta -- temporal offset between image series during nighttime
     :param timezone_images: Specify pytz.timezone of the images and log file. If not provided computer timezone is
@@ -231,8 +232,8 @@ class SeriesReceiver(ImageReceiver):
         deviates stronger from expected value
     :param safety_deadtime_between_exposure_series: Cancel acquisition of exposure series if less than this time
         remains until end of sampling period
-        :param nighttime_mode: Acquisition mode used during nighttime. Optimized for different purposes: Moon detection,
-            cloud detection, ...
+    :param nighttime_mode: Acquisition mode used during nighttime. Optimized for different purposes: Moon detection,
+        cloud detection, ...
     """
     def __init__(self, url_cam, storage_path, location, sampling_time=timedelta(seconds=30),
                  night_sampling_time=timedelta(seconds=60), exposure_times=[80, 160, 320, 640, 1280],
