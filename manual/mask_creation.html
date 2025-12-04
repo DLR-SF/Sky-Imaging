@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>Camera Mask</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="How to run the geometric self-calibration for All-Sky Imagers?" href="geom_self_calibration.html" />
+  <link rel="prev" title="Quick start guide on HTTP image receiver data acquisition program" href="docs_daq.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../autoapi/index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">User Manual</a> &raquo;</li>
+    
+    <li>Camera Mask</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="docs_daq.html"
+       title="previous chapter">← Quick start guide on HTTP image receiver data acquisition program</a>
+  </li>
+  <li class="next">
+    <a href="geom_self_calibration.html"
+       title="next chapter">How to run the geometric self-calibration for All-Sky Imagers? →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="camera-mask">
+<h1>Camera Mask<a class="headerlink" href="#camera-mask" title="Link to this heading">¶</a></h1>
+<p>When locating an  All Sky Imagers (ASI) it is common to have structures or other objects in the vicinity of the camera that remain within its field of view and therefore appear in the images. Having these objects in the images is often not desirable, and therefore masks need to be created to help discard these parts of the images.</p>
+<p>This is an example of an image and its corresponding mask:</p>
+<p><img alt="Camera image" src="../_images/camera_image.jpg" /></p>
+<p><img alt="Camera mask" src="../_images/camera_mask.png" /></p>
+<p>Masks are created for each camera given its particular location and are based on the (static) objects in the field of view of the camera at the time the mask is created. It should be kept in mind that the environment may evolve and the objects observed may change, making it necessary to update the mask.</p>
+<p>Asi-core provides the functionality to automatically create camera masks simply by providing a selection of clear sky images. In addition to that, asi-core offers a GUI that allows the user to create masks or improve existing ones by manually drawing polygons which indicate areas to be added or removed from the camera mask.</p>
+<section id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Link to this heading">¶</a></h2>
+<p>Make sure that asi-core is properly installed. To learn how to setup asi-core see <a class="reference internal" href="getting_started.html"><span class="std std-doc">Getting started</span></a></p>
+<p>The manual mask creation option requires to install the opencv package <strong>with head</strong>. By default “opencv-python-headless” is installed with asi-core in order to save resources.</p>
+</section>
+<section id="automatic-mask-creation">
+<h2>Automatic Mask Creation<a class="headerlink" href="#automatic-mask-creation" title="Link to this heading">¶</a></h2>
+<p>The automatic mask creation program generates a mask identifying fixed obstructions in sky images, based on images from a clear day. It aggregates a given number of images from the provided list, computes an average image with optional grayscale conversion, histogram equalization, and blurring, and then generates a mask highlighting static objects present across the images.</p>
+<section id="run-automatic-mask-creation-program">
+<h3>Run automatic mask creation program<a class="headerlink" href="#run-automatic-mask-creation-program" title="Link to this heading">¶</a></h3>
+<p>In a terminal, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python &lt;path to repository&gt;/asi_tools/mask_creation/auto
+</pre></div>
+</div>
+<p>The mask creation program has the following arguments:</p>
+<ul class="simple">
+<li><p>‘–image_dir’: Path to image directory. Images in subfolders are also considered.</p></li>
+<li><p>‘–mask_dir’: Path to save calculated mask. If not provided, <code class="docutils literal notranslate"><span class="pre">./masks</span></code> subfolder is created in the working directory and mask results are saved there.</p></li>
+<li><p>‘–mask_name’: Name of the camera mask file. Default is <code class="docutils literal notranslate"><span class="pre">mask_camera01_&lt;date&gt;</span></code>.</p></li>
+<li><p>‘–num_images’: Number of images from the image directory used to compute the camera mask. Default value is 40.</p></li>
+<li><p>‘–image_stride’: Sample every N-th image to span a wider time range (e.g., 100 means use every 100th image). Default values is 100.</p></li>
+</ul>
+</section>
+<section id="automatic-mask-creation-results">
+<h3>Automatic mask creation results<a class="headerlink" href="#automatic-mask-creation-results" title="Link to this heading">¶</a></h3>
+<p>When the mask creation is succesfully complete, the new mask is saved as <code class="docutils literal notranslate"><span class="pre">.npy</span></code> file in the given mask directory. A mask is also saved as Matlab <code class="docutils literal notranslate"><span class="pre">.mat</span></code> file for the use of legacy tools.
+Results are also visualized as a binary mask overlaid on an image. The mask is applied by coloring masked regions with a specified color and blending it with the original image using alpha transparency. The resulting image shown is also saved in the given mask directory.</p>
+<p>This is an example of an automatic mask creation result:</p>
+<p><img alt="Automatic Mask result" src="../_images/automatic_mask_result.jpg" /></p>
+<p>It is recommended to save mask files in the <code class="docutils literal notranslate"><span class="pre">camera_data</span></code> folder in a new sub folder <code class="docutils literal notranslate"><span class="pre">camera_masks</span></code> and then update the camera data config file (field <code class="docutils literal notranslate"><span class="pre">camera_mask_file</span></code>) with the relative path to the new camera mask.</p>
+</section>
+</section>
+<section id="manual-mask-creation">
+<h2>Manual Mask Creation<a class="headerlink" href="#manual-mask-creation" title="Link to this heading">¶</a></h2>
+<p>The manual mask creation program allows the generation of camera masks by the user via a GUI where a camera image is displayed and the user can click polygons indicating areas to be masked or not. As a first step, Asi-core applies computer vision methods to the displayed image to create an initial mask approximation.</p>
+<p>The manual mask creation can be used to create camera masks from scratch or in combination with the automatic mask creation described in the section above to improve the results produced.</p>
+<section id="config-file">
+<h3>Config file<a class="headerlink" href="#config-file" title="Link to this heading">¶</a></h3>
+<p>There is a set of parameters that need to be established to run the manual mask creation. All these parameters are compiled in a mask creation config <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> file. A mask creation config file template can be found in asi_tools folder:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;path</span> <span class="pre">to</span> <span class="pre">repository&gt;/asi_tools/mask_creation/manual/mask_creation_cfg.yaml</span></code></p>
+<p>The config file template can be modified with the specific information of the mask creation that is about to be done. The template contains comments describing the different fields to help configure the mask creation. Some relevant fields in the config file that shall be updated are:</p>
+<ul class="simple">
+<li><p>image_pxl_size: Size of visualized images.</p></li>
+<li><p>img_path: Path to a recent image to be used as reference for the mask creation.</p></li>
+<li><p>do_load_existing_mask: True in case there is an existing mask to be updated. False, otherwise.</p></li>
+<li><p>existing_mask_path: Path to the existing mask.</p></li>
+</ul>
+<p>The rest of the parameters usually remain unchanged.</p>
+</section>
+</section>
+<section id="run-manual-mask-creation-program">
+<h2>Run manual mask creation program<a class="headerlink" href="#run-manual-mask-creation-program" title="Link to this heading">¶</a></h2>
+<p>In a terminal, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python &lt;path to repository&gt;/asi_tools/mask_creation/manual -c mask_creation_cfg.yaml
+</pre></div>
+</div>
+<p>The mask creation program has the following arguments:</p>
+<ul class="simple">
+<li><p>‘-c’: Path to mask creation config file. If not provided, a config file ‘mask_creation_cfg.yaml’ is expected in the working directory.</p></li>
+</ul>
+<p>When running the manual creation program the following GUI is opened:</p>
+<p><img alt="Manual Mask GUI" src="../_images/manual_camera_mask.png" /></p>
+<section id="add-mask-area">
+<h3>Add mask area<a class="headerlink" href="#add-mask-area" title="Link to this heading">¶</a></h3>
+<p>Clicking with the left mouse button polygons are drawn in green as in the figure below.</p>
+<p><img alt="Manual Mask GUI" src="../_images/manual_camera_mask_add.png" /></p>
+<p>By pressing the key <code class="docutils literal notranslate"><span class="pre">a</span></code> the polygon is added to the mask and displayed filled with green color as the one in the figure below.</p>
+<p><img alt="Manual Mask GUI" src="../_images/manual_camera_mask_add_result.png" /></p>
+</section>
+<section id="remove-mask-area">
+<h3>Remove mask area<a class="headerlink" href="#remove-mask-area" title="Link to this heading">¶</a></h3>
+<p>Clicking with the right mouse button polygons are drawn in red as the one in figure below.</p>
+<p><img alt="Manual Mask GUI" src="../_images/manual_camera_mask_remove.png" /></p>
+<p>By pressing the key <code class="docutils literal notranslate"><span class="pre">a</span></code> the polygon area is removed from the mask.</p>
+<p><img alt="Manual Mask GUI" src="../_images/manual_camera_mask_remove_result.png" /></p>
+<p>Once the mask is complete, by pressing the key <code class="docutils literal notranslate"><span class="pre">c</span></code> the GUI is closed and results are saved in the working directory. The mask is saved as a Matlab <code class="docutils literal notranslate"><span class="pre">.mat</span></code> files <code class="docutils literal notranslate"><span class="pre">mask_&lt;image_name&gt;.mat</span></code> and also the mask overlaid on the image  <code class="docutils literal notranslate"><span class="pre">masked_&lt;image_name&gt;.jpg</span></code> to check and document the result visually.</p>
+<p>It is recommended to save mask files in the <code class="docutils literal notranslate"><span class="pre">camera_data</span></code> folder in a new sub folder <code class="docutils literal notranslate"><span class="pre">camera_masks</span></code> and then update the camera data file (field <code class="docutils literal notranslate"><span class="pre">camera_mask_file</span></code>) with the relative path to the new camera mask.</p>
+<p>Note: Images are from Plataforma Solar de Almería PSA owned by CIEMAT.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="docs_daq.html"
+       title="previous chapter">← Quick start guide on HTTP image receiver data acquisition program</a>
+  </li>
+  <li class="next">
+    <a href="geom_self_calibration.html"
+       title="next chapter">How to run the geometric self-calibration for All-Sky Imagers? →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

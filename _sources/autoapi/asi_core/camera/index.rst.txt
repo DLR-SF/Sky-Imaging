@@ -1,0 +1,19 @@
+asi_core.camera
+===============
+
+.. py:module:: asi_core.camera
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/asi_core/camera/calibration/index
+   /autoapi/asi_core/camera/mobotix/index
+   /autoapi/asi_core/camera/obstacle_mask/index
+   /autoapi/asi_core/camera/ocam/index
+   /autoapi/asi_core/camera/sky_imager/index
+
+

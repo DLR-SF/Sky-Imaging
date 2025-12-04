@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_tools.mask_creation.auto.__main__</title>
+    
+          <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../../search.html" />
+  <link rel="next" title="asi_tools.mask_creation.manual" href="../../manual/index.html" />
+  <link rel="prev" title="asi_tools.mask_creation.auto" href="../index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">asi_tools</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_tools.mask_creation</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_tools.mask_creation.auto</a> &raquo;</li>
+    
+    <li>asi_tools.mask_creation.auto.__main__</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../index.html"
+       title="previous chapter">← asi_tools.mask_creation.auto</a>
+  </li>
+  <li class="next">
+    <a href="../../manual/index.html"
+       title="next chapter">asi_tools.mask_creation.manual →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_tools.mask_creation.auto.__main__">
+<span id="asi-tools-mask-creation-auto-main"></span><h1>asi_tools.mask_creation.auto.__main__<a class="headerlink" href="#module-asi_tools.mask_creation.auto.__main__" title="Link to this heading">¶</a></h1>
+<p>Main tool for automatic camera mask creation</p>
+<p>This script generates a mask identifying fixed obstructions in sky images,
+based on images from a clear day. It computes an average image from a
+selection of samples, derives a binary mask, and saves the result along with
+a visual overlay.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_tools.mask_creation.auto.__main__.parse_arguments" title="asi_tools.mask_creation.auto.__main__.parse_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_arguments</span></code></a>()</p></td>
+<td><p>Parse command-line arguments for generating a camera mask.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_tools.mask_creation.auto.__main__.main" title="asi_tools.mask_creation.auto.__main__.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>()</p></td>
+<td><p>Main entry point for mask creation and visualization.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.auto.__main__.parse_arguments">
+<span class="sig-prename descclassname"><span class="pre">asi_tools.mask_creation.auto.__main__.</span></span><span class="sig-name descname"><span class="pre">parse_arguments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.mask_creation.auto.__main__.parse_arguments" title="Link to this definition">¶</a></dt>
+<dd><p>Parse command-line arguments for generating a camera mask.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Parsed arguments containing image directory, date, camera name,
+output mask directory, and image sampling options.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>argparse.Namespace</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.auto.__main__.main">
+<span class="sig-prename descclassname"><span class="pre">asi_tools.mask_creation.auto.__main__.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.mask_creation.auto.__main__.main" title="Link to this definition">¶</a></dt>
+<dd><p>Main entry point for mask creation and visualization.</p>
+<p>This function:</p>
+<ol class="arabic simple">
+<li><p>Parses user arguments from the CLI.</p></li>
+<li><p>Loads images.</p></li>
+<li><p>Computes an average image and derives a binary mask.</p></li>
+<li><p>Saves the generated mask and an overlay visualization.</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If the image directory does not exist or contains no images or
+the Number of required images is less than the image subset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../index.html"
+       title="previous chapter">← asi_tools.mask_creation.auto</a>
+  </li>
+  <li class="next">
+    <a href="../../manual/index.html"
+       title="next chapter">asi_tools.mask_creation.manual →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

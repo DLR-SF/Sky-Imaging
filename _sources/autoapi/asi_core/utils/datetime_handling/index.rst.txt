@@ -1,0 +1,67 @@
+asi_core.utils.datetime_handling
+================================
+
+.. py:module:: asi_core.utils.datetime_handling
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_core.utils.datetime_handling.get_ETC_GMT_timezone
+   asi_core.utils.datetime_handling.parse_datetime
+   asi_core.utils.datetime_handling.get_temporal_resolution_from_timeseries
+   asi_core.utils.datetime_handling.timezone_ISO8601_to_pytz_posix
+
+
+Module Contents
+---------------
+
+.. py:function:: get_ETC_GMT_timezone(desired_timezone='GMT')
+
+   Convert the given Etc/GMT timezone into a `pytz` timezone object.
+
+   Example: UTC+2: get_ETC_GMT_timezone('GMT+2') returns pytz timezone object for "Etc/GMT-2"
+
+   :param desired_timezone: (str) A string specifying the desired GMT timezone. It should be in the format 'GMT+1'
+       (in the case of UTC+1). If a '+' sign is used, it will be replaced with '-' to follow the Etc/GMT convention
+       (https://en.wikipedia.org/wiki/Tz_database#Area).
+   :return: (pytz.timezone), Etc/GMT timezone
+
+
+.. py:function:: parse_datetime(dt_string, datetime_format='%Y%m%d%H%M%S', raise_on_fail=False)
+
+   Extract timestamp from string into datetime object.
+
+   :param dt_string: Timestamp string
+   :type dt_string: str
+   :param datetime_format: Datetime format template with the following placeholders:
+       %Y year, %m month, %d day, %H hour, %M minute, %S second. Default is "%Y%m%d%H%M%S".
+   :type datetime_format: str                  
+   :param raise_on_fail: Flag to decide whether to raise an error or return None
+       if no timestamp could be extracted. Default is ``False``.
+   :type raise_on_fail: bool
+   :return: Timestamp from given string.
+   :rtype: datetime.datetime
+
+
+.. py:function:: get_temporal_resolution_from_timeseries(data)
+
+   Get temporal resolution from a pandas DataFrame with a DatetimeIndex.
+   Resolution is rounded to seconds
+
+   :param data: (DataFrame) DataFrame with datetime index
+   :return: (Timedelta) DataFrame time resolution
+
+
+.. py:function:: timezone_ISO8601_to_pytz_posix(tz)
+
+   Convert from ISO 8601 to posix convention (ISO 8601: Positive east of Greenwich)
+
+   :param tz: (str) A string specifying the desired GMT timezone. It should be in the format 'GMT+1'
+       (in the case of UTC+1). If a '+' sign is used, it will be replaced with '-' to follow the Etc/GMT convention
+       (https://en.wikipedia.org/wiki/Tz_database#Area).
+   :return: (str), Etc/GMT timezone
+
+

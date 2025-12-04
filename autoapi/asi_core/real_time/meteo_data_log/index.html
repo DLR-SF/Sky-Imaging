@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.real_time.meteo_data_log</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.real_time.meteo_data_opcua" href="../meteo_data_opcua/index.html" />
+  <link rel="prev" title="asi_core.real_time.image_folder_monitor" href="../image_folder_monitor/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.real_time</a> &raquo;</li>
+    
+    <li>asi_core.real_time.meteo_data_log</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../image_folder_monitor/index.html"
+       title="previous chapter">← asi_core.real_time.image_folder_monitor</a>
+  </li>
+  <li class="next">
+    <a href="../meteo_data_opcua/index.html"
+       title="next chapter">asi_core.real_time.meteo_data_opcua →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.real_time.meteo_data_log">
+<span id="asi-core-real-time-meteo-data-log"></span><h1>asi_core.real_time.meteo_data_log<a class="headerlink" href="#module-asi_core.real_time.meteo_data_log" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.real_time.meteo_data_log.MeteoDataLog" title="asi_core.real_time.meteo_data_log.MeteoDataLog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeteoDataLog</span></code></a></p></td>
+<td><p>Abstract class of meteo data logger.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_core.real_time.meteo_data_log.</span></span><span class="sig-name descname"><span class="pre">MeteoDataLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pd.Timedelta(days=3)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">37.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-2.36</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">altitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">490</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_sun_elevation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">when_to_resize_log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">datetime.strptime('00:00:00',</span> <span class="pre">'%H:%M:%S').time()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog" title="Link to this definition">¶</a></dt>
+<dd><p>Abstract class of meteo data logger.
+Method get_new_data shall be implemented for each type of logger
+:param log_filepath: (str) file path of the meteo data log
+:param timezone: (str) desired time zone (e.g. “GMT+1” = UTC+1)
+:param log_size: (Timedelta) size of the log express as Timedelta, default is 3 days
+:param latitude: (float) latitude of the camera position. Default is 37.1º
+:param longitude: (float) longitude of the camera position. Default is -2.36º
+:param altitude: (float) altitude of the camera position. Default is 490m
+:param min_sun_elevation: (float) minimum sun elevation to log meteo data. Default is 5º
+:param when_to_resize_log: (time) time of day when to resize log. Default is 00:00:00
+:param write_mode: (str) meteo data log write mode, ‘w’ for write or ‘a’ for append. Default is ‘w’</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.log_filepath">
+<span class="sig-name descname"><span class="pre">log_filepath</span></span><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.log_filepath" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.timezone">
+<span class="sig-name descname"><span class="pre">timezone</span></span><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.timezone" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.log_size">
+<span class="sig-name descname"><span class="pre">log_size</span></span><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.log_size" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.latitude">
+<span class="sig-name descname"><span class="pre">latitude</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">37.1</span></em><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.latitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.longitude">
+<span class="sig-name descname"><span class="pre">longitude</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-2.36</span></em><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.longitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.altitude">
+<span class="sig-name descname"><span class="pre">altitude</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">490</span></em><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.altitude" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.min_sun_elevation">
+<span class="sig-name descname"><span class="pre">min_sun_elevation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.min_sun_elevation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.when_to_resize_log">
+<span class="sig-name descname"><span class="pre">when_to_resize_log</span></span><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.when_to_resize_log" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.write_mode">
+<span class="sig-name descname"><span class="pre">write_mode</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'w'</span></em><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.write_mode" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.is_log_resized">
+<span class="sig-name descname"><span class="pre">is_log_resized</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.is_log_resized" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.add_new_data">
+<span class="sig-name descname"><span class="pre">add_new_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_meteodata_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.add_new_data" title="Link to this definition">¶</a></dt>
+<dd><p>Process new data from a campbell scientific logger</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>new_meteodata_df</strong> – (DataFrame) New meteo data to add to the log</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.check_log_resize">
+<span class="sig-name descname"><span class="pre">check_log_resize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.check_log_resize" title="Link to this definition">¶</a></dt>
+<dd><p>Check when it is time to resize the log</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_core.real_time.meteo_data_log.MeteoDataLog.resize_log">
+<span class="sig-name descname"><span class="pre">resize_log</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.real_time.meteo_data_log.MeteoDataLog.resize_log" title="Link to this definition">¶</a></dt>
+<dd><p>Resize the log file to the given duration</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../image_folder_monitor/index.html"
+       title="previous chapter">← asi_core.real_time.image_folder_monitor</a>
+  </li>
+  <li class="next">
+    <a href="../meteo_data_opcua/index.html"
+       title="next chapter">asi_core.real_time.meteo_data_opcua →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

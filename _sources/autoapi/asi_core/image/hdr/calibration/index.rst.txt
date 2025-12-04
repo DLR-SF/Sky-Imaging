@@ -1,0 +1,99 @@
+asi_core.image.hdr.calibration
+==============================
+
+.. py:module:: asi_core.image.hdr.calibration
+
+.. autoapi-nested-parse::
+
+   This module provides calibration procedure for merging all-sky images for high-dynamic range imaging.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_core.image.hdr.calibration._make_mesh
+   asi_core.image.hdr.calibration._make_round_mesh
+   asi_core.image.hdr.calibration.calibrate_response_debevec
+   asi_core.image.hdr.calibration.get_sample_positions
+
+
+Module Contents
+---------------
+
+.. py:function:: _make_mesh(sizeX, sizeY)
+
+   Create a regular meshgrid of x and y coordinates.
+
+   :param int sizeX: Number of points along the x‑axis.
+   :param int sizeY: Number of points along the y‑axis.
+   :returns: Tuple ``(xv, yv)`` where each element is a 2‑D array of shape
+             ``(sizeX, sizeY)`` containing the x‑ or y‑coordinates for every
+             point in the grid.
+   :rtype: tuple(numpy.ndarray, numpy.ndarray)
+
+
+.. py:function:: _make_round_mesh(sizeX, sizeY, max_radius)
+
+   Generate coordinates of points that lie within a circular region of the
+   image domain.
+
+   The circular region is centred at the image centre and its radius is
+   defined as ``max_radius`` (a fraction of the distance from the centre to the
+   closest image border).
+
+   :param int sizeX: Width of the image (number of columns).
+   :param int sizeY: Height of the image (number of rows).
+   :param float max_radius: Fraction of the smallest half‑dimension that
+                            defines the radius of the circular mask. Must be
+                            within ``(0, 1]``.
+   :returns: Two 1‑D arrays ``(xs, ys)`` containing the x‑ and y‑coordinates of
+             the points that fall inside the circular mask.
+   :rtype: tuple(numpy.ndarray, numpy.ndarray)
+
+
+.. py:function:: calibrate_response_debevec(samples, exposure_times, smoothing: float = 50.0, weight_type: str = 'triangle')
+
+   Calibrate camera response function using the Debevec method.
+
+   This function estimates the camera response function in logarithmic domain from
+   multiple exposures of the same scene. It uses a least squares approach to solve
+   for the response function that best fits the measured intensities.
+
+   :param samples:
+       List of arrays, each with shape (P_i, N_i, C), where:
+       - P_i is the number of pixels in the sample,
+       - N_i is the number of exposures for the sample,
+       - C is the number of color channels.
+   :param exposure_times:
+       List of arrays, each with shape (N_i,), containing the exposure times
+       corresponding to each sample in ``samples``.
+   :param smoothing:
+       Smoothing factor used in the smoothness constraint term. Default is 50.0.
+   :param weight_type:
+       Type of weighting function to use (``'triangle'`` (default) | ``'sine'``).
+   :returns:
+       Response function in logarithmic domain, shape (256, 1, C).
+
+
+.. py:function:: get_sample_positions(image, samples_per_image=100, max_radius=0.97, sample_technique='random')
+
+   Generate sample positions within a circular region of an image.
+
+   This function selects pixel coordinates from within a specified circular area
+   of the input image, using either random sampling or histogram-based sampling.
+
+   :param image: Input image array of shape (H, W, C).
+   :type image: numpy.ndarray
+   :param samples_per_image: Number of sample positions to generate. Default is 100.
+   :type samples_per_image: int
+   :param max_radius: Fraction of the smaller dimension to define the maximum radius. Default is 0.97.
+   :type max_radius: float
+   :param sample_technique: Sampling method, either 'random' or 'histogram'. Default is 'random'.
+   :type sample_technique: str
+   :returns: Tuple of arrays containing x and y coordinates of sampled points.
+   :rtype: Tuple[numpy.ndarray, numpy.ndarray]
+
+

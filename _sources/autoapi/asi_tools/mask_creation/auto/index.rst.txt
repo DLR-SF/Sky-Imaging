@@ -1,0 +1,15 @@
+asi_tools.mask_creation.auto
+============================
+
+.. py:module:: asi_tools.mask_creation.auto
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/asi_tools/mask_creation/auto/__main__/index
+
+

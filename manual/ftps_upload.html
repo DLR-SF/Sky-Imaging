@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>Documentation of the image upload via FTP-S</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Quick start guide on HTTP image receiver data acquisition program" href="docs_daq.html" />
+  <link rel="prev" title="Documentation on the setup of the SkyCam System" href="asi_setup.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../autoapi/index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">User Manual</a> &raquo;</li>
+    
+    <li>Documentation of the image upload via FTP-S</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="asi_setup.html"
+       title="previous chapter">← Documentation on the setup of the SkyCam System</a>
+  </li>
+  <li class="next">
+    <a href="docs_daq.html"
+       title="next chapter">Quick start guide on HTTP image receiver data acquisition program →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="documentation-of-the-image-upload-via-ftp-s">
+<h1>Documentation of the image upload via FTP-S<a class="headerlink" href="#documentation-of-the-image-upload-via-ftp-s" title="Link to this heading">¶</a></h1>
+<section id="sky-imager-client">
+<h2>Sky imager (client)<a class="headerlink" href="#sky-imager-client" title="Link to this heading">¶</a></h2>
+<section id="set-up">
+<h3>Set up<a class="headerlink" href="#set-up" title="Link to this heading">¶</a></h3>
+<p>Bring the ASI in a network in which the ports for FTP-S upload are open.</p>
+<p>ASI firmware should be updated to MX-V4.7.3.11-r4 (2021-04-21) or newer.</p>
+<p>Log on to the camera.</p>
+<p>Go to Admin Menu &gt; FTP profiles</p>
+<p>Set the server settings as shown in the screenshot below.</p>
+<p>In the server settings set server ip address (and port) to 212.170.96.95:990.</p>
+<p>Set user name to pyranocam</p>
+<p>Set password (request from niklas.blum&#64;dlr.de or michael.meinel&#64;dlr.de).</p>
+<p>Set connection to passive FTP.</p>
+<p>Set the FTP profile etc. (to be defined). For a test, you can use the configuration shown in the image below. Make sure that the server directory name matches with the folder structure present on the server.
+<img src="media_ftp_upload/FTPprofile.PNG" alt="FTP profile used for the connection test" title="FTP profile used for the connection test" width="600"/></p>
+</section>
+<section id="test">
+<h3>Test<a class="headerlink" href="#test" title="Link to this heading">¶</a></h3>
+<p>Go to Admin Menu &gt; Test Current Network Configuration</p>
+<p>Scroll to Image Transfer and the profile which you activated in the FTP profile e.g. <em>FTP-Webcam</em> (see image).</p>
+<img src="media_ftp_upload/screenshotTestFTPprofile.PNG" alt="Test Current Network Configuration window" title="Test Current Network Configuration window" width="600"/>
+<p>Click transfer. A log file will appear. The following log file is received in the case of success:</p>
+<img src="media_ftp_upload/screenshotTestFTPprofileLog.PNG" alt="log file of the connection test" title="log file of the connection test" width="600"/>
+</section>
+</section>
+<section id="server">
+<h2>Server<a class="headerlink" href="#server" title="Link to this heading">¶</a></h2>
+<p>The server is located in Paseo office (old knecht 4).</p>
+<p>The server allows to connect via FTP and FTP-S. However, if the client connects via FTP it will change its protocol to FTP-S before log in or fail to connect if this is not possible.</p>
+</section>
+<section id="target-machine">
+<h2>Target machine<a class="headerlink" href="#target-machine" title="Link to this heading">¶</a></h2>
+<p>On the machine which processes the images, the pyranocam repositories should be cloned.</p>
+<p>Install the following
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">datacheck</span> <span class="pre">python=3.8´</span> </code>conda activate datacheck´
+`conda install -c conda-forge pythonnet´</p>
+<p>Set up an automatic task:
+Open Windows task scheduler
+Go to task library
+Create nw task…
+General:
+Name: PyranoCam sync
+Set Run independently from user login
+Trigger:
+New trigger: Daily, at 00:01
+Actions:
+Start program, program path “C:\git\pyranocam\evaluations\daq_and_transfer\run_autosync.bat”</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Click OK and enter user password
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="asi_setup.html"
+       title="previous chapter">← Documentation on the setup of the SkyCam System</a>
+  </li>
+  <li class="next">
+    <a href="docs_daq.html"
+       title="next chapter">Quick start guide on HTTP image receiver data acquisition program →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

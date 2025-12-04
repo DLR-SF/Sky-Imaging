@@ -1,0 +1,74 @@
+asi_tools.daq.image_acquisition_simulator
+=========================================
+
+.. py:module:: asi_tools.daq.image_acquisition_simulator
+
+.. autoapi-nested-parse::
+
+   This script serves as a simulation for a camera real-time data acquisition, based on historical images.
+   This is intended to check the real-time operation of various applications.
+
+   Some user inputs have to be defined (see #user input)
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   asi_tools.daq.image_acquisition_simulator.origin_folder
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_tools.daq.image_acquisition_simulator.copy_periodically
+   asi_tools.daq.image_acquisition_simulator.calculate_deviation
+   asi_tools.daq.image_acquisition_simulator.find_closest_datetime
+
+
+Module Contents
+---------------
+
+.. py:function:: copy_periodically(scheduler, interval_seconds, start_time, end_time, origin_folder, destination_folder, call_count, add_path_month_day)
+
+   Main function which check for the images, creates a copy and schedules the next periodical call.
+
+   :param scheduler: sched.scheduler object
+   :param interval_seconds: used interval in seconds of scheduler -> should be according to the camera update rate
+   :param start_time: datetime object which defines the first time stamp
+   :param end_time: datetime object which defines the last time stamp
+   :param origin_folder: main folder to historical images'
+   :param destination_folder: main folder for the simulated image acquisition
+   :param call_count: index which takes track of already evaluated images
+   :param add_path_month_day: zero padded string for month and day folder
+
+
+.. py:function:: calculate_deviation(interval_seconds)
+
+   This function calculates the temporal deviation from the current time to the next expected image acquisition.
+
+   :param interval_seconds: used interval in seconds of scheduler -> should be according to the camera update rate
+   :returns: datetime object of the current real computer time -> only used to keep track of update rate
+   :returns: temporal deviation in seconds for the next expected image acquisition event.
+
+
+.. py:function:: find_closest_datetime(datetime_list, target_datetime)
+
+   This function finds from the historical available images to the closest match to the expected time stamp.
+   The real camera acquisition does not work perfectly. Some images are created with a delay of several seconds,
+   which is reflected in the name of the images.
+
+   :param datetime_list: list of datetime objects with the available images within the current hour folder.
+   :param target_datetime: datetime object with the expected time stamp of the next image
+   :returns: datetime object of the image closest to the target time
+   :returns: position of the image within the list corresponding to the determined closest_datetime
+
+
+.. py:data:: origin_folder
+   :value: '//129.247.24.3/Meteo/MeteoCamera/2020/Cloud_Cam_Metas'
+
+

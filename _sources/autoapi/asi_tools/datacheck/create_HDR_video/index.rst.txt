@@ -1,0 +1,69 @@
+asi_tools.datacheck.create_HDR_video
+====================================
+
+.. py:module:: asi_tools.datacheck.create_HDR_video
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   asi_tools.datacheck.create_HDR_video.site
+   asi_tools.datacheck.create_HDR_video.chosen_date
+   asi_tools.datacheck.create_HDR_video.year
+   asi_tools.datacheck.create_HDR_video.month
+   asi_tools.datacheck.create_HDR_video.day
+   asi_tools.datacheck.create_HDR_video.path_date
+   asi_tools.datacheck.create_HDR_video.filename_path_date
+   asi_tools.datacheck.create_HDR_video.months
+   asi_tools.datacheck.create_HDR_video.site
+   asi_tools.datacheck.create_HDR_video.exp_time_range
+   asi_tools.datacheck.create_HDR_video.today
+
+
+Module Contents
+---------------
+
+.. py:data:: site
+   :value: 'siteerror'
+
+
+.. py:data:: chosen_date
+   :value: 'dateerror'
+
+
+.. py:data:: year
+   :value: 'yearerror'
+
+
+.. py:data:: month
+   :value: 'montherror'
+
+
+.. py:data:: day
+   :value: 'dayerror'
+
+
+.. py:data:: path_date
+   :value: 'pathdateerror'
+
+
+.. py:data:: filename_path_date
+   :value: 'filenamepathdateerror'
+
+
+.. py:data:: months
+   :value: ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september',...
+
+
+.. py:data:: site
+   :value: ''
+
+
+.. py:data:: exp_time_range
+   :value: [120, 180]
+
+
+.. py:data:: today
+

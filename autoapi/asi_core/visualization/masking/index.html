@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.visualization.masking</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.visualization.sky_videos" href="../sky_videos/index.html" />
+  <link rel="prev" title="asi_core.visualization.interactive" href="../interactive/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.visualization</a> &raquo;</li>
+    
+    <li>asi_core.visualization.masking</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../interactive/index.html"
+       title="previous chapter">← asi_core.visualization.interactive</a>
+  </li>
+  <li class="next">
+    <a href="../sky_videos/index.html"
+       title="next chapter">asi_core.visualization.sky_videos →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.visualization.masking">
+<span id="asi-core-visualization-masking"></span><h1>asi_core.visualization.masking<a class="headerlink" href="#module-asi_core.visualization.masking" title="Link to this heading">¶</a></h1>
+<p>This module provides functions to visualize masks in all-sky imagers, like detected cloud layers.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.visualization.masking.visualize_mask" title="asi_core.visualization.masking.visualize_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_mask</span></code></a>(image, mask[, output_file, mask_color, ...])</p></td>
+<td><p>Visualize a binary mask overlaid on an image and optionally save the result.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.visualization.masking.overlay_mask" title="asi_core.visualization.masking.overlay_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">overlay_mask</span></code></a>(img, mask[, mask_color, alpha, asarray])</p></td>
+<td><p>Overlays a binary mask onto an image with a specified color and transparency.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.visualization.masking.create_saturation_mask_image" title="asi_core.visualization.masking.create_saturation_mask_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_saturation_mask_image</span></code></a>(img[, camera_mask, ...])</p></td>
+<td><p>Create a saturation mask image by identifying and overlaying saturated regions on the input image.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.visualization.masking.visualize_mask">
+<span class="sig-prename descclassname"><span class="pre">asi_core.visualization.masking.</span></span><span class="sig-name descname"><span class="pre">visualize_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(255,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.masking.visualize_mask" title="Link to this definition">¶</a></dt>
+<dd><p>Visualize a binary mask overlaid on an image and optionally save the result.</p>
+<p>The mask is applied by coloring masked regions (<cite>mask == 0</cite>) with a specified color
+and blending it with the original image using alpha transparency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>numpy.ndarray</em>) – The input image on which to overlay the mask.</p></li>
+<li><p><strong>mask</strong> (<em>numpy.ndarray</em>) – Binary mask array of the same height and width as the image.
+Masked regions should have value 0; others are considered visible.</p></li>
+<li><p><strong>output_file</strong> (<em>str</em><em> or </em><em>pathlib.Path</em><em>, </em><em>optional</em>) – Optional path to save the resulting overlay image. If None, the image is not saved.</p></li>
+<li><p><strong>mask_color</strong> (<em>tuple</em><em> of </em><em>int</em>) – RGB color tuple used to color the masked regions. Default is red (255, 0, 0).</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Transparency level of the overlay. 0 is fully transparent, 1 is fully opaque.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.visualization.masking.overlay_mask">
+<span class="sig-prename descclassname"><span class="pre">asi_core.visualization.masking.</span></span><span class="sig-name descname"><span class="pre">overlay_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(255,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asarray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.masking.overlay_mask" title="Link to this definition">¶</a></dt>
+<dd><p>Overlays a binary mask onto an image with a specified color and transparency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img</strong> – The input image, either as a NumPy array or a PIL Image.</p></li>
+<li><p><strong>mask</strong> – A binary mask (NumPy array) where nonzero values indicate the mask region.</p></li>
+<li><p><strong>mask_color</strong> – A tuple representing the RGB color of the mask (default is red: (255, 0, 0)).</p></li>
+<li><p><strong>alpha</strong> – A float (0 to 1) that controls the transparency of the overlay (default is 0.5).</p></li>
+<li><p><strong>asarray</strong> – If True, returns the result as a NumPy array; otherwise, returns a PIL Image.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The image with the overlaid mask, either as a NumPy array or a PIL Image.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.visualization.masking.create_saturation_mask_image">
+<span class="sig-prename descclassname"><span class="pre">asi_core.visualization.masking.</span></span><span class="sig-name descname"><span class="pre">create_saturation_mask_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">10)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asarray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.visualization.masking.create_saturation_mask_image" title="Link to this definition">¶</a></dt>
+<dd><p>Create a saturation mask image by identifying and overlaying saturated regions on the input image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img</strong> (<em>numpy.ndarray</em>) – The input image as a NumPy array.</p></li>
+<li><p><strong>camera_mask</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – An optional binary mask specifying the valid region of the image (default is None, meaning all pixels are considered valid).</p></li>
+<li><p><strong>text_position</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>, </em><em>optional</em>) – The position (x, y) where the saturation percentage text is drawn on the image (default is (10, 10)).</p></li>
+<li><p><strong>font_size</strong> (<em>int</em><em>, </em><em>optional</em>) – The font size of the saturation percentage text (default is 40).</p></li>
+<li><p><strong>asarray</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to return the output as a NumPy array (default is True). If False, returns a PIL Image.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The image with the saturation mask overlay, either as a NumPy array or a PIL Image.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray or PIL.Image.Image</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../interactive/index.html"
+       title="previous chapter">← asi_core.visualization.interactive</a>
+  </li>
+  <li class="next">
+    <a href="../sky_videos/index.html"
+       title="next chapter">asi_core.visualization.sky_videos →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

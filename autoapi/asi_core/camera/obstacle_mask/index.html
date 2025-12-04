@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.camera.obstacle_mask</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.camera.ocam" href="../ocam/index.html" />
+  <link rel="prev" title="asi_core.camera.mobotix" href="../mobotix/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.camera</a> &raquo;</li>
+    
+    <li>asi_core.camera.obstacle_mask</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../mobotix/index.html"
+       title="previous chapter">← asi_core.camera.mobotix</a>
+  </li>
+  <li class="next">
+    <a href="../ocam/index.html"
+       title="next chapter">asi_core.camera.ocam →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.camera.obstacle_mask">
+<span id="asi-core-camera-obstacle-mask"></span><h1>asi_core.camera.obstacle_mask<a class="headerlink" href="#module-asi_core.camera.obstacle_mask" title="Link to this heading">¶</a></h1>
+<p>This module provides functions to automatically generate camera masks for all-sky imagers.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.camera.obstacle_mask.save_mask" title="asi_core.camera.obstacle_mask.save_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_mask</span></code></a>(mask, mask_dir, mask_name)</p></td>
+<td><p>Save a mask as both a <cite>.npy</cite> and a legacy <cite>.mat</cite> file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.camera.obstacle_mask.adjust_gamma" title="asi_core.camera.obstacle_mask.adjust_gamma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">adjust_gamma</span></code></a>(image[, gamma])</p></td>
+<td><p>Apply gamma correction to an image by building a lookup table mapping the pixel values [0, 255] to their adjusted</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.camera.obstacle_mask.compute_mask" title="asi_core.camera.obstacle_mask.compute_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_mask</span></code></a>(avg_img)</p></td>
+<td><p>Create an image mask based on the input image. Input image should be a daily/longterm average image based</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.camera.obstacle_mask.aggregate_images" title="asi_core.camera.obstacle_mask.aggregate_images"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregate_images</span></code></a>(img_list[, gray_scale, equalization, ...])</p></td>
+<td><p>Process a list of images by applying optional grayscale conversion, histogram equalization,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.camera.obstacle_mask.create_mask" title="asi_core.camera.obstacle_mask.create_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_mask</span></code></a>(img_files[, num_images])</p></td>
+<td><p>Create a mask of static objects from a set of image files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.camera.obstacle_mask.detect_mask_cv" title="asi_core.camera.obstacle_mask.detect_mask_cv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detect_mask_cv</span></code></a>(img, max_intensity, gaussian_kernel, ...)</p></td>
+<td><p>Applies computer vision methods to automatically detect a mask of obstacles obscuring the sky in the ASI image.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.camera.obstacle_mask.save_mask">
+<span class="sig-prename descclassname"><span class="pre">asi_core.camera.obstacle_mask.</span></span><span class="sig-name descname"><span class="pre">save_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.camera.obstacle_mask.save_mask" title="Link to this definition">¶</a></dt>
+<dd><p>Save a mask as both a <cite>.npy</cite> and a legacy <cite>.mat</cite> file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> (<em>numpy.ndarray</em>) – The mask array to be saved.</p></li>
+<li><p><strong>mask_dir</strong> (<em>string</em>) – The directory where the mask files will be saved.</p></li>
+<li><p><strong>mask_dir</strong> – The name of the mask files.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.camera.obstacle_mask.adjust_gamma">
+<span class="sig-prename descclassname"><span class="pre">asi_core.camera.obstacle_mask.</span></span><span class="sig-name descname"><span class="pre">adjust_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.camera.obstacle_mask.adjust_gamma" title="Link to this definition">¶</a></dt>
+<dd><p>Apply gamma correction to an image by building a lookup table mapping the pixel values [0, 255] to their adjusted
+gamma values</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.camera.obstacle_mask.compute_mask">
+<span class="sig-prename descclassname"><span class="pre">asi_core.camera.obstacle_mask.</span></span><span class="sig-name descname"><span class="pre">compute_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avg_img</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.camera.obstacle_mask.compute_mask" title="Link to this definition">¶</a></dt>
+<dd><p>Create an image mask based on the input image. Input image should be a daily/longterm average image based
+on equalized histogram to enhance contrast</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.camera.obstacle_mask.aggregate_images">
+<span class="sig-prename descclassname"><span class="pre">asi_core.camera.obstacle_mask.</span></span><span class="sig-name descname"><span class="pre">aggregate_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gray_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equalization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.camera.obstacle_mask.aggregate_images" title="Link to this definition">¶</a></dt>
+<dd><p>Process a list of images by applying optional grayscale conversion, histogram equalization,
+and blurring. Computes the average and standard deviation of the processed images.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img_list</strong> (<em>list</em><em> of </em><em>numpy.ndarray</em>) – List of input images as NumPy arrays.</p></li>
+<li><p><strong>gray_scale</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to convert images to grayscale (default is False).</p></li>
+<li><p><strong>equalization</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to apply histogram equalization to enhance contrast (default is False).</p></li>
+<li><p><strong>blur</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to apply a blurring filter to reduce noise (default is False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing processed images, their average, and standard deviation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.camera.obstacle_mask.create_mask">
+<span class="sig-prename descclassname"><span class="pre">asi_core.camera.obstacle_mask.</span></span><span class="sig-name descname"><span class="pre">create_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_images</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.camera.obstacle_mask.create_mask" title="Link to this definition">¶</a></dt>
+<dd><p>Create a mask of static objects from a set of image files.</p>
+<p>This function aggregates a specified number of images from the provided list,
+computes an average image with optional grayscale conversion, histogram
+equalization, and blurring, and then generates a mask highlighting static
+objects present across the images.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img_files</strong> (<em>list</em><em>[</em><em>str</em><em>] or </em><em>list</em><em>[</em><em>pathlib.Path</em><em>]</em>) – A list of image file paths to be used for mask generation.</p></li>
+<li><p><strong>num_images</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of images to use for aggregation. If -1, use all provided images.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The generated mask based on static objects detected in the aggregated image.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <cite>img_files</cite> is empty or if <cite>num_images</cite> is 0.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.camera.obstacle_mask.detect_mask_cv">
+<span class="sig-prename descclassname"><span class="pre">asi_core.camera.obstacle_mask.</span></span><span class="sig-name descname"><span class="pre">detect_mask_cv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_intensity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gaussian_kernel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adaptive_thres_block_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adaptive_thres_mean_offset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">erode_dilate_kernel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_horizon</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.camera.obstacle_mask.detect_mask_cv" title="Link to this definition">¶</a></dt>
+<dd><p>Applies computer vision methods to automatically detect a mask of obstacles obscuring the sky in the ASI image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img</strong> – Image to be used for mask generation.</p></li>
+<li><p><strong>mask_intesity</strong></p></li>
+<li><p><strong>gaussian_kernel</strong></p></li>
+<li><p><strong>adaptive_thres_block_size</strong></p></li>
+<li><p><strong>adaptive_thres_mean_offset</strong></p></li>
+<li><p><strong>erode_dilate_kernel</strong></p></li>
+<li><p><strong>margin_horizon</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>automatically detected mask, dtype boolean, shape of greyscaled RGB input image</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../mobotix/index.html"
+       title="previous chapter">← asi_core.camera.mobotix</a>
+  </li>
+  <li class="next">
+    <a href="../ocam/index.html"
+       title="next chapter">asi_core.camera.ocam →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

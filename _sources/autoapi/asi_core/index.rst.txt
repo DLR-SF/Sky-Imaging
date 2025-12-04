@@ -1,0 +1,22 @@
+asi_core
+========
+
+.. py:module:: asi_core
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/asi_core/camera/index
+   /autoapi/asi_core/config/index
+   /autoapi/asi_core/dlr/index
+   /autoapi/asi_core/image/index
+   /autoapi/asi_core/meteo/index
+   /autoapi/asi_core/real_time/index
+   /autoapi/asi_core/utils/index
+   /autoapi/asi_core/visualization/index
+
+

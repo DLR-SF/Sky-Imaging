@@ -1,0 +1,78 @@
+asi_tools.datacheck.plot_asi_availability
+=========================================
+
+.. py:module:: asi_tools.datacheck.plot_asi_availability
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   asi_tools.datacheck.plot_asi_availability.tz_offset
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   asi_tools.datacheck.plot_asi_availability.AvailabilityChecker
+
+
+Module Contents
+---------------
+
+.. py:class:: AvailabilityChecker(img_base_path, cam_id)
+
+   .. py:attribute:: img_base_path
+
+
+   .. py:attribute:: cam_id
+
+
+   .. py:method:: get_img_path(day_eval)
+
+      Get the path to requested timestamp and station.
+      This function is specific to the hourly folder structure. It may be overridden in the future.
+
+
+
+   .. py:method:: get_availability(year, month, tz_offset, station_coords, sampling_time)
+
+      Compare expected timestamps with the found timestamps and compile image availability in dictionary.
+
+      Args:
+          year -- string (%Y), year for which image availability is evaluated
+          month -- string (%m), month for which image availability is evaluated
+          tz_offset -- integer, offset in hours from UTC
+          station_coords -- dictionary with keys lat (latitude northing in float/ decimal degrees), 
+              lon (longitude easting in float/ decimal degrees)
+          sampling_time -- float [seconds], sampling time
+
+      Returns:
+          availabilityInfo -- dictionary, informing on image availability. Keys:
+              num_imgs_per_day_expected -- 1D array of integers, number of expected images based on sun position
+              num_imgs_per_day_found -- 1D array of integers, number of found images based on sun position
+              histogram_days_hours -- numpy 2D array, histogram with days on y and sampling intervals on x
+              year -- string (%Y), year for which image availability is evaluated
+              month -- string (%m), month for which image availability is evaluated
+
+
+
+   .. py:method:: plot_availability(availability_info)
+
+      Plot image availability for the evaluated month.
+
+      Args:
+          availabilityInfo -- dictionary, informing on image availability. Keys:
+              num_imgs_per_day_expected -- 1D array of integers, number of expected images based on sun position
+              num_imgs_per_day_found -- 1D array of integers, number of found images based on sun position
+              histogram_days_hours -- numpy 2D array, histogram with days on y and sampling intervals on x
+              year -- string (%Y), year for which image availability is evaluated
+              month -- string (%m), month for which image availability is evaluated
+
+
+
+.. py:data:: tz_offset
+

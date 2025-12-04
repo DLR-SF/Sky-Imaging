@@ -1,0 +1,169 @@
+asi_core.utils.daily_h5
+=======================
+
+.. py:module:: asi_core.utils.daily_h5
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   asi_core.utils.daily_h5.DailyH5
+   asi_core.utils.daily_h5.DailyH5Writer
+   asi_core.utils.daily_h5.DailyH5Reader
+
+
+Module Contents
+---------------
+
+.. py:class:: DailyH5(products_path, meta_infos={})
+
+   Base class for DailyH5 file manipulation
+
+
+   .. py:attribute:: products_path
+
+
+   .. py:attribute:: meta_infos
+
+
+   .. py:attribute:: daily_h5
+
+
+   .. py:method:: get_file(timestamp)
+
+      Get the path to the current daily h5 file. Initialize if not done yet.
+
+      :param timestamp: Timestamp of the data to be stored
+      :return: Path to the current daily h5 file
+
+
+
+   .. py:method:: init_h5file(timestamp)
+
+      Initialize daily h5 file for reading or writing.
+
+      :param timestamp: Timestamp of the current data to be stored
+
+
+
+   .. py:method:: process_entry(timestamp, mode, data=None, timestamp_forecasted=None)
+
+      Stores a dataset of one timestamp to the daily h5 file
+
+      :param timestamp: Timestamp based on which dataset was created
+      :param mode: character, r/w/a, i.e. read, write or append
+      :param data: Dataset to be saved either dataset which can be stored by h5py or dict of such datasets
+      :param timestamp_forecasted: (Optional) timestamp forecasted by the dataset
+
+
+
+   .. py:method:: process_sub_entry(label, data=None)
+
+      Defines the read/ write operation to be applied recursively
+
+      :param label: Label of the current data to be stored/ read
+      :param data: Data to be processed
+
+
+
+.. py:class:: DailyH5Writer(products_path, meta_infos={})
+
+   Bases: :py:obj:`DailyH5`
+
+
+   Base class for DailyH5 file manipulation
+
+
+   .. py:method:: store_entry(timestamp, data, timestamp_forecasted=None)
+
+      Stores a dataset of one timestamp to the daily h5 file
+
+      :param timestamp: Timestamp based on which dataset was created
+      :param timestamp_forecasted: (Optional) timestamp forecasted by the dataset
+      :param data: Dataset to be saved either dataset which can be stored by h5py or dict of such datasets
+
+
+
+   .. py:method:: init_h5file(timestamp, do_not_overwrite=True)
+
+      Initialize daily h5 file, create folders if required, store meta infos to a new h5 file.
+
+      :param timestamp: Timestamp of the current data to be stored
+      :param do_not_overwrite: If called and a daily file already exists, create additional file instead of
+                               overwriting the previous one.
+
+
+
+   .. py:method:: process_sub_entry(handle, label, data)
+
+      Recursively store all datasets in data
+
+      :param handle: Handle to an h5file or a group in an h5 file
+      :param label: Label under which data will be stored
+      :param data: dataset or dict of datasets
+
+
+
+.. py:class:: DailyH5Reader(products_path, meta_infos={})
+
+   Bases: :py:obj:`DailyH5`
+
+
+   Base class for DailyH5 file manipulation
+
+
+   .. py:method:: list_entries(h5_path)
+      :staticmethod:
+
+
+      Generate a dataframe of the keys and corresponding timestamps and forecasted timestamps in the h5 file.
+
+      :param h5_path: Path of the h5 file, the ke
+      :return: Dataframe with columns key, timestamp, forecasted_timestamp
+
+
+
+   .. py:method:: init_from_path(timestamp, h5_path)
+      :staticmethod:
+
+
+      Create a DailyH5Reader instance and initializes it from a specific h5 file
+
+      :param timestamp: Timestamp based on which dataset was created
+      :param h5_path: Path of the h5 file to be read (naming can deviate from convention of DailyH5Writer)
+      :return: DailyH5Reader instance
+
+
+
+   .. py:method:: get_entry(timestamp, timestamp_forecasted=None)
+
+      Stores a dataset of one timestamp to the daily h5 file
+
+      :param timestamp: Timestamp based on which dataset was created
+      :param timestamp_forecasted: (Optional) timestamp forecasted by the dataset
+
+      :return: Dataset to be saved either dataset which can be stored by h5py or dict of such datasets
+
+
+
+   .. py:method:: process_sub_entry(handle, label, data=None)
+
+      Recursively get all datasets in handle
+
+      :param handle: Handle to an h5file or a group in an h5 file
+      :param label: Label under which data will be stored
+      :param data: dataset or dict of datasets
+
+
+
+   .. py:method:: init_h5file(timestamp, file_counter=0)
+
+      Initialize daily h5 file, load meta data.
+
+      :param timestamp: Timestamp of the current data to be stored
+      :param file_counter: Appends counter suffix to file name. May be useful if multiple files created for a day.
+
+
+

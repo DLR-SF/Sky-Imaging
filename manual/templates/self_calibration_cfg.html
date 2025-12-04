@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>Structure</title>
+    
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../_static/theme-vendors.js"></script> -->
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../autoapi/index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li>Structure</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <p>The geometric self-calibration for All-Sky Imagers tool uses a YAML to set the relevant parameters.</p>
+<section id="structure">
+<h1>Structure<a class="headerlink" href="#structure" title="Link to this heading">¶</a></h1>
+<p>The YAML structure for the geometric self-calibration is shown below.</p>
+<ul class="simple">
+<li><p>Camera:</p>
+<ul>
+<li><p>camera_name</p></li>
+<li><p>camera_data_dir</p></li>
+<li><p>img_path_structure</p></li>
+<li><p>transforms</p>
+<ul>
+<li><p>apply_camera_mask</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Calibration:</p>
+<ul>
+<li><p>mode</p></li>
+<li><p>path_orb_observations</p></li>
+<li><p>path_calib_results</p></li>
+<li><p>last_timestamp</p></li>
+<li><p>last_timestamp_validation</p></li>
+<li><p>target_calibration</p></li>
+<li><p>orb_types</p></li>
+<li><p>orb_types_validation</p></li>
+<li><p>save_orb_quality_indicators</p></li>
+<li><p>sort_out_imgs_manually</p></li>
+<li><p>filter_detected_orbs</p></li>
+<li><p>min_rel_dist_mask_orb</p></li>
+<li><p>compute_and_save_azimuth_elevation</p></li>
+<li><p>ignore_outliers_above_percentile</p></li>
+<li><p>center_detection</p>
+<ul>
+<li><p>x_samples</p></li>
+<li><p>max_rel_center_dev</p></li>
+<li><p>number_iterations</p></li>
+</ul>
+</li>
+<li><p>moon_detection</p>
+<ul>
+<li><p>number_days</p></li>
+<li><p>sampling_time</p></li>
+<li><p>thresholds</p>
+<ul>
+<li><p>min_area</p></li>
+<li><p>max_area</p></li>
+<li><p>intensity_threshold</p></li>
+<li><p>aspect_ratio_tolerance</p></li>
+<li><p>circularity_threshold</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>sun_detection</p>
+<ul>
+<li><p>number_days</p></li>
+<li><p>sampling_time</p></li>
+<li><p>thresholds</p>
+<ul>
+<li><p>min_area</p></li>
+<li><p>max_area</p></li>
+<li><p>intensity_threshold</p></li>
+<li><p>aspect_ratio_tolerance</p></li>
+<li><p>circularity_threshold</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>moon_validation</p>
+<ul>
+<li><p>sampling_time</p></li>
+<li><p>number_days</p></li>
+</ul>
+</li>
+<li><p>sun_validation</p>
+<ul>
+<li><p>sampling_time</p></li>
+<li><p>number_days</p></li>
+</ul>
+</li>
+<li><p>ss_statistics</p>
+<ul>
+<li><p>mean</p></li>
+<li><p>std</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="fields-description">
+<h1>Fields description<a class="headerlink" href="#fields-description" title="Link to this heading">¶</a></h1>
+<section id="camera">
+<h2>Camera<a class="headerlink" href="#camera" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>camera_name</p></td>
+<td><p>string</p></td>
+<td><p>Name of the camera to be calibrated (as used in camera_data yaml).</p></td>
+</tr>
+<tr class="row-odd"><td><p>camera_data_dir</p></td>
+<td><p>string</p></td>
+<td><p>Path to the camera_data yamls. If this field is not present then the default folder ‘asi-core/asi_core/camera_data’ is used.</p></td>
+</tr>
+<tr class="row-even"><td><p>img_path_structure</p></td>
+<td><p>string</p></td>
+<td><p>Path to each image, containing {camera_name} where the camera name should be inserted, {timestamp:…} (e.g. {timestamp:%Y%m%d%H%M%S%f}) where the evaluated timestamp should be inserted and {exposure_time:d} for exposure time.</p></td>
+</tr>
+<tr class="row-odd"><td><p>transforms.apply_camera_mask</p></td>
+<td><p>boolean</p></td>
+<td><p>Indicates wheather to apply camera mask or not.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Camera</span><span class="p">:</span>
+  <span class="n">camera_name</span><span class="p">:</span> <span class="s1">&#39;Sky_Cam_01&#39;</span>
+  <span class="n">camera_data_dir</span><span class="p">:</span> <span class="s1">&#39;/Local/calib_test/camera_data&#39;</span>
+  <span class="n">img_path_structure</span><span class="p">:</span> <span class="s1">&#39;/Sky_Images/{timestamp:%Y}/</span><span class="si">{camera_name}</span><span class="s1">/{timestamp:%m}/{timestamp:</span><span class="si">%d</span><span class="s1">}/{timestamp:%H}/{timestamp:%Y%m</span><span class="si">%d</span><span class="s1">%H%M%S}_</span><span class="si">{exposure_time:d}</span><span class="s1">.jpg&#39;</span>
+  <span class="n">transforms</span><span class="p">:</span>
+    <span class="n">apply_camera_mask</span><span class="p">:</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="calibration">
+<h2>Calibration:<a class="headerlink" href="#calibration" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Calibration</span></code> object is contains a list of mandatory parameters and a set of objects that are present or not depending on the type of calibration to be run.</p>
+<p>The list of mandatory fields in <code class="docutils literal notranslate"><span class="pre">Calibration</span></code> are the following:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>mode</p></td>
+<td><p>string</p></td>
+<td><p>The running mode can be one of the following: ‘calibrate_validate_from_images’, ‘validate_from_images’, ‘calibrate_from_csv’ or ‘validate_from_csv’</p></td>
+</tr>
+<tr class="row-odd"><td><p>path_orb_observations</p></td>
+<td><p>string</p></td>
+<td><p>Path to csv with orb observations from first run. Only relevant if mode is ‘calibrate_from_csv’</p></td>
+</tr>
+<tr class="row-even"><td><p>path_calib_results</p></td>
+<td><p>string</p></td>
+<td><p>Path to calibration results to be used in a validation</p></td>
+</tr>
+<tr class="row-odd"><td><p>last_timestamp</p></td>
+<td><p>timestamp</p></td>
+<td><p>last timestamp to be included in the calibration</p></td>
+</tr>
+<tr class="row-even"><td><p>last_timestamp_validation</p></td>
+<td><p>timestamp</p></td>
+<td><p>last timestamp to be included in the calibration</p></td>
+</tr>
+<tr class="row-odd"><td><p>target_calibration</p></td>
+<td><p>string</p></td>
+<td><p>The optimization target can be of the following: ‘optimize_eor_ior_center’, ‘optimize_eor_ior’ or ‘optimize_eor’.</p></td>
+</tr>
+<tr class="row-even"><td><p>orb_types</p></td>
+<td><p>list of string</p></td>
+<td><p>Orb types used for calibration can be ‘Sun’ or ‘Moon’, either or both.</p></td>
+</tr>
+<tr class="row-odd"><td><p>orb_types_validation</p></td>
+<td><p>list of string</p></td>
+<td><p>Orb types used for validation can be ‘Sun’ or ‘Moon’, either or both.</p></td>
+</tr>
+<tr class="row-even"><td><p>save_orb_quality_indicators</p></td>
+<td><p>boolean</p></td>
+<td><p>Indicates wheather to save orb quality indicators or not.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sort_out_imgs_manually</p></td>
+<td><p>boolean</p></td>
+<td><p>Indicates wheather or not images are manually sorted.</p></td>
+</tr>
+<tr class="row-even"><td><p>filter_detected_orbs</p></td>
+<td><p>boolean</p></td>
+<td><p>Indicates wheather to filter detected orbs or not.</p></td>
+</tr>
+<tr class="row-odd"><td><p>min_rel_dist_mask_orb</p></td>
+<td><p>float</p></td>
+<td><p>1.5</p></td>
+</tr>
+<tr class="row-even"><td><p>compute_and_save_azimuth_elevation</p></td>
+<td><p>boolean</p></td>
+<td><p>Indicates wheather to compute and save azimuth and elevation or not.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ignore_outliers_above_percentile</p></td>
+<td><p>float</p></td>
+<td><p>Observations with deviation above corresponding percentile are excluded from calculation of deviation/ optimization</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Calibration:
+  mode: &#39;calibrate_validate_from_images&#39;
+  path_orb_observations: &#39;&#39;
+  path_calib_results: &#39;&#39;
+  last_timestamp: !!timestamp &#39;2024-04-04T14:00:00+01:00&#39;
+  last_timestamp_validation: !!timestamp &#39;2024-04-04T14:00:00+01:00&#39;
+  target_calibration: &#39;optimize_eor_ior_center&#39;
+  orb_types: [&#39;Moon&#39;] 
+  orb_types_validation: [&#39;Sun&#39;, &#39;Moon&#39;] 
+  save_orb_quality_indicators: True
+  sort_out_imgs_manually: False
+  filter_detected_orbs: True
+  min_rel_dist_mask_orb: 1.5
+  compute_and_save_azimuth_elevation: True
+  ignore_outliers_above_percentile: 99 
+</pre></div>
+</div>
+</section>
+<section id="calibration-nested-objects">
+<h3>Calibration nested objects:<a class="headerlink" href="#calibration-nested-objects" title="Link to this heading">¶</a></h3>
+<section id="center-detection">
+<h4>center_detection<a class="headerlink" href="#center-detection" title="Link to this heading">¶</a></h4>
+<p>The field <code class="docutils literal notranslate"><span class="pre">center_detection</span></code> must be present when:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code> is ‘calibrate_from_images’ and <code class="docutils literal notranslate"><span class="pre">target_calibration</span></code> is ‘optimize_eor_ior’ or ‘optimize_eor_ior_center’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code> is ‘calibrate_from_csv’.</p></li>
+</ul>
+<p>It contains the following fields:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>x_samples</p></td>
+<td><p>int</p></td>
+<td><p>Number of samples on grid of potential center points.</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_rel_center_dev</p></td>
+<td><p>float</p></td>
+<td><p>Fraction of the image side length, maximum expected deviation of the lens center from the image center.</p></td>
+</tr>
+<tr class="row-even"><td><p>number_iterations</p></td>
+<td><p>int</p></td>
+<td><p>Number of iterations in each of which a grid of test points is evaluated.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h4>Example<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">center_detection</span><span class="p">:</span>
+    <span class="n">x_samples</span><span class="p">:</span> <span class="mi">6</span>
+    <span class="n">max_rel_center_dev</span><span class="p">:</span> <span class="mf">0.25</span>
+    <span class="n">number_iterations</span><span class="p">:</span> <span class="mi">11</span>
+</pre></div>
+</div>
+</section>
+<section id="sun-detection-and-moon-detection">
+<h4>sun_detection and moon_detection<a class="headerlink" href="#sun-detection-and-moon-detection" title="Link to this heading">¶</a></h4>
+<p>There are two possibilities <code class="docutils literal notranslate"><span class="pre">sun_detection</span></code> and <code class="docutils literal notranslate"><span class="pre">moon_detection</span></code> but both has the same structure.</p>
+<p>The field <code class="docutils literal notranslate"><span class="pre">sun_detection</span></code> must be present when <code class="docutils literal notranslate"><span class="pre">mode</span></code> is ‘calibrate_from_images’ or ‘validate_from_images’ and ‘Sun’ is in <code class="docutils literal notranslate"><span class="pre">orb_types</span></code> or <code class="docutils literal notranslate"><span class="pre">orb_types_validation</span></code>.</p>
+<p>The field <code class="docutils literal notranslate"><span class="pre">moon_detection</span></code> must be present when <code class="docutils literal notranslate"><span class="pre">mode</span></code> is ‘calibrate_from_images’ or ‘validate_from_images’ and ‘Moon’ is in <code class="docutils literal notranslate"><span class="pre">orb_types</span></code> or <code class="docutils literal notranslate"><span class="pre">orb_types_validation</span></code>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>number_days</p></td>
+<td><p>int</p></td>
+<td><p>Number of days prior to ‘last_timestamp’ to be included.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sampling_time</p></td>
+<td><p>int</p></td>
+<td><p>Minutes, use one sky image every ‘sampling_time’ minutes.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">sun_detection</span></code> and <code class="docutils literal notranslate"><span class="pre">moon_detection</span></code> has a thresholds field with the following structure:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>min_area</p></td>
+<td><p>int</p></td>
+<td><p>Minimum area in pixels of valid orb observation; small enough to detect the orb but large enough not to detect other lights</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_area</p></td>
+<td><p>int</p></td>
+<td><p>Maximum area in pixels of valid orb observation; small enough to reject objects which would be unusually large for a moon observation</p></td>
+</tr>
+<tr class="row-even"><td><p>intensity_threshold</p></td>
+<td><p></p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>aspect_ratio_tolerance</p></td>
+<td><p>float</p></td>
+<td><p>0.2</p></td>
+</tr>
+<tr class="row-even"><td><p>circularity_threshold</p></td>
+<td><p>float</p></td>
+<td><p>0.8</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note: Threshold values from detection are used in validation.</p>
+</section>
+<section id="id3">
+<h4>Example<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">moon_detection</span><span class="p">:</span>
+     <span class="n">number_days</span><span class="p">:</span> <span class="mi">28</span>
+     <span class="n">sampling_time</span><span class="p">:</span> <span class="mi">10</span>
+     <span class="n">thresholds</span><span class="p">:</span>
+       <span class="n">min_area</span><span class="p">:</span> <span class="mi">10</span>
+       <span class="n">max_area</span><span class="p">:</span> <span class="mi">10000</span>
+       <span class="n">intensity_threshold</span><span class="p">:</span> <span class="mi">100</span>
+       <span class="n">aspect_ratio_tolerance</span><span class="p">:</span> <span class="mf">0.2</span>
+       <span class="n">circularity_threshold</span><span class="p">:</span> <span class="mf">0.8</span>
+
+   <span class="n">sun_detection</span><span class="p">:</span>
+     <span class="n">number_days</span><span class="p">:</span> <span class="mi">30</span> 
+     <span class="n">sampling_time</span><span class="p">:</span> <span class="mi">10</span> 
+     <span class="n">thresholds</span><span class="p">:</span>
+       <span class="n">min_area</span><span class="p">:</span> <span class="mi">100</span>
+       <span class="n">max_area</span><span class="p">:</span> <span class="mi">10000</span> 
+       <span class="n">intensity_threshold</span><span class="p">:</span> <span class="mi">240</span>
+       <span class="n">aspect_ratio_tolerance</span><span class="p">:</span> <span class="mf">0.2</span>
+       <span class="n">circularity_threshold</span><span class="p">:</span> <span class="mf">0.6</span>
+</pre></div>
+</div>
+</section>
+<section id="sun-validation-and-moon-validation-fields">
+<h4>sun_validation and moon_validation fields:<a class="headerlink" href="#sun-validation-and-moon-validation-fields" title="Link to this heading">¶</a></h4>
+<p>As with the detection, there are two possibilities <code class="docutils literal notranslate"><span class="pre">sun_validation</span></code> and <code class="docutils literal notranslate"><span class="pre">moon_validation</span></code> but both has the same structure.</p>
+<p>The field <code class="docutils literal notranslate"><span class="pre">sun_validation</span></code> must be present when <code class="docutils literal notranslate"><span class="pre">mode</span></code> is ‘validate_from_images’ and ‘Sun’ is in <code class="docutils literal notranslate"><span class="pre">orb_types_validation</span></code>.</p>
+<p>The field <code class="docutils literal notranslate"><span class="pre">moon_detection</span></code> must be present when <code class="docutils literal notranslate"><span class="pre">mode</span></code> is ‘validate_from_images’ and ‘Moon’ is in <code class="docutils literal notranslate"><span class="pre">orb_types_validation</span></code>.</p>
+<p>Validation fields:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>number_days</p></td>
+<td><p>int</p></td>
+<td><p>Number of days prior to <code class="docutils literal notranslate"><span class="pre">last_timestamp</span></code> to be included</p></td>
+</tr>
+<tr class="row-odd"><td><p>sampling_time</p></td>
+<td><p>int</p></td>
+<td><p>Minutes, use one sky image every <code class="docutils literal notranslate"><span class="pre">sampling_time</span></code> minutes</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h4>Example<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">moon_detection</span><span class="p">:</span>
+     <span class="n">number_days</span><span class="p">:</span> <span class="mi">28</span>
+     <span class="n">sampling_time</span><span class="p">:</span> <span class="mi">10</span>
+    
+   <span class="n">sun_detection</span><span class="p">:</span>
+     <span class="n">number_days</span><span class="p">:</span> <span class="mi">30</span> 
+     <span class="n">sampling_time</span><span class="p">:</span> <span class="mi">10</span> 
+</pre></div>
+</div>
+</section>
+<section id="ss-statistics">
+<h4>ss_statistics<a class="headerlink" href="#ss-statistics" title="Link to this heading">¶</a></h4>
+<p>The field <code class="docutils literal notranslate"><span class="pre">ss_statistics</span></code> must be present when <code class="docutils literal notranslate"><span class="pre">mode</span></code> is ‘calibrate_from_images’, ‘calibrate_from_csv’ or ‘validate_from_images’.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>mean</p></td>
+<td><p>python/tuple of floats</p></td>
+<td><p>Mean values of ss.</p></td>
+</tr>
+<tr class="row-odd"><td><p>std</p></td>
+<td><p>python/tuple of floats</p></td>
+<td><p>Std values of ss.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h4>Example<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  ss_statistics:
+    mean: !!python/tuple [-653.3, 2.677e-4, 4.498e-07]
+    std: !!python/tuple [5.4, 2.89e-05, 3.066e-08]
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

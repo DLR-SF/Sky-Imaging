@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>Quick start guide on HTTP image receiver data acquisition program</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Camera Mask" href="mask_creation.html" />
+  <link rel="prev" title="Documentation of the image upload via FTP-S" href="ftps_upload.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../autoapi/index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">User Manual</a> &raquo;</li>
+    
+    <li>Quick start guide on HTTP image receiver data acquisition program</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="ftps_upload.html"
+       title="previous chapter">← Documentation of the image upload via FTP-S</a>
+  </li>
+  <li class="next">
+    <a href="mask_creation.html"
+       title="next chapter">Camera Mask →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="quick-start-guide-on-http-image-receiver-data-acquisition-program">
+<h1>Quick start guide on HTTP image receiver data acquisition program<a class="headerlink" href="#quick-start-guide-on-http-image-receiver-data-acquisition-program" title="Link to this heading">¶</a></h1>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h2>
+<p>This DAQ needs to be installed on a computer (linux or windows) located in the same network as the
+camera you want to control. (The camera must be accessible e.g. in your browser.)</p>
+<p>Make sure that the asi-core package is properly installed.</p>
+<p>To learn how to setup asi-core see <a class="reference internal" href="getting_started.html"><span class="std std-doc">Getting started</span></a></p>
+</section>
+<section id="set-your-local-configuration">
+<h2>Set your local configuration<a class="headerlink" href="#set-your-local-configuration" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>Create config file for your data acquisition task based on this template</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;path</span> <span class="pre">to</span> <span class="pre">repository&gt;\data\camera_data\ASI_Template.yaml</span></code></p>
+</li>
+<li><p>Set the name / id of the camera which should be used uniformly in folder names and all configurations e.g.</p>
+<p><code class="docutils literal notranslate"><span class="pre">camera_name:</span> <span class="pre">'Cloud_Cam_Metas'</span></code></p>
+</li>
+<li><p>Set the model of the camera e.g.</p>
+<p><code class="docutils literal notranslate"><span class="pre">camera_model:</span> <span class="pre">'Q25'</span></code></p>
+</li>
+<li><p>Set the coordinates of the camera e.g.</p>
+<p><code class="docutils literal notranslate"><span class="pre">latitude:</span> <span class="pre">37.091573</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">longitude:</span> <span class="pre">-2.363595</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">altitude:</span> <span class="pre">500.</span></code></p>
+</li>
+<li><p>Set the URL of the camera in your local network e.g.</p>
+<p><code class="docutils literal notranslate"><span class="pre">daq/url_cam:</span> <span class="pre">'http://10.21.202.145'</span></code></p>
+</li>
+<li><p>Set the path to which you want to store your results, e.g.:</p>
+<p><code class="docutils literal notranslate"><span class="pre">daq/storage_path:</span> <span class="pre">'C:/data/test_daq/server_folder'</span></code></p>
+</li>
+<li><p>Set the working directory of the DAQ program. In this folder log files will be stored, e.g.</p>
+<p><code class="docutils literal notranslate"><span class="pre">daq/daq_working_dir:</span> <span class="pre">'C:/data/test_daq/asi-core/log_folder'</span></code></p>
+</li>
+</ul>
+</section>
+<section id="run-the-daq">
+<h2>Run the DAQ<a class="headerlink" href="#run-the-daq" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>Activate the conda environment</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">asi_core</span></code></p>
+</li>
+<li><p>Run the daq providing your config file as argument, e.g.:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;path_to_repository&gt;/asi_tools/daq</span> <span class="pre">-c</span> <span class="pre">&quot;&lt;path_to_repository&gt;/data/camera_data/Cloud_Cam_Metas_20190711.yaml&quot;</span></code></p>
+</li>
+<li><p>You can adapt the following script to do the job</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;path_to_repository&gt;/scripts/daq_scripts/run_all_GUIs.bat</span></code></p>
+</li>
+<li><p>We recommend to restart the DAQ once per day. E.g. around midnight.</p></li>
+</ul>
+</section>
+<section id="further-settings">
+<h2>Further settings<a class="headerlink" href="#further-settings" title="Link to this heading">¶</a></h2>
+<p>The DAQ uses a number of default settings which can be changed if needed when initializing a Receiver instance.
+Uncomment parameters in the Process section of the config file if needed. The default parameters are suited for Q26.</p>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="ftps_upload.html"
+       title="previous chapter">← Documentation of the image upload via FTP-S</a>
+  </li>
+  <li class="next">
+    <a href="mask_creation.html"
+       title="next chapter">Camera Mask →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

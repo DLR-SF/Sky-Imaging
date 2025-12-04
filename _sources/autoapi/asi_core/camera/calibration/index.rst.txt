@@ -1,0 +1,16 @@
+asi_core.camera.calibration
+===========================
+
+.. py:module:: asi_core.camera.calibration
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/asi_core/camera/calibration/celestial_bodies/index
+   /autoapi/asi_core/camera/calibration/self_calibration/index
+
+

@@ -1,0 +1,175 @@
+asi_core.utils.filesystem
+=========================
+
+.. py:module:: asi_core.utils.filesystem
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_core.utils.filesystem.get_absolute_path
+   asi_core.utils.filesystem.replace_double_backslashes_with_slashes_in_path
+   asi_core.utils.filesystem._get_files
+   asi_core.utils.filesystem.get_files
+   asi_core.utils.filesystem.get_image_files
+   asi_core.utils.filesystem.image_filelist_to_pandas_series
+   asi_core.utils.filesystem.copy_file
+   asi_core.utils.filesystem.copy_file_relative_to_directories
+   asi_core.utils.filesystem.parallel_copy_files
+   asi_core.utils.filesystem.assemble_path
+   asi_core.utils.filesystem.fstring_to_re
+
+
+Module Contents
+---------------
+
+.. py:function:: get_absolute_path(filepath, root=None, as_string=False)
+
+   Make filepath an absolute path. It can be combined with a root path.
+
+   :param filepath: (str) file path.
+   :param root: (str) root path. Default is None.
+   :param as_string: (bool) if True, return absolute path as a string. Default is False.
+   :return: (Path or str) absolute path.
+
+
+.. py:function:: replace_double_backslashes_with_slashes_in_path(str_path, root_dir=None)
+
+   Replace double backslashes from windows paths with slashes.
+
+   :param str_path: (str) file path
+   :param root_dir: (str) root path. Default is None.
+   :return: (Path) String path as a Path object.
+
+
+.. py:function:: _get_files(p, fs, extensions=None, substring=None)
+
+   Get all files in path with 'extensions' and a name containing a 'substring'.
+
+   :param p: (str) directory path
+   :param fs: (list str) filenames.
+   :param extensions: (str) File extension to filter file list. Default is None.
+   :param substring: (str) Substring in filename to filter file list. Default is None.
+   :return: (Path) String path as a Path object.
+
+
+.. py:function:: get_files(path, extensions=[], substring=None, recursive=True, folders=[], followlinks=True)
+
+   Get all files in `path` with optional `extensions` or `substring`, optionally `recursive`, only in `folders`,
+   if specified.
+
+   :param path: (str) directory path
+   :param extensions: (list str) File extensions to filter file list, i.e. [".txt", ".jpg"]. Default is [].
+   :param substring: (str) Substring in filename to filter file list. Default is None.
+   :param recursive: (bool) If True, visit files in subfolders. Default is True.
+   :param folders: (list str) Subfolders to visit. Default is [].
+   :param followlinks: (bool) If True, visit directories pointed to by symlinks, on systems that support them.
+       Default is True.
+   :return: (list Path) File paths.
+
+
+.. py:function:: get_image_files(path, recursive=True, folders=[], extensions=IMAGE_EXTENSIONS, substring=None, as_series=False, dt_format='%Y%m%d%H%M%S', round_to=None)
+
+   Get image files in `path` recursively, only in `folders` and with `substring`, if specified.
+
+   :param path: (str) directory path
+   :param recursive: (bool) If True, visit files in subfolders. Default is True.
+   :param folders: (list str) Subfolders to visit. Default is [].
+   :param extensions: (list str) File extension to filter file list. Default is IMAGE_EXTENSIONS.
+   :param substring: (str) Substring in filename to filter file list. Default is None.
+   :param as_series: (bool) if True, return a pandas series. Default is False.
+   :param dt_format: (str) Datetime format template with the following placeholders:
+
+       - %Y year,
+       - %m month,
+       - %d day,
+       - %H hour,
+       - %M minute,
+       - %S second.
+
+   Default is "%Y%m%d%H%M%S".
+   :param round_to: (str) Value to round to, i.e. '1D', '2H', '30s'. When None no rounding is done. Default is None.
+   :return: (list Path or Pandas series) Image file paths.
+
+
+.. py:function:: image_filelist_to_pandas_series(img_files, dt_format='%Y%m%d%H%M%S', round_to=None, drop_nat=True)
+
+   Convert list of image files with datetime names into pandas Series.
+
+   :param img_files: (list Path) Image file paths
+   :param dt_format: (str) Datetime format template with the following placeholders:
+                           %Y year, %m month, %d day, %H hour, %M minute, %S second.
+                           Default is "%Y%m%d%H%M%S".
+   :param round_to: (str) Value to round to, i.e. '1D', '2H', '30s'. When None no rounding is done. Default is None.
+   :param drop_nat: (bool) Flag to determine whether to drop entries where the timestamp could not be extracted.
+       Default is True.
+   :return: (Pandas series) Image file paths.
+
+
+.. py:function:: copy_file(source_file, target_file=None, target_directory=None, create_parents=False)
+
+   Copy a file to a specified target file or directory.
+
+   :param source_file: (str) Path to the source file.
+   :param target_file: (str) Path to the target file (optional if target_directory is provided).
+   :param target_directory: (str) Path to the target directory (optional if tgt_file is provided).
+   :param create_parents: (bool) If True parent directories are created if don't exist. Default is False.
+
+
+.. py:function:: copy_file_relative_to_directories(relative_filepath, source_directory, target_directory)
+
+   Copy a file from the source directory to the target directory while preserving its relative path.
+
+   :param relative_filepath: (str) File path relative to the source directory.
+   :param source_directory: (str) Root source directory.
+   :param target_directory: (str) Root target directory.
+
+
+.. py:function:: parallel_copy_files(filepaths, source_directory, target_directory, keep_dir_structure=False, num_workers=0)
+
+   Copy multiple files in parallel, optionally preserving directory structure.
+
+   :param filepaths: (List str) File paths to copy.
+   :param source_directory: (str) Source directory (used to determine relative paths).
+   :param target_directory: (str) Target directory where files will be copied.
+   :param keep_dir_structure: (bool) If True maintain the original directory structure. Default is False.
+   :param num_workers: (int) Number of parallel workers for file copying. Default is 0, meaning sequential execution.
+
+
+.. py:function:: assemble_path(path_structure, camera_name, timestamp, set_subday_to_wildcard=False, exposure_time=None)
+
+   Assemble path by replacing timestamp, camera name and exposure time 'tags' with actual values
+
+   :param path_structure: (str) Template for the file path. It can contain any combination of the following placeholders:
+       {camera_name} for the camera name,
+       {exposure_time} for the exposure time.
+       {timestamp:dt_format} for the image timestamp. dt_format is a combination of the following placeholders:
+
+           - %Y year,
+           - %m month,
+           - %d day,
+           - %H hour,
+           - %M minute,
+           - %S second
+
+       e.g. {timestamp:%Y%m%d%H%M%S}
+       and full path e.g. /a/path/to/image/{timestamp:%Y}/{camera_name}/{timestamp:%Y%m%d%H%M%S}_00{exposure_time}.jpg
+   :param camera_name: (str) Name of the camera as used in image folder structure.
+   :param timestamp: (datetime, tz-aware) Timestamp for which an image file is requested.
+   :param set_subday_to_wildcard: (bool) If True, replace time placeholders hours, minutes and seconds with wildcards.
+       Default is False. Exposure time has to be set if set_subday_to_wildcard is False.
+   :param exposure_time: (int) Exposure time of images. Default is None.
+   :return assembled_path: (str) Assembled file path.
+
+
+.. py:function:: fstring_to_re(string)
+
+   Convert from f-string syntax to regular expression syntax
+
+   Only a limited set of formatters supported so far, FSTRING_RE should be extended as needed.
+   :param string: (str) f-string syntax string.
+   :return string: (str) regular expression string.
+
+

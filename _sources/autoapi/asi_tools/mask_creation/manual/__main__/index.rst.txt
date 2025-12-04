@@ -1,0 +1,24 @@
+asi_tools.mask_creation.manual.__main__
+=======================================
+
+.. py:module:: asi_tools.mask_creation.manual.__main__
+
+.. autoapi-nested-parse::
+
+   A small tool to create ASI masks manually.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   asi_tools.mask_creation.manual.__main__.parser
+
+
+Module Contents
+---------------
+
+.. py:data:: parser
+

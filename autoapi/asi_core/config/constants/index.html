@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.config.constants</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" />
+  <link rel="next" title="asi_core.config.logging_config" href="../logging_config/index.html" />
+  <link rel="prev" title="asi_core.config.config_loader" href="../config_loader/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.config</a> &raquo;</li>
+    
+    <li>asi_core.config.constants</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../config_loader/index.html"
+       title="previous chapter">← asi_core.config.config_loader</a>
+  </li>
+  <li class="next">
+    <a href="../logging_config/index.html"
+       title="next chapter">asi_core.config.logging_config →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.config.constants">
+<span id="asi-core-config-constants"></span><h1>asi_core.config.constants<a class="headerlink" href="#module-asi_core.config.constants" title="Link to this heading">¶</a></h1>
+<p>Global constants of asi_core</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.IGNORED_PATTERNS_SUBDAY" title="asi_core.config.constants.IGNORED_PATTERNS_SUBDAY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IGNORED_PATTERNS_SUBDAY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.FSTRING_RE" title="asi_core.config.constants.FSTRING_RE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FSTRING_RE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.IMAGE_EXTENSIONS" title="asi_core.config.constants.IMAGE_EXTENSIONS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IMAGE_EXTENSIONS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_TIMEDELTA" title="asi_core.config.constants.MATLAB_TIMEDELTA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_TIMEDELTA</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_SUNEL" title="asi_core.config.constants.MATLAB_SUNEL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_SUNEL</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_SUNAZ" title="asi_core.config.constants.MATLAB_SUNAZ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_SUNAZ</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_LAT" title="asi_core.config.constants.MATLAB_LAT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_LAT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_LON" title="asi_core.config.constants.MATLAB_LON"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_LON</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_ALT" title="asi_core.config.constants.MATLAB_ALT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_ALT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_TZ" title="asi_core.config.constants.MATLAB_TZ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_TZ</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_TAMB" title="asi_core.config.constants.MATLAB_TAMB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_TAMB</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_PAMB" title="asi_core.config.constants.MATLAB_PAMB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_PAMB</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_BP" title="asi_core.config.constants.MATLAB_BP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_BP</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_RH" title="asi_core.config.constants.MATLAB_RH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_RH</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_WS" title="asi_core.config.constants.MATLAB_WS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_WS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_WD" title="asi_core.config.constants.MATLAB_WD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_WD</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_DATENUM" title="asi_core.config.constants.MATLAB_DATENUM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_DATENUM</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_SDN" title="asi_core.config.constants.MATLAB_SDN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_SDN</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_DNI" title="asi_core.config.constants.MATLAB_DNI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_DNI</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_DNI2" title="asi_core.config.constants.MATLAB_DNI2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_DNI2</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_GHI" title="asi_core.config.constants.MATLAB_GHI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_GHI</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_GHI2" title="asi_core.config.constants.MATLAB_GHI2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_GHI2</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_GHI_CALIB" title="asi_core.config.constants.MATLAB_GHI_CALIB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_GHI_CALIB</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_DHI" title="asi_core.config.constants.MATLAB_DHI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_DHI</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_DHI2" title="asi_core.config.constants.MATLAB_DHI2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_DHI2</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_GTI" title="asi_core.config.constants.MATLAB_GTI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_GTI</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_GTI_S30" title="asi_core.config.constants.MATLAB_GTI_S30"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_GTI_S30</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_GTI_S40" title="asi_core.config.constants.MATLAB_GTI_S40"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_GTI_S40</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_GTI_E45" title="asi_core.config.constants.MATLAB_GTI_E45"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_GTI_E45</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_Albedo" title="asi_core.config.constants.MATLAB_Albedo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_Albedo</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.MATLAB_DNIVARCLASS" title="asi_core.config.constants.MATLAB_DNIVARCLASS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MATLAB_DNIVARCLASS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_DT" title="asi_core.config.constants.PYTHON_DT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_DT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_LAT" title="asi_core.config.constants.PYTHON_LAT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_LAT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_LON" title="asi_core.config.constants.PYTHON_LON"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_LON</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_ALT" title="asi_core.config.constants.PYTHON_ALT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_ALT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_SUNEL" title="asi_core.config.constants.PYTHON_SUNEL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_SUNEL</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_SUNAZ" title="asi_core.config.constants.PYTHON_SUNAZ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_SUNAZ</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_TZ" title="asi_core.config.constants.PYTHON_TZ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_TZ</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_TAMB" title="asi_core.config.constants.PYTHON_TAMB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_TAMB</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_PAMB" title="asi_core.config.constants.PYTHON_PAMB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_PAMB</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_RH" title="asi_core.config.constants.PYTHON_RH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_RH</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_WS" title="asi_core.config.constants.PYTHON_WS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_WS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_WD" title="asi_core.config.constants.PYTHON_WD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_WD</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_DNI" title="asi_core.config.constants.PYTHON_DNI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_DNI</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_GHI" title="asi_core.config.constants.PYTHON_GHI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_GHI</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_GHI_CALIB" title="asi_core.config.constants.PYTHON_GHI_CALIB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_GHI_CALIB</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_DHI" title="asi_core.config.constants.PYTHON_DHI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_DHI</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_GTI" title="asi_core.config.constants.PYTHON_GTI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_GTI</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_GTI_S30" title="asi_core.config.constants.PYTHON_GTI_S30"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_GTI_S30</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_GTI_S40" title="asi_core.config.constants.PYTHON_GTI_S40"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_GTI_S40</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_GTI_E45" title="asi_core.config.constants.PYTHON_GTI_E45"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_GTI_E45</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_Albedo" title="asi_core.config.constants.PYTHON_Albedo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_Albedo</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_DNIVARCLASS" title="asi_core.config.constants.PYTHON_DNIVARCLASS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_DNIVARCLASS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.config.constants.PYTHON_RENAMING" title="asi_core.config.constants.PYTHON_RENAMING"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYTHON_RENAMING</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.IGNORED_PATTERNS_SUBDAY">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">IGNORED_PATTERNS_SUBDAY</span></span><a class="headerlink" href="#asi_core.config.constants.IGNORED_PATTERNS_SUBDAY" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.FSTRING_RE">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">FSTRING_RE</span></span><a class="headerlink" href="#asi_core.config.constants.FSTRING_RE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.IMAGE_EXTENSIONS">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">IMAGE_EXTENSIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('.png',</span> <span class="pre">'.jpg',</span> <span class="pre">'.jpeg',</span> <span class="pre">'.tif',</span> <span class="pre">'.tiff')</span></em><a class="headerlink" href="#asi_core.config.constants.IMAGE_EXTENSIONS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_TIMEDELTA">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_TIMEDELTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">719529</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_TIMEDELTA" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_SUNEL">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_SUNEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'EL'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_SUNEL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_SUNAZ">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_SUNAZ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'AZ'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_SUNAZ" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_LAT">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_LAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'latitudeDegN'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_LAT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_LON">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_LON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'longitudeDegE'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_LON" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_ALT">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_ALT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'altitude'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_ALT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_TZ">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_TZ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'timezone'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_TZ" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_TAMB">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_TAMB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Tamb'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_TAMB" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_PAMB">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_PAMB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'p'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_PAMB" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_BP">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_BP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BP'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_BP" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_RH">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_RH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'relHum'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_RH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_WS">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_WS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WS'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_WS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_WD">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_WD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WD'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_WD" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_DATENUM">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_DATENUM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'numericDate'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_DATENUM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_SDN">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_SDN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SDN'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_SDN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_DNI">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_DNI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DNI'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_DNI" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_DNI2">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_DNI2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DHI_Ref'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_DNI2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_GHI">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_GHI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GHI'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_GHI" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_GHI2">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_GHI2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GHI_Ref'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_GHI2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_GHI_CALIB">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_GHI_CALIB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GHI_CALIB'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_GHI_CALIB" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_DHI">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_DHI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DHI'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_DHI" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_DHI2">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_DHI2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DHI_Ref'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_DHI2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_GTI">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_GTI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GTI'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_GTI" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_GTI_S30">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_GTI_S30</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GTI_t30_S'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_GTI_S30" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_GTI_S40">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_GTI_S40</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GTI_t40_S'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_GTI_S40" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_GTI_E45">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_GTI_E45</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GTI_t45_E'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_GTI_E45" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_Albedo">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_Albedo</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Albedo'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_Albedo" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.MATLAB_DNIVARCLASS">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">MATLAB_DNIVARCLASS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'varClass'</span></em><a class="headerlink" href="#asi_core.config.constants.MATLAB_DNIVARCLASS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_DT">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_DT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'timestamp'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_DT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_LAT">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_LAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'latitude'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_LAT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_LON">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_LON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'longitude'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_LON" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_ALT">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_ALT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'altitude'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_ALT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_SUNEL">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_SUNEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sun_el'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_SUNEL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_SUNAZ">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_SUNAZ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sun_az'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_SUNAZ" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_TZ">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_TZ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'timezone'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_TZ" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_TAMB">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_TAMB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'t_amb'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_TAMB" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_PAMB">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_PAMB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'p_amb'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_PAMB" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_RH">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_RH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rel_humid'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_RH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_WS">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_WS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'wind_speed'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_WS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_WD">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_WD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'wind_dir'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_WD" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_DNI">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_DNI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dni'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_DNI" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_GHI">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_GHI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ghi'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_GHI" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_GHI_CALIB">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_GHI_CALIB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ghi_calib'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_GHI_CALIB" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_DHI">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_DHI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dhi'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_DHI" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_GTI">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_GTI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'gti'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_GTI" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_GTI_S30">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_GTI_S30</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'gti_t30_south'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_GTI_S30" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_GTI_S40">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_GTI_S40</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'gti_t40_south'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_GTI_S40" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_GTI_E45">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_GTI_E45</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'gti_t45_east'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_GTI_E45" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_Albedo">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_Albedo</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'albedo'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_Albedo" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_DNIVARCLASS">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_DNIVARCLASS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dni_var_class'</span></em><a class="headerlink" href="#asi_core.config.constants.PYTHON_DNIVARCLASS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="asi_core.config.constants.PYTHON_RENAMING">
+<span class="sig-prename descclassname"><span class="pre">asi_core.config.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_RENAMING</span></span><a class="headerlink" href="#asi_core.config.constants.PYTHON_RENAMING" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../config_loader/index.html"
+       title="previous chapter">← asi_core.config.config_loader</a>
+  </li>
+  <li class="next">
+    <a href="../logging_config/index.html"
+       title="next chapter">asi_core.config.logging_config →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

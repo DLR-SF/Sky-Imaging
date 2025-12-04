@@ -1,0 +1,42 @@
+asi_tools.daq.__main__
+======================
+
+.. py:module:: asi_tools.daq.__main__
+
+.. autoapi-nested-parse::
+
+   Tool for the ASI image data acquisition
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   asi_tools.daq.__main__.MANDATORY_CFG_KEYS
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_tools.daq.__main__.main
+
+
+Module Contents
+---------------
+
+.. py:data:: MANDATORY_CFG_KEYS
+   :value: ['camera_name', 'camera_model', 'latitude', 'longitude', 'altitude', 'daq']
+
+
+.. py:function:: main()
+
+   Parse cmd line arguments and run data acquisition
+
+   Provide the path to your config file as argument after flag -c or run the daq in a folder which contains a config
+   file named 'asi_daq_cfg.yaml'
+
+

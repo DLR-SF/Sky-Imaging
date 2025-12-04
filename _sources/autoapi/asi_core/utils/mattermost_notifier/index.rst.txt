@@ -1,0 +1,34 @@
+asi_core.utils.mattermost_notifier
+==================================
+
+.. py:module:: asi_core.utils.mattermost_notifier
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   asi_core.utils.mattermost_notifier.bot_available
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   asi_core.utils.mattermost_notifier.send_mattermost_message
+   asi_core.utils.mattermost_notifier.notify_status
+
+
+Module Contents
+---------------
+
+.. py:data:: bot_available
+   :value: True
+
+
+.. py:function:: send_mattermost_message(message, config=None)
+
+.. py:function:: notify_status(func)
+

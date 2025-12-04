@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_core.image.hdr.utils</title>
+    
+          <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../../search.html" />
+  <link rel="next" title="asi_core.image.image_loading" href="../../image_loading/index.html" />
+  <link rel="prev" title="asi_core.image.hdr.pipeline" href="../pipeline/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">asi_core</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_core.image</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_core.image.hdr</a> &raquo;</li>
+    
+    <li>asi_core.image.hdr.utils</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../pipeline/index.html"
+       title="previous chapter">← asi_core.image.hdr.pipeline</a>
+  </li>
+  <li class="next">
+    <a href="../../image_loading/index.html"
+       title="next chapter">asi_core.image.image_loading →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_core.image.hdr.utils">
+<span id="asi-core-image-hdr-utils"></span><h1>asi_core.image.hdr.utils<a class="headerlink" href="#module-asi_core.image.hdr.utils" title="Link to this heading">¶</a></h1>
+<p>This module provides utility functions of merging exposure series of all-sky images for high-dynamic range imaging.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.image.hdr.utils.remap_intensity_range" title="asi_core.image.hdr.utils.remap_intensity_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remap_intensity_range</span></code></a>(→ numpy.ndarray)</p></td>
+<td><p>Linearly remap an image's intensity range [low_clip, high_clip] to [0, max_value_range].</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.image.hdr.utils.normalize_image" title="asi_core.image.hdr.utils.normalize_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize_image</span></code></a>(image[, min_val, max_val])</p></td>
+<td><p>Rescales an image to the range [0, 1].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.image.hdr.utils.tonemap_linear" title="asi_core.image.hdr.utils.tonemap_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tonemap_linear</span></code></a>(→ numpy.ndarray)</p></td>
+<td><p>Tone-map a linear HDR image to display-ready [0,1] range.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asi_core.image.hdr.utils.make_weight_lut" title="asi_core.image.hdr.utils.make_weight_lut"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_weight_lut</span></code></a>(→ numpy.ndarray)</p></td>
+<td><p>Return a (256,) weight lookup table in uint8 intensity domain [0..255].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_core.image.hdr.utils.compute_lne_bounds" title="asi_core.image.hdr.utils.compute_lne_bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_lne_bounds</span></code></a>(→ Tuple[float, float])</p></td>
+<td><p>Compute global lnE (log exposure) range from response curve and exposure times.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.hdr.utils.remap_intensity_range">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.hdr.utils.</span></span><span class="sig-name descname"><span class="pre">remap_intensity_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_clip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_clip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">255</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">255</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.dtype</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">np.uint8</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#asi_core.image.hdr.utils.remap_intensity_range" title="Link to this definition">¶</a></dt>
+<dd><p>Linearly remap an image’s intensity range [low_clip, high_clip] to [0, max_value_range].</p>
+<p>This function clips all pixel values below low_clip and above high_clip,
+then linearly rescales the remaining range to the specified output range
+(typically [0, 255] for 8-bit images).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>numpy.ndarray</em>) – Input 8-bit array of shape (H, W), (H, W, C), or (N, H, W, C).</p></li>
+<li><p><strong>low_clip</strong> (<em>int</em>) – Lower bound (inclusive) of the valid intensity range.
+Values below this threshold are clamped to 0. Default is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><strong>high_clip</strong> (<em>int</em>) – Upper bound (inclusive) of the valid intensity range.
+Values above this threshold are clamped to max_value_range. Default is <code class="docutils literal notranslate"><span class="pre">255</span></code>.</p></li>
+<li><p><strong>max_value_range</strong> (<em>int</em>) – Upper bound of the output domain (255 for 8-bit data).</p></li>
+<li><p><strong>dtype</strong> (<em>np.dtype</em>) – data type of remapped array. Default is <code class="docutils literal notranslate"><span class="pre">np.uint8</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If <code class="docutils literal notranslate"><span class="pre">high_clip</span> <span class="pre">&lt;=</span> <span class="pre">low_clip</span></code>.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Image remapped to the new intensity range as dtype in [0, max_value_range].</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>This function can be used to remove unreliable tone ends for 8-bit JPEGs
+before calibration or HDR merging.</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.hdr.utils.normalize_image">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.hdr.utils.</span></span><span class="sig-name descname"><span class="pre">normalize_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_core.image.hdr.utils.normalize_image" title="Link to this definition">¶</a></dt>
+<dd><p>Rescales an image to the range [0, 1].</p>
+<p>The function normalizes the input image either using provided minimum and maximum values,
+or computes them from the image itself if not given.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>numpy.ndarray</em>) – Input image as a NumPy array.</p></li>
+<li><p><strong>min_val</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum value for rescaling (optional). If None, computed from image.</p></li>
+<li><p><strong>max_val</strong> (<em>float</em><em>, </em><em>optional</em>) – Maximum value for rescaling (optional). If None, computed from image.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Normalized image with values between 0 and 1.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <cite>max_val</cite> equals <cite>min_val</cite>, leading to division by zero.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.hdr.utils.tonemap_linear">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.hdr.utils.</span></span><span class="sig-name descname"><span class="pre">tonemap_linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'gamma'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#asi_core.image.hdr.utils.tonemap_linear" title="Link to this definition">¶</a></dt>
+<dd><p>Tone-map a linear HDR image to display-ready [0,1] range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hdr</strong> (<em>numpy.ndarray</em>) – Linear HDR image (HxWxC or HxW), float32 or float64.
+Values are expected to be positive; they can exceed 1.0.</p></li>
+<li><p><strong>method</strong> (<em>str</em>) – Tone-mapping operator to use:
+- <code class="docutils literal notranslate"><span class="pre">&quot;gamma&quot;</span></code>   : simple power-law gamma correction (default).
+- <code class="docutils literal notranslate"><span class="pre">&quot;reinhard&quot;</span></code>: photographic tone reproduction.
+- <code class="docutils literal notranslate"><span class="pre">&quot;aces&quot;</span></code>    : ACES filmic approximation.</p></li>
+<li><p><strong>gamma</strong> (<em>float</em>) – Gamma value for <code class="docutils literal notranslate"><span class="pre">&quot;gamma&quot;</span></code> method. Default is <code class="docutils literal notranslate"><span class="pre">2.2</span></code>.</p></li>
+<li><p><strong>exposure</strong> (<em>float</em>) – Linear exposure multiplier applied before tone-mapping
+(use to brighten or darken the image globally). Default is <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p></li>
+<li><p><strong>clip</strong> (<em>bool</em>) – If True, clamp output to [0,1] range. Default is True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tone-mapped image in [0,1] as float32.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function assumes the input HDR is <strong>linear</strong>.
+If your HDR is already gamma-encoded (e.g. from Mertens fusion),
+skip this step.</p>
+</div>
+<p><strong>Examples:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic gamma tone mapping</span>
+<span class="n">ldr</span> <span class="o">=</span> <span class="n">tonemap_linear</span><span class="p">(</span><span class="n">hdr</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;gamma&quot;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">2.2</span><span class="p">)</span>
+
+<span class="c1"># Reinhard operator with slight brightening</span>
+<span class="n">ldr</span> <span class="o">=</span> <span class="n">tonemap_linear</span><span class="p">(</span><span class="n">hdr</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;reinhard&quot;</span><span class="p">,</span> <span class="n">exposure</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.hdr.utils.make_weight_lut">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.hdr.utils.</span></span><span class="sig-name descname"><span class="pre">make_weight_lut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'triangle'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#asi_core.image.hdr.utils.make_weight_lut" title="Link to this definition">¶</a></dt>
+<dd><p>Return a (256,) weight lookup table in uint8 intensity domain [0..255].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>weight_type</strong> (<em>str</em>) – Type of weight function to generate.
+Currently supports:
+- <code class="docutils literal notranslate"><span class="pre">&quot;triangle&quot;</span></code>: Triangular weights centered at 127.5 (default).
+- <code class="docutils literal notranslate"><span class="pre">&quot;sine&quot;</span></code>: Sine-based weights with cosine bump.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Weight lookup table as a NumPy array of shape (256,) with dtype float32.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If an unsupported <code class="docutils literal notranslate"><span class="pre">weight_type</span></code> is specified.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asi_core.image.hdr.utils.compute_lne_bounds">
+<span class="sig-prename descclassname"><span class="pre">asi_core.image.hdr.utils.</span></span><span class="sig-name descname"><span class="pre">compute_lne_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response_curve</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asi_core.image.hdr.utils.compute_lne_bounds" title="Link to this definition">¶</a></dt>
+<dd><p>Compute global lnE (log exposure) range from response curve and exposure times.</p>
+<p>The function calculates the minimum and maximum log exposure values based on the
+camera response curve and the corresponding exposure times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>response_curve</strong> (<em>numpy.ndarray</em>) – Camera response curve in logarithmic domain. Shape should be
+(256, 1, C) or (256, C), where C is the number of color channels.</p></li>
+<li><p><strong>exposure_times</strong> (<em>numpy.ndarray</em>) – Array of exposure times corresponding to each image in the series.
+Shape should be (N,), where N is the number of exposures.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple of (min_lnE, max_lnE), representing the global log exposure range.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[float, float]</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function assumes that the response_curve is in the logarithmic domain (g),
+and exposure_times are in linear units (e.g., seconds).</p>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../pipeline/index.html"
+       title="previous chapter">← asi_core.image.hdr.pipeline</a>
+  </li>
+  <li class="next">
+    <a href="../../image_loading/index.html"
+       title="next chapter">asi_core.image.image_loading →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

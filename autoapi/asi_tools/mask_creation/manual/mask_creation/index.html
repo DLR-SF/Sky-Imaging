@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>asi_tools.mask_creation.manual.mask_creation</title>
+    
+          <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../../search.html" />
+  <link rel="next" title="asi_tools.undistortion" href="../../../undistortion/index.html" />
+  <link rel="prev" title="asi_tools.mask_creation.manual.__main__" href="../__main__/index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../../index.html" class="home-link">
+    
+      <span class="site-name">asi-core</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../../index.html#welcome-to-the-asi-core-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../../manual/index.html" class="reference internal ">User Manual</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../index.html" class="reference internal ">API Reference</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../../index.html">API Reference</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">asi_tools</a> &raquo;</li>
+    
+      <li><a href="../../index.html">asi_tools.mask_creation</a> &raquo;</li>
+    
+      <li><a href="../index.html">asi_tools.mask_creation.manual</a> &raquo;</li>
+    
+    <li>asi_tools.mask_creation.manual.mask_creation</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../__main__/index.html"
+       title="previous chapter">← asi_tools.mask_creation.manual.__main__</a>
+  </li>
+  <li class="next">
+    <a href="../../../undistortion/index.html"
+       title="next chapter">asi_tools.undistortion →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="module-asi_tools.mask_creation.manual.mask_creation">
+<span id="asi-tools-mask-creation-manual-mask-creation"></span><h1>asi_tools.mask_creation.manual.mask_creation<a class="headerlink" href="#module-asi_tools.mask_creation.manual.mask_creation" title="Link to this heading">¶</a></h1>
+<p>A small tool to create ASI masks manually.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection" title="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ObstacleMaskDetection</span></code></a></p></td>
+<td><p>Handles the manual creation of an ASI mask to obscure obstacles in the ASI's field of view</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asi_tools.mask_creation.manual.mask_creation.</span></span><span class="sig-name descname"><span class="pre">ObstacleMaskDetection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection" title="Link to this definition">¶</a></dt>
+<dd><p>Handles the manual creation of an ASI mask to obscure obstacles in the ASI’s field of view</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.max_intensity">
+<span class="sig-name descname"><span class="pre">max_intensity</span></span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.max_intensity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.params_cv_detection">
+<span class="sig-name descname"><span class="pre">params_cv_detection</span></span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.params_cv_detection" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.image_pxl_size">
+<span class="sig-name descname"><span class="pre">image_pxl_size</span></span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.image_pxl_size" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.image_path">
+<span class="sig-name descname"><span class="pre">image_path</span></span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.image_path" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.save_name">
+<span class="sig-name descname"><span class="pre">save_name</span></span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.save_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.orig_img">
+<span class="sig-name descname"><span class="pre">orig_img</span></span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.orig_img" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.mask">
+<span class="sig-name descname"><span class="pre">mask</span></span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.mask" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.gui_add_to_mask">
+<span class="sig-name descname"><span class="pre">gui_add_to_mask</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[]]</span></em><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.gui_add_to_mask" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.gui_remove_from_mask">
+<span class="sig-name descname"><span class="pre">gui_remove_from_mask</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[]]</span></em><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.gui_remove_from_mask" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.gui_previous_event">
+<span class="sig-name descname"><span class="pre">gui_previous_event</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.gui_previous_event" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.detect_mask_cv">
+<span class="sig-name descname"><span class="pre">detect_mask_cv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.detect_mask_cv" title="Link to this definition">¶</a></dt>
+<dd><p>Applies computer vision methods to automatically detect a mask of obstacles obscuring the sky in the ASI image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> – Configuration parameters to the algorithm</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>automatically detected mask, dtype boolean, shape of greyscaled RGB input image</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.load_existing_mask">
+<span class="sig-name descname"><span class="pre">load_existing_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">existing_mask_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.load_existing_mask" title="Link to this definition">¶</a></dt>
+<dd><p>Loads an existing mask from a .mat file
+:param params: Path to the mask .mat file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.click_and_crop">
+<span class="sig-name descname"><span class="pre">click_and_crop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.click_and_crop" title="Link to this definition">¶</a></dt>
+<dd><p>From user clicks polygons are created indicating image areas to be masked or not.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.apply_polygons">
+<span class="sig-name descname"><span class="pre">apply_polygons</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.apply_polygons" title="Link to this definition">¶</a></dt>
+<dd><p>Area inside polygon specified by the user is added to or removed from the mask.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.refine_manually">
+<span class="sig-name descname"><span class="pre">refine_manually</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.refine_manually" title="Link to this definition">¶</a></dt>
+<dd><p>Lets user specify image regions to be added or removed from mask.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.apply_mask">
+<span class="sig-name descname"><span class="pre">apply_mask</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.apply_mask" title="Link to this definition">¶</a></dt>
+<dd><p>Applies mask to image used for mask creation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.save_mask_and_docu">
+<span class="sig-name descname"><span class="pre">save_mask_and_docu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asi_tools.mask_creation.manual.mask_creation.ObstacleMaskDetection.save_mask_and_docu" title="Link to this definition">¶</a></dt>
+<dd><p>Saves the mask in legacy format and docu information</p>
+<p>The following is saved:
+- A mat file which contains the mask and the path to the image based on which it was created
+- A jpg image file visualizing the masked areas in the original image</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../__main__/index.html"
+       title="previous chapter">← asi_tools.mask_creation.manual.__main__</a>
+  </li>
+  <li class="next">
+    <a href="../../../undistortion/index.html"
+       title="next chapter">asi_tools.undistortion →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2025, DLR.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>
